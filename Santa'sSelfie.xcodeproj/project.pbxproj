@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */; };
-		309B3D501DCD414400C1FF24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D4F1DCD414400C1FF24 /* ViewController.swift */; };
 		309B3D531DCD414400C1FF24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309B3D511DCD414400C1FF24 /* Main.storyboard */; };
 		309B3D551DCD414400C1FF24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309B3D541DCD414400C1FF24 /* Assets.xcassets */; };
 		309B3D581DCD414400C1FF24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309B3D561DCD414400C1FF24 /* LaunchScreen.storyboard */; };
+		309B3D601DCD424500C1FF24 /* ChoosePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D5F1DCD424500C1FF24 /* ChoosePhotoViewController.swift */; };
+		309B3D621DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D611DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		309B3D4A1DCD414400C1FF24 /* Santa'sSelfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santa'sSelfie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		309B3D4F1DCD414400C1FF24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		309B3D521DCD414400C1FF24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		309B3D541DCD414400C1FF24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		309B3D571DCD414400C1FF24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		309B3D591DCD414400C1FF24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		309B3D5F1DCD424500C1FF24 /* ChoosePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePhotoViewController.swift; sourceTree = "<group>"; };
+		309B3D611DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */,
-				309B3D4F1DCD414400C1FF24 /* ViewController.swift */,
 				309B3D511DCD414400C1FF24 /* Main.storyboard */,
 				309B3D541DCD414400C1FF24 /* Assets.xcassets */,
 				309B3D561DCD414400C1FF24 /* LaunchScreen.storyboard */,
 				309B3D591DCD414400C1FF24 /* Info.plist */,
+				309B3D5F1DCD424500C1FF24 /* ChoosePhotoViewController.swift */,
+				309B3D611DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift */,
 			);
 			path = "Santa'sSelfie";
 			sourceTree = "<group>";
@@ -137,7 +140,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				309B3D501DCD414400C1FF24 /* ViewController.swift in Sources */,
+				309B3D601DCD424500C1FF24 /* ChoosePhotoViewController.swift in Sources */,
+				309B3D621DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift in Sources */,
 				309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
