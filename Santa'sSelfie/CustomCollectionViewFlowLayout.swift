@@ -35,7 +35,7 @@ UICollectionViewFlowLayout {
         self.minimumLineSpacing = spacing
         self.minimumInteritemSpacing = spacing
         
-        self.itemSize - CGSize(width: itemWidth, height: itemHeight)
+        self.itemSize = CGSize(width: itemWidth, height: itemHeight)
     }
     
     required init?(coder aDecoder: NSCoder) {
