@@ -78,13 +78,29 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yzv-9r-d1g">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cmI-EJ-jw0">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="OpP-4X-YxG"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Capture_Butt" translatesAutoresizingMaskIntoConstraints="NO" id="I27-u2-Dgq">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="TFI-ih-jdQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="cmI-EJ-jw0" secondAttribute="bottom" id="1Zp-EQ-siz"/>
                             <constraint firstItem="yzv-9r-d1g" firstAttribute="leading" secondItem="gvT-uz-U9X" secondAttribute="leading" id="96p-oc-MBb"/>
+                            <constraint firstItem="I27-u2-Dgq" firstAttribute="centerX" secondItem="cmI-EJ-jw0" secondAttribute="centerX" id="A7x-TT-GWp"/>
+                            <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="I27-u2-Dgq" secondAttribute="bottom" constant="10" id="C2g-cA-5Tv"/>
                             <constraint firstItem="yzv-9r-d1g" firstAttribute="top" secondItem="55j-H6-6AI" secondAttribute="bottom" id="EVc-RJ-eWs"/>
                             <constraint firstAttribute="trailing" secondItem="yzv-9r-d1g" secondAttribute="trailing" id="Krx-5l-hIs"/>
+                            <constraint firstItem="I27-u2-Dgq" firstAttribute="centerY" secondItem="cmI-EJ-jw0" secondAttribute="centerY" id="RMf-I5-SC6"/>
+                            <constraint firstItem="cmI-EJ-jw0" firstAttribute="leading" secondItem="gvT-uz-U9X" secondAttribute="leading" id="VCa-fW-2ZF"/>
                             <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="yzv-9r-d1g" secondAttribute="bottom" id="co9-lg-JfG"/>
+                            <constraint firstAttribute="trailing" secondItem="cmI-EJ-jw0" secondAttribute="trailing" id="k6u-iC-dJ5"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -111,4 +127,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Capture_Butt" width="80" height="80"/>
+    </resources>
 </document>
