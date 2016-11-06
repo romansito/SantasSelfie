@@ -14,6 +14,8 @@
 		309B3D601DCD424500C1FF24 /* ChoosePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D5F1DCD424500C1FF24 /* ChoosePhotoViewController.swift */; };
 		309B3D621DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D611DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift */; };
 		309B3D641DCD468A00C1FF24 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 309B3D631DCD468A00C1FF24 /* .gitignore */; };
+		309B3D661DCD4D6900C1FF24 /* SantaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D651DCD4D6900C1FF24 /* SantaCollectionViewCell.swift */; };
+		309B3D681DCD4EC000C1FF24 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D671DCD4EC000C1FF24 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		309B3D5F1DCD424500C1FF24 /* ChoosePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePhotoViewController.swift; sourceTree = "<group>"; };
 		309B3D611DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		309B3D631DCD468A00C1FF24 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		309B3D651DCD4D6900C1FF24 /* SantaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SantaCollectionViewCell.swift; sourceTree = "<group>"; };
+		309B3D671DCD4EC000C1FF24 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				309B3D5F1DCD424500C1FF24 /* ChoosePhotoViewController.swift */,
 				309B3D611DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift */,
 				309B3D631DCD468A00C1FF24 /* .gitignore */,
+				309B3D651DCD4D6900C1FF24 /* SantaCollectionViewCell.swift */,
+				309B3D671DCD4EC000C1FF24 /* Extensions.swift */,
 			);
 			path = "Santa'sSelfie";
 			sourceTree = "<group>";
@@ -144,8 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				309B3D681DCD4EC000C1FF24 /* Extensions.swift in Sources */,
 				309B3D601DCD424500C1FF24 /* ChoosePhotoViewController.swift in Sources */,
 				309B3D621DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift in Sources */,
+				309B3D661DCD4D6900C1FF24 /* SantaCollectionViewCell.swift in Sources */,
 				309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
