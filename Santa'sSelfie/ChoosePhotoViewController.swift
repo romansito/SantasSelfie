@@ -27,7 +27,12 @@ class ChoosePhotoViewController: UIViewController {
         collectionView.collectionViewLayout = CustomCollectionViewFlowLayout()
         collectionView.register(SantaCollectionViewCell.self, forCellWithReuseIdentifier: SantaCollectionViewCell.identifier())
     }
-
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        <#code#>
+//    }
+    
+    
 }
 
 
@@ -48,5 +53,9 @@ extension ChoosePhotoViewController: UICollectionViewDataSource {
 }
 
 extension ChoosePhotoViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "segueToCameraVC", sender: nil)
+    }
     
 }
