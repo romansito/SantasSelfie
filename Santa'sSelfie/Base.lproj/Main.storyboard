@@ -34,6 +34,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="hTU-kk-5OK" kind="show" id="G4w-lw-IVK"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -71,12 +74,23 @@
                     <view key="view" contentMode="scaleToFill" id="gvT-uz-U9X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yzv-9r-d1g">
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yzv-9r-d1g" firstAttribute="leading" secondItem="gvT-uz-U9X" secondAttribute="leading" id="96p-oc-MBb"/>
+                            <constraint firstItem="yzv-9r-d1g" firstAttribute="top" secondItem="55j-H6-6AI" secondAttribute="bottom" id="EVc-RJ-eWs"/>
+                            <constraint firstAttribute="trailing" secondItem="yzv-9r-d1g" secondAttribute="trailing" id="Krx-5l-hIs"/>
+                            <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="yzv-9r-d1g" secondAttribute="bottom" id="co9-lg-JfG"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zl-I9-3f1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1935" y="139"/>
+            <point key="canvasLocation" x="1933.5999999999999" y="138.98050974512745"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9e0-f0-Xon">
