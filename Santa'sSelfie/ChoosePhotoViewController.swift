@@ -24,7 +24,7 @@ class ChoosePhotoViewController: UIViewController {
         collectionView.backgroundColor = .red
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.collectionViewLayout = CustomCollectionViewFlowLayout(columns: 2)
+        collectionView.collectionViewLayout = CustomCollectionViewFlowLayout()
         collectionView.register(SantaCollectionViewCell.self, forCellWithReuseIdentifier: SantaCollectionViewCell.identifier())
     }
 
