@@ -80,7 +80,8 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cmI-EJ-jw0">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="OpP-4X-YxG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="119" id="5CR-1W-t0Z"/>
+                                    <constraint firstAttribute="height" constant="119" id="OpP-4X-YxG"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Capture_Butt" translatesAutoresizingMaskIntoConstraints="NO" id="I27-u2-Dgq">
@@ -94,19 +95,40 @@
                             <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="cmI-EJ-jw0" secondAttribute="bottom" id="1Zp-EQ-siz"/>
                             <constraint firstItem="yzv-9r-d1g" firstAttribute="leading" secondItem="gvT-uz-U9X" secondAttribute="leading" id="96p-oc-MBb"/>
                             <constraint firstItem="I27-u2-Dgq" firstAttribute="centerX" secondItem="cmI-EJ-jw0" secondAttribute="centerX" id="A7x-TT-GWp"/>
-                            <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="I27-u2-Dgq" secondAttribute="bottom" constant="10" id="C2g-cA-5Tv"/>
+                            <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="I27-u2-Dgq" secondAttribute="bottom" constant="20" id="C2g-cA-5Tv"/>
                             <constraint firstItem="yzv-9r-d1g" firstAttribute="top" secondItem="55j-H6-6AI" secondAttribute="bottom" id="EVc-RJ-eWs"/>
                             <constraint firstAttribute="trailing" secondItem="yzv-9r-d1g" secondAttribute="trailing" id="Krx-5l-hIs"/>
-                            <constraint firstItem="I27-u2-Dgq" firstAttribute="centerY" secondItem="cmI-EJ-jw0" secondAttribute="centerY" id="RMf-I5-SC6"/>
+                            <constraint firstItem="I27-u2-Dgq" firstAttribute="centerY" secondItem="cmI-EJ-jw0" secondAttribute="centerY" constant="-0.5" id="RMf-I5-SC6"/>
                             <constraint firstItem="cmI-EJ-jw0" firstAttribute="leading" secondItem="gvT-uz-U9X" secondAttribute="leading" id="VCa-fW-2ZF"/>
                             <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="yzv-9r-d1g" secondAttribute="bottom" id="co9-lg-JfG"/>
                             <constraint firstAttribute="trailing" secondItem="cmI-EJ-jw0" secondAttribute="trailing" id="k6u-iC-dJ5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="nrf-H4-ME1" kind="show" id="I80-cc-7iO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zl-I9-3f1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1933.5999999999999" y="138.98050974512745"/>
+        </scene>
+        <!--Phto View Controller-->
+        <scene sceneID="rOj-uh-cbV">
+            <objects>
+                <viewController id="nrf-H4-ME1" customClass="PhtoViewController" customModule="Santa_sSelfie" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zgo-DA-orQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="PqQ-E0-uVY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="agN-fe-g6h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KWN-Jn-nc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2710" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9e0-f0-Xon">

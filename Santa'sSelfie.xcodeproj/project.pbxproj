@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3021A4BC1DD1250F003E035D /* PhtoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021A4BB1DD1250F003E035D /* PhtoViewController.swift */; };
 		309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */; };
 		309B3D531DCD414400C1FF24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309B3D511DCD414400C1FF24 /* Main.storyboard */; };
 		309B3D551DCD414400C1FF24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309B3D541DCD414400C1FF24 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3021A4BB1DD1250F003E035D /* PhtoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhtoViewController.swift; sourceTree = "<group>"; };
 		309B3D4A1DCD414400C1FF24 /* Santa'sSelfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santa'sSelfie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		309B3D521DCD414400C1FF24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				309B3D651DCD4D6900C1FF24 /* SantaCollectionViewCell.swift */,
 				309B3D671DCD4EC000C1FF24 /* Extensions.swift */,
 				309B3D691DCEB86200C1FF24 /* CameraViewController.swift */,
+				3021A4BB1DD1250F003E035D /* PhtoViewController.swift */,
 			);
 			path = "Santa'sSelfie";
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				309B3D601DCD424500C1FF24 /* ChoosePhotoViewController.swift in Sources */,
 				309B3D621DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift in Sources */,
 				309B3D661DCD4D6900C1FF24 /* SantaCollectionViewCell.swift in Sources */,
+				3021A4BC1DD1250F003E035D /* PhtoViewController.swift in Sources */,
 				309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */,
 				309B3D6A1DCEB86200C1FF24 /* CameraViewController.swift in Sources */,
 			);
@@ -320,6 +324,7 @@
 				309B3D5E1DCD414400C1FF24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
