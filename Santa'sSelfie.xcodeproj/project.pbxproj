@@ -47,6 +47,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3021A4BD1DD127BE003E035D /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				309B3D611DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift */,
+				309B3D651DCD4D6900C1FF24 /* SantaCollectionViewCell.swift */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
+		3021A4BE1DD127C5003E035D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				309B3D5F1DCD424500C1FF24 /* ChoosePhotoViewController.swift */,
+				309B3D691DCEB86200C1FF24 /* CameraViewController.swift */,
+				3021A4BB1DD1250F003E035D /* PhtoViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		3021A4BF1DD127CF003E035D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				309B3D561DCD414400C1FF24 /* LaunchScreen.storyboard */,
+				309B3D511DCD414400C1FF24 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3021A4C01DD127D5003E035D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				309B3D631DCD468A00C1FF24 /* .gitignore */,
+				309B3D591DCD414400C1FF24 /* Info.plist */,
+				309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		3021A4C11DD127DF003E035D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				309B3D671DCD4EC000C1FF24 /* Extensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		3021A4C21DD127E6003E035D /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				309B3D541DCD414400C1FF24 /* Assets.xcassets */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		309B3D411DCD414400C1FF24 = {
 			isa = PBXGroup;
 			children = (
@@ -66,18 +120,12 @@
 		309B3D4C1DCD414400C1FF24 /* Santa'sSelfie */ = {
 			isa = PBXGroup;
 			children = (
-				309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */,
-				309B3D511DCD414400C1FF24 /* Main.storyboard */,
-				309B3D541DCD414400C1FF24 /* Assets.xcassets */,
-				309B3D561DCD414400C1FF24 /* LaunchScreen.storyboard */,
-				309B3D591DCD414400C1FF24 /* Info.plist */,
-				309B3D5F1DCD424500C1FF24 /* ChoosePhotoViewController.swift */,
-				309B3D611DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift */,
-				309B3D631DCD468A00C1FF24 /* .gitignore */,
-				309B3D651DCD4D6900C1FF24 /* SantaCollectionViewCell.swift */,
-				309B3D671DCD4EC000C1FF24 /* Extensions.swift */,
-				309B3D691DCEB86200C1FF24 /* CameraViewController.swift */,
-				3021A4BB1DD1250F003E035D /* PhtoViewController.swift */,
+				3021A4C01DD127D5003E035D /* App */,
+				3021A4BE1DD127C5003E035D /* Controller */,
+				3021A4C11DD127DF003E035D /* Extensions */,
+				3021A4BD1DD127BE003E035D /* Modal */,
+				3021A4C21DD127E6003E035D /* SupportingFiles */,
+				3021A4BF1DD127CF003E035D /* View */,
 			);
 			path = "Santa'sSelfie";
 			sourceTree = "<group>";
