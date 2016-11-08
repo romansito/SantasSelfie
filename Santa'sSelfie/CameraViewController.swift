@@ -11,7 +11,7 @@ import AVFoundation
 
 class CameraViewController: UIViewController {
     
-    @IBOutlet weak var cameraPreview: UIView!
+    var cameraPreview: UIView!
     
 
     let captureSession = AVCaptureSession()
@@ -23,14 +23,20 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupCamPreview()
+        
         setupSession()
         setupPreview()
         startSession()
         stopSession()
     }
     
+    
     // MARK: - Setup session and preview
-
+    func setupCamPreview() {
+        cameraPreview = UIView(frame: CGRect(x: 0.0, y: 64, width: view.bounds.width, height: view.bounds.height - 180))
+        view.addSubview(cameraPreview)
+    }
     
     func setupSession() {
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
@@ -77,6 +83,8 @@ class CameraViewController: UIViewController {
             }
         }
     }
+    
+    
 
 
 

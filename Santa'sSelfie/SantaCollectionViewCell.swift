@@ -13,7 +13,7 @@ class SantaCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    var santaImage: UIImage? {
+    var santaImage: UIImage! {
         didSet{
             if let image = self.santaImage {
                 self.imageView.image = image
