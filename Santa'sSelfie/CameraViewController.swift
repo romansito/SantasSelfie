@@ -101,12 +101,18 @@ class CameraViewController: UIViewController {
                 let imageData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer!, previewPhotoSampleBuffer: nil)
                 let image = UIImage(data: imageData!)
                 self.savePhotoToLibrary(image!)
+                self.showPreviewPhoto()
             } else {
                 print("ERROR capturing photo: \(error?.localizedDescription)")
             }
         })
             
         }
+    }
+    
+    func showPreviewPhoto() {
+        performSegue(withIdentifier: "toPhotoDetailSegue", sender: nil)
+
     }
     
     // MARK : Helper Functions

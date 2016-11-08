@@ -120,17 +120,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="nrf-H4-ME1" kind="show" id="I80-cc-7iO"/>
+                        <segue destination="nrf-H4-ME1" kind="show" identifier="toPhotoDetailSegue" id="I80-cc-7iO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zl-I9-3f1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1933.5999999999999" y="138.98050974512745"/>
         </scene>
-        <!--Phto View Controller-->
+        <!--Photo View Controller-->
         <scene sceneID="rOj-uh-cbV">
             <objects>
-                <viewController id="nrf-H4-ME1" customClass="PhtoViewController" customModule="Santa_sSelfie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nrf-H4-ME1" customClass="PhotoViewController" customModule="Santa_sSelfie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zgo-DA-orQ"/>
                         <viewControllerLayoutGuide type="bottom" id="PqQ-E0-uVY"/>

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3021A4BC1DD1250F003E035D /* PhtoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021A4BB1DD1250F003E035D /* PhtoViewController.swift */; };
+		3021A4BC1DD1250F003E035D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021A4BB1DD1250F003E035D /* PhotoViewController.swift */; };
 		3088C5771DD16C48005B5940 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088C5731DD16C48005B5940 /* 0.png */; };
 		3088C5781DD16C48005B5940 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088C5741DD16C48005B5940 /* 1.png */; };
 		3088C5791DD16C48005B5940 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088C5751DD16C48005B5940 /* 2.png */; };
@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3021A4BB1DD1250F003E035D /* PhtoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhtoViewController.swift; sourceTree = "<group>"; };
+		3021A4BB1DD1250F003E035D /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		3088C5731DD16C48005B5940 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		3088C5741DD16C48005B5940 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		3088C5751DD16C48005B5940 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 			children = (
 				309B3D5F1DCD424500C1FF24 /* ChoosePhotoViewController.swift */,
 				309B3D691DCEB86200C1FF24 /* CameraViewController.swift */,
-				3021A4BB1DD1250F003E035D /* PhtoViewController.swift */,
+				3021A4BB1DD1250F003E035D /* PhotoViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -232,7 +232,7 @@
 				309B3D601DCD424500C1FF24 /* ChoosePhotoViewController.swift in Sources */,
 				309B3D621DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift in Sources */,
 				309B3D661DCD4D6900C1FF24 /* SantaCollectionViewCell.swift in Sources */,
-				3021A4BC1DD1250F003E035D /* PhtoViewController.swift in Sources */,
+				3021A4BC1DD1250F003E035D /* PhotoViewController.swift in Sources */,
 				309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */,
 				309B3D6A1DCEB86200C1FF24 /* CameraViewController.swift in Sources */,
 			);
