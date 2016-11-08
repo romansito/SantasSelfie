@@ -112,11 +112,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="KLW-b1-Unb" firstAttribute="centerX" secondItem="cmI-EJ-jw0" secondAttribute="centerX" id="0sv-yk-O8u"/>
                             <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="cmI-EJ-jw0" secondAttribute="bottom" constant="-1" id="1Zp-EQ-siz"/>
-                            <constraint firstItem="KLW-b1-Unb" firstAttribute="centerX" secondItem="gvT-uz-U9X" secondAttribute="centerX" id="CrS-fB-CYC"/>
                             <constraint firstItem="cmI-EJ-jw0" firstAttribute="leading" secondItem="gvT-uz-U9X" secondAttribute="leading" id="VCa-fW-2ZF"/>
+                            <constraint firstItem="KLW-b1-Unb" firstAttribute="centerY" secondItem="cmI-EJ-jw0" secondAttribute="centerY" id="f9n-qY-VLx"/>
                             <constraint firstAttribute="trailing" secondItem="cmI-EJ-jw0" secondAttribute="trailing" id="k6u-iC-dJ5"/>
-                            <constraint firstItem="KLW-b1-Unb" firstAttribute="centerY" secondItem="gvT-uz-U9X" secondAttribute="centerY" constant="274.5" id="oSX-0K-ET8"/>
                         </constraints>
                     </view>
                     <connections>
