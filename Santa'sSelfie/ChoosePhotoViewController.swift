@@ -11,14 +11,26 @@ import UIKit
 class ChoosePhotoViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        collectionViewSetup()
+        
+    var santasSelfies = [String]() {
+        didSet {
+            self.collectionView.reloadData()
+        }
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionViewSetup()
+        
+//        setupDataSource()
+         }
+
+//    func setupDataSource() {
+//        for i in 0...3 {
+//            guard let image = UIImage(named: "\(i)") else { return }
+//            self.santasSelfies.append(image)
+//        }
+//    }
 
     func collectionViewSetup() {
         collectionView.backgroundColor = .red
@@ -27,11 +39,6 @@ class ChoosePhotoViewController: UIViewController {
         collectionView.collectionViewLayout = CustomCollectionViewFlowLayout()
         collectionView.register(SantaCollectionViewCell.self, forCellWithReuseIdentifier: SantaCollectionViewCell.identifier())
     }
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        <#code#>
-//    }
-    
     
 }
 
@@ -39,14 +46,16 @@ class ChoosePhotoViewController: UIViewController {
 extension ChoosePhotoViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SantaCollectionViewCell.identifier(), for: indexPath) as! SantaCollectionViewCell
-        cell.backgroundColor = .white
         
-        return cell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SantaCollectionViewCell.identifier(), for: indexPath) as? SantaCollectionViewCell
+        cell?.santaImage = UIImage(named: "0")
+        cell?.backgroundColor = .white
+        
+        return cell!
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return 1
     }
     
     

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3021A4BC1DD1250F003E035D /* PhtoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021A4BB1DD1250F003E035D /* PhtoViewController.swift */; };
+		3088C5771DD16C48005B5940 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088C5731DD16C48005B5940 /* 0.png */; };
+		3088C5781DD16C48005B5940 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088C5741DD16C48005B5940 /* 1.png */; };
+		3088C5791DD16C48005B5940 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088C5751DD16C48005B5940 /* 2.png */; };
+		3088C57A1DD16C48005B5940 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3088C5761DD16C48005B5940 /* 3.png */; };
 		309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */; };
 		309B3D531DCD414400C1FF24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309B3D511DCD414400C1FF24 /* Main.storyboard */; };
 		309B3D551DCD414400C1FF24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309B3D541DCD414400C1FF24 /* Assets.xcassets */; };
@@ -22,6 +26,10 @@
 
 /* Begin PBXFileReference section */
 		3021A4BB1DD1250F003E035D /* PhtoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhtoViewController.swift; sourceTree = "<group>"; };
+		3088C5731DD16C48005B5940 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
+		3088C5741DD16C48005B5940 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		3088C5751DD16C48005B5940 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		3088C5761DD16C48005B5940 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		309B3D4A1DCD414400C1FF24 /* Santa'sSelfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santa'sSelfie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		309B3D521DCD414400C1FF24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,6 +109,17 @@
 			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		3088C5721DD16C24005B5940 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				3088C5731DD16C48005B5940 /* 0.png */,
+				3088C5741DD16C48005B5940 /* 1.png */,
+				3088C5751DD16C48005B5940 /* 2.png */,
+				3088C5761DD16C48005B5940 /* 3.png */,
+			);
+			name = Pictures;
+			sourceTree = "<group>";
+		};
 		309B3D411DCD414400C1FF24 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +143,7 @@
 				3021A4BE1DD127C5003E035D /* Controller */,
 				3021A4C11DD127DF003E035D /* Extensions */,
 				3021A4BD1DD127BE003E035D /* Modal */,
+				3088C5721DD16C24005B5940 /* Pictures */,
 				3021A4C21DD127E6003E035D /* SupportingFiles */,
 				3021A4BF1DD127CF003E035D /* View */,
 			);
@@ -191,7 +211,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				309B3D641DCD468A00C1FF24 /* .gitignore in Resources */,
+				3088C5771DD16C48005B5940 /* 0.png in Resources */,
+				3088C5791DD16C48005B5940 /* 2.png in Resources */,
+				3088C57A1DD16C48005B5940 /* 3.png in Resources */,
 				309B3D581DCD414400C1FF24 /* LaunchScreen.storyboard in Resources */,
+				3088C5781DD16C48005B5940 /* 1.png in Resources */,
 				309B3D551DCD414400C1FF24 /* Assets.xcassets in Resources */,
 				309B3D531DCD414400C1FF24 /* Main.storyboard in Resources */,
 			);
