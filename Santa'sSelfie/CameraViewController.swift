@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Photos
 
 class CameraViewController: UIViewController {
     
@@ -29,6 +30,11 @@ class CameraViewController: UIViewController {
         setupPreview()
         startSession()
         stopSession()
+    }
+    
+    
+    @IBAction func shutterButtonPressed(_ sender: Any) {
+        takePhoto()
     }
     
     
@@ -84,7 +90,49 @@ class CameraViewController: UIViewController {
         }
     }
     
+    // MARK : Take photo
+    func takePhoto() {
+        let connection = imageOutput.connection(withMediaType: AVMediaTypeVideo)
+        if (connection?.isVideoOrientationSupported)! {
+            connection?.videoOrientation = currentVideoOrientation()
+            
+        imageOutput.captureStillImageAsynchronously(from: connection, completionHandler: { (sampleBuffer, error) in
+            if sampleBuffer != nil {
+                let imageData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer!, previewPhotoSampleBuffer: nil)
+                let image = UIImage(data: imageData!)
+                self.savePhotoToLibrary(image!)
+            } else {
+                print("ERROR capturing photo: \(error?.localizedDescription)")
+            }
+        })
+            
+        }
+    }
     
+    // MARK : Helper Functions
+    func currentVideoOrientation() -> AVCaptureVideoOrientation {
+        var orientation : AVCaptureVideoOrientation
+        
+        switch UIDevice.current.orientation {
+            
+        case .portrait:
+            orientation = AVCaptureVideoOrientation.portrait
+        case .landscapeRight:
+            orientation = AVCaptureVideoOrientation.landscapeLeft
+        case .portraitUpsideDown:
+            orientation = AVCaptureVideoOrientation.portraitUpsideDown
+        default:
+            orientation = AVCaptureVideoOrientation.landscapeRight
+        }
+        return orientation
+    }
+    
+    func savePhotoToLibrary(_ image: UIImage) {
+        let photoLibrary = PHPhotoLibrary.shared()
+        photoLibrary.performChanges({ 
+            PHAssetChangeRequest.creationRequestForAsset(from: image)
+        }, completionHandler: nil)
+    }
 
 
 

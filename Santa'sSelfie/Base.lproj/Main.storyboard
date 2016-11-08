@@ -102,21 +102,21 @@
                                     <constraint firstAttribute="height" constant="120" id="OpP-4X-YxG"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Capture_Butt" translatesAutoresizingMaskIntoConstraints="NO" id="I27-u2-Dgq">
-                                <rect key="frame" x="147.5" y="567" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="TFI-ih-jdQ"/>
-                                </constraints>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLW-b1-Unb">
+                                <rect key="frame" x="147" y="568" width="80" height="80"/>
+                                <state key="normal" image="Capture_Butt"/>
+                                <connections>
+                                    <action selector="shutterButtonPressed:" destination="hTU-kk-5OK" eventType="touchUpInside" id="pDY-b5-EDZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="cmI-EJ-jw0" secondAttribute="bottom" constant="-1" id="1Zp-EQ-siz"/>
-                            <constraint firstItem="I27-u2-Dgq" firstAttribute="centerX" secondItem="cmI-EJ-jw0" secondAttribute="centerX" id="A7x-TT-GWp"/>
-                            <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="I27-u2-Dgq" secondAttribute="bottom" constant="20" id="C2g-cA-5Tv"/>
-                            <constraint firstItem="I27-u2-Dgq" firstAttribute="centerY" secondItem="cmI-EJ-jw0" secondAttribute="centerY" constant="-0.5" id="RMf-I5-SC6"/>
+                            <constraint firstItem="KLW-b1-Unb" firstAttribute="centerX" secondItem="gvT-uz-U9X" secondAttribute="centerX" id="CrS-fB-CYC"/>
                             <constraint firstItem="cmI-EJ-jw0" firstAttribute="leading" secondItem="gvT-uz-U9X" secondAttribute="leading" id="VCa-fW-2ZF"/>
                             <constraint firstAttribute="trailing" secondItem="cmI-EJ-jw0" secondAttribute="trailing" id="k6u-iC-dJ5"/>
+                            <constraint firstItem="KLW-b1-Unb" firstAttribute="centerY" secondItem="gvT-uz-U9X" secondAttribute="centerY" constant="274.5" id="oSX-0K-ET8"/>
                         </constraints>
                     </view>
                     <connections>
