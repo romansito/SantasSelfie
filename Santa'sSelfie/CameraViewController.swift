@@ -12,8 +12,9 @@ import Photos
 
 class CameraViewController: UIViewController {
     
+    var photoViewController = PhotoViewController()
     var cameraPreview: UIView!
-    
+    var santasSelfie = UIImage()
 
     let captureSession = AVCaptureSession()
     let imageOutput = AVCaptureStillImageOutput()
@@ -96,24 +97,21 @@ class CameraViewController: UIViewController {
         if (connection?.isVideoOrientationSupported)! {
             connection?.videoOrientation = currentVideoOrientation()
             
-        imageOutput.captureStillImageAsynchronously(from: connection, completionHandler: { (sampleBuffer, error) in
-            if sampleBuffer != nil {
-                let imageData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer!, previewPhotoSampleBuffer: nil)
-                let image = UIImage(data: imageData!)
-                self.savePhotoToLibrary(image!)
-                self.showPreviewPhoto()
-            } else {
-                print("ERROR capturing photo: \(error?.localizedDescription)")
-            }
-        })
-            
+            imageOutput.captureStillImageAsynchronously(from: connection, completionHandler: { (sampleBuffer, error) in
+                if sampleBuffer != nil {
+                    let imageData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer!, previewPhotoSampleBuffer: nil)
+                    var santaImage = UIImage(data: imageData!)
+//                    self.savePhotoToLibrary(santaImage!)
+                    self.santasSelfie = santaImage!
+                    self.performSegue(withIdentifier: "toPhotoDetailSegue", sender: nil)
+                } else {
+                    print("ERROR capturing photo: \(error?.localizedDescription)")
+                }
+            })
         }
     }
     
-    func showPreviewPhoto() {
-        performSegue(withIdentifier: "toPhotoDetailSegue", sender: nil)
-
-    }
+ 
     
     // MARK : Helper Functions
     func currentVideoOrientation() -> AVCaptureVideoOrientation {
@@ -135,11 +133,19 @@ class CameraViewController: UIViewController {
     
     func savePhotoToLibrary(_ image: UIImage) {
         let photoLibrary = PHPhotoLibrary.shared()
-        photoLibrary.performChanges({ 
+        photoLibrary.performChanges({
             PHAssetChangeRequest.creationRequestForAsset(from: image)
         }, completionHandler: nil)
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPhotoDetailSegue" {
+            if let newVC = segue.destination as? PhotoViewController {
+                newVC.photoFromCamera = santasSelfie
+            }
+        }
+    }
+    
 
 
 }

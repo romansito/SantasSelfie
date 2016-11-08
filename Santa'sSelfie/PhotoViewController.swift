@@ -10,11 +10,18 @@ import UIKit
 
 class PhotoViewController: UIViewController {
 
+    @IBOutlet weak var detailImageView: UIImageView!
+    
+    var photoFromCamera: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.purple
-
+        self.view.backgroundColor = UIColor.white
+        detailImageView.image = photoFromCamera
+        print(photoFromCamera)
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
