@@ -100,7 +100,7 @@ class CameraViewController: UIViewController {
             imageOutput.captureStillImageAsynchronously(from: connection, completionHandler: { (sampleBuffer, error) in
                 if sampleBuffer != nil {
                     let imageData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer!, previewPhotoSampleBuffer: nil)
-                    var santaImage = UIImage(data: imageData!)
+                    let santaImage = UIImage(data: imageData!)
 //                    self.savePhotoToLibrary(santaImage!)
                     self.santasSelfie = santaImage!
                     self.performSegue(withIdentifier: "toPhotoDetailSegue", sender: nil)
