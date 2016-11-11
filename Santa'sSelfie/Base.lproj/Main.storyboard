@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,19 +38,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="126" height="125"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="s6x-as-2Z1">
-                                                    <rect key="frame" x="-8" y="8" width="126" height="109"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ShV-Qd-3ZC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="126" height="125"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="s6x-as-2Z1" firstAttribute="top" secondItem="xWI-Rc-LyP" secondAttribute="topMargin" id="I1s-O1-uYV"/>
-                                            <constraint firstItem="s6x-as-2Z1" firstAttribute="trailing" secondItem="xWI-Rc-LyP" secondAttribute="trailingMargin" id="Lhr-hB-cEc"/>
-                                            <constraint firstItem="s6x-as-2Z1" firstAttribute="width" secondItem="xWI-Rc-LyP" secondAttribute="width" id="g4s-9S-mhM"/>
-                                            <constraint firstItem="s6x-as-2Z1" firstAttribute="height" secondItem="xWI-Rc-LyP" secondAttribute="height" constant="-16" id="rxt-V5-iw2"/>
+                                            <constraint firstItem="ShV-Qd-3ZC" firstAttribute="height" secondItem="xWI-Rc-LyP" secondAttribute="height" id="Is8-Al-bgY"/>
+                                            <constraint firstItem="ShV-Qd-3ZC" firstAttribute="centerY" secondItem="xWI-Rc-LyP" secondAttribute="centerY" id="NXW-kF-fol"/>
+                                            <constraint firstItem="ShV-Qd-3ZC" firstAttribute="centerX" secondItem="xWI-Rc-LyP" secondAttribute="centerX" id="my0-eO-vXZ"/>
+                                            <constraint firstItem="ShV-Qd-3ZC" firstAttribute="width" secondItem="xWI-Rc-LyP" secondAttribute="width" id="tgT-tT-NUJ"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="imageView" destination="s6x-as-2Z1" id="eVd-Ug-QJ2"/>
+                                            <outlet property="imageView" destination="ShV-Qd-3ZC" id="8qv-8l-Z4t"/>
                                             <segue destination="hTU-kk-5OK" kind="show" identifier="segueToCameraVC" id="zvC-TX-RTS"/>
                                         </connections>
                                     </collectionViewCell>
@@ -179,7 +178,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1.png" width="940" height="860"/>
         <image name="Capture_Butt" width="80" height="80"/>
     </resources>
 </document>

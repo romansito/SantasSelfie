@@ -15,9 +15,7 @@ class SantaCollectionViewCell: UICollectionViewCell {
     
     var santaImage: UIImage! {
         didSet{
-            if let image = self.santaImage {
-                self.imageView.image = image
-            }
+            self.imageView.image = self.santaImage
         }
     }
     
