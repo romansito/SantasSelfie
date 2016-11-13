@@ -243,16 +243,6 @@ class CameraViewController: UIViewController {
             }
         }
     }
-    
-//    func imageViewWithImage(name: String) -> UIImageView {
-//        let view = UIImageView()
-//        let image = UIImage(named: name)
-//        view.image = image
-//        view.sizeToFit()
-//        view.hidden = true
-//        
-//        return view
-//    }
 
     func imageViewWithImage(name: String) -> UIImageView {
         let view = UIImageView()
