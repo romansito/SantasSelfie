@@ -41,7 +41,6 @@ class CameraViewController: UIViewController {
         stopSession()
     }
     
-    
     @IBAction func shutterButtonPressed(_ sender: Any) {
         takePhoto()
     }
@@ -51,6 +50,7 @@ class CameraViewController: UIViewController {
     func setupCamPreview() {
         cameraPreview = UIView(frame: CGRect(x: 0.0, y: 64, width: view.bounds.width, height: view.bounds.height - 180))
         view.addSubview(cameraPreview)
+        
     }
     
     func setupSession() {
@@ -80,6 +80,17 @@ class CameraViewController: UIViewController {
         previewLayer.frame = cameraPreview.bounds
         previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         cameraPreview.layer.addSublayer(previewLayer)
+        
+        
+        // Attach tap recognizer for focus & exposure
+        let tapForFocus = UITapGestureRecognizer(target: self, action: #selector(CameraViewController.tapToFocus(recognizer:)))
+        tapForFocus.numberOfTapsRequired = 1
+        let tapForExposure = UITapGestureRecognizer(target: self, action: #selector(CameraViewController.tapToExpose(recognizer:)))
+        tapForExposure.numberOfTapsRequired = 2
+        
+        cameraPreview.addGestureRecognizer(tapForFocus)
+        cameraPreview.addGestureRecognizer(tapForExposure)
+        tapForFocus.require(toFail: tapForExposure)
         
         // Create marker views
         
@@ -155,6 +166,15 @@ class CameraViewController: UIViewController {
     }
     
     // MARK : Exposure Method
+    
+    func tapToExpose(recognizer: UIGestureRecognizer) {
+        if activeInput.device.isExposurePointOfInterestSupported {
+            let point = recognizer.location(in: cameraPreview)
+            let pointOfInterest = previewLayer.captureDevicePointOfInterest(for: point)
+            showMarkerAtPoint(point: point, marker: exposureMarker)
+            exposeAtPoint(point: pointOfInterest)
+        }
+    }
 
     func exposeAtPoint(point: CGPoint) {
         let device = activeInput.device
@@ -197,21 +217,6 @@ class CameraViewController: UIViewController {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
     }
-
-    
-    func showMarkerAtPoint(point: CGPoint, marker: UIImageView) {
-        marker.center = point
-        marker.isHidden = false
-        
-        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseInOut, animations: { () -> Void in
-            marker.layer.transform = CATransform3DMakeScale(0.5, 0.5, 1.0)}) { (Bool) -> Void in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-                    marker.isHidden = true
-                    marker.transform = CGAffineTransform.identity
-                })
-        }
-    }
- 
     
     // MARK : Helper Functions
     func currentVideoOrientation() -> AVCaptureVideoOrientation {
@@ -245,6 +250,21 @@ class CameraViewController: UIViewController {
             }
         }
     }
+    
+    
+    func showMarkerAtPoint(point: CGPoint, marker: UIImageView) {
+        marker.center = point
+        marker.isHidden = false
+        
+        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseInOut, animations: { () -> Void in
+            marker.layer.transform = CATransform3DMakeScale(0.5, 0.5, 1.0)}) { (Bool) -> Void in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                    marker.isHidden = true
+                    marker.transform = CGAffineTransform.identity
+                })
+        }
+    }
+    
 
     func imageViewWithImage(name: String) -> UIImageView {
         let view = UIImageView()

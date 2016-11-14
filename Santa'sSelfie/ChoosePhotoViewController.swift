@@ -66,8 +66,8 @@ extension ChoosePhotoViewController: UICollectionViewDataSource {
 extension ChoosePhotoViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let nextVC = CameraViewController()
-        nextVC.imageOverlay.image = santasSelfies[indexPath.row]
+//        let nextVC = CameraViewController()
+//        nextVC.imageOverlay.image! = santasSelfies[indexPath.row]
         performSegue(withIdentifier: "segueToCameraVC", sender: nil)
     }
     
