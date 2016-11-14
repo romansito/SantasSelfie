@@ -14,6 +14,7 @@ class CameraViewController: UIViewController {
     
     var photoViewController = PhotoViewController()
     var cameraPreview: UIView!
+    var shuttherButton: UIButton!
     var santasSelfie = UIImage()
 
     @IBOutlet weak var imageOverlay: UIImageView!
@@ -33,7 +34,10 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.navigationBar.isHidden = true
+        
         setupCamPreview()
+//        shutterButtonPressed()
         
         setupSession()
         setupPreview()
@@ -41,16 +45,21 @@ class CameraViewController: UIViewController {
         stopSession()
     }
     
-    @IBAction func shutterButtonPressed(_ sender: Any) {
+
+    func shutterButtonPressed() {
         takePhoto()
     }
     
-    
     // MARK: - Setup session and preview
     func setupCamPreview() {
-        cameraPreview = UIView(frame: CGRect(x: 0.0, y: 64, width: view.bounds.width, height: view.bounds.height - 180))
+        cameraPreview = UIView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height))
+        cameraPreview.contentMode = .scaleAspectFill
         view.addSubview(cameraPreview)
         
+        shuttherButton = UIButton(frame: CGRect(x: view.center.x - 40, y: view.bounds.height - 120, width: 80, height: 80))
+        shuttherButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
+        shuttherButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
+        view.addSubview(shuttherButton)
     }
     
     func setupSession() {

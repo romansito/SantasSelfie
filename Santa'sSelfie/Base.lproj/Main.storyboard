@@ -93,21 +93,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cmI-EJ-jw0">
-                                <rect key="frame" x="0.0" y="548" width="375" height="120"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="119" id="5CR-1W-t0Z"/>
-                                    <constraint firstAttribute="height" constant="120" id="OpP-4X-YxG"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLW-b1-Unb">
-                                <rect key="frame" x="147" y="568" width="80" height="80"/>
-                                <state key="normal" image="Capture_Butt"/>
-                                <connections>
-                                    <action selector="shutterButtonPressed:" destination="hTU-kk-5OK" eventType="touchUpInside" id="pDY-b5-EDZ"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g29-nD-UBn">
                                 <rect key="frame" x="0.0" y="289" width="375" height="378"/>
                                 <constraints>
@@ -117,14 +102,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KLW-b1-Unb" firstAttribute="centerX" secondItem="cmI-EJ-jw0" secondAttribute="centerX" id="0sv-yk-O8u"/>
-                            <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="cmI-EJ-jw0" secondAttribute="bottom" constant="-1" id="1Zp-EQ-siz"/>
                             <constraint firstItem="g29-nD-UBn" firstAttribute="leading" secondItem="gvT-uz-U9X" secondAttribute="leading" id="EO8-9q-FUg"/>
                             <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="g29-nD-UBn" secondAttribute="bottom" id="KgP-hW-Zai"/>
                             <constraint firstAttribute="trailing" secondItem="g29-nD-UBn" secondAttribute="trailing" id="Ldk-je-KBa"/>
-                            <constraint firstItem="cmI-EJ-jw0" firstAttribute="leading" secondItem="gvT-uz-U9X" secondAttribute="leading" id="VCa-fW-2ZF"/>
-                            <constraint firstItem="KLW-b1-Unb" firstAttribute="centerY" secondItem="cmI-EJ-jw0" secondAttribute="centerY" id="f9n-qY-VLx"/>
-                            <constraint firstAttribute="trailing" secondItem="cmI-EJ-jw0" secondAttribute="trailing" id="k6u-iC-dJ5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -187,7 +167,4 @@
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Capture_Butt" width="80" height="80"/>
-    </resources>
 </document>
