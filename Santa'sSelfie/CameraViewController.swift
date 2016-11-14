@@ -16,6 +16,8 @@ class CameraViewController: UIViewController {
     var cameraPreview: UIView!
     var santasSelfie = UIImage()
 
+    @IBOutlet weak var imageOverlay: UIImageView!
+    
     let captureSession = AVCaptureSession()
     let imageOutput = AVCaptureStillImageOutput()
     

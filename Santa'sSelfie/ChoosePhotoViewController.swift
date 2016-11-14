@@ -27,14 +27,10 @@ class ChoosePhotoViewController: UIViewController {
     }
 
     func setupDataSource() {
-//        for i in 0...3 {
-//            guard let image = UIImage(named: "\(i)") else { return }
-//            self.santasSelfies.append(image)
-//        }
-        
-        self.santasSelfies.append(UIImage(named: "0")!)
-        self.santasSelfies.append(UIImage(named: "1")!)
-        
+        for i in 0...3 {
+            guard let image = UIImage(named: "\(i)") else { return }
+            self.santasSelfies.append(image)
+        } 
     }
 
     func collectionViewSetup() {
@@ -70,7 +66,11 @@ extension ChoosePhotoViewController: UICollectionViewDataSource {
 extension ChoosePhotoViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let nextVC = CameraViewController()
+        nextVC.imageOverlay.image = santasSelfies[indexPath.row]
         performSegue(withIdentifier: "segueToCameraVC", sender: nil)
     }
+    
+
     
 }
