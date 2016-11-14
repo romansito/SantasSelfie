@@ -24,8 +24,8 @@ class PhotoViewController: UIViewController {
     }
     
     func setupdetailImageView() {
-        detailImageView = UIImageView(frame: CGRect(x: 0.0, y: 64, width: view.bounds.width, height: view.bounds.height - 180))
-        detailImageView.contentMode = .scaleAspectFit
+        detailImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height))
+        detailImageView.contentMode = .scaleAspectFill
         view.addSubview(detailImageView)
     }
 
