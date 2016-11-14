@@ -37,8 +37,6 @@ class CameraViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         
         setupCamPreview()
-//        shutterButtonPressed()
-        
         setupSession()
         setupPreview()
         startSession()
