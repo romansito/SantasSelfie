@@ -11,11 +11,11 @@ import UIKit
 class SantaCollectionViewCell: UICollectionViewCell {
     
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var santaImageView: UIImageView!
     
     var santaImage: UIImage! {
         didSet{
-            self.imageView.image = self.santaImage
+            self.santaImageView.image = self.santaImage
         }
     }
     

@@ -19,6 +19,11 @@ class ChoosePhotoViewController: UIViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewSetup()
@@ -38,7 +43,6 @@ class ChoosePhotoViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.collectionViewLayout = CustomCollectionViewFlowLayout()
-        collectionView.register(SantaCollectionViewCell.self, forCellWithReuseIdentifier: SantaCollectionViewCell.identifier())
     }
     
 }
@@ -48,12 +52,11 @@ extension ChoosePhotoViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SantaCollectionViewCell.identifier(), for: indexPath) as? SantaCollectionViewCell
-        cell?.imageView?.image = santasSelfies[(indexPath.row)]
-        print(santasSelfies)
-        cell?.backgroundColor = .white
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SantaCollectionViewCell.identifier(), for: indexPath) as! SantaCollectionViewCell
+        cell.santaImage = santasSelfies[indexPath.row]
+        cell.backgroundColor = .white
         
-        return cell!
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
