@@ -51,7 +51,6 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="santaImageView" destination="ShV-Qd-3ZC" id="CAF-CD-dwm"/>
-                                            <segue destination="hTU-kk-5OK" kind="show" identifier="segueToCameraVC" id="zvC-TX-RTS"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -75,6 +74,7 @@
                     <navigationItem key="navigationItem" id="aOw-y4-rwk"/>
                     <connections>
                         <outlet property="collectionView" destination="rSp-wE-JyL" id="c80-Iz-7tX"/>
+                        <segue destination="hTU-kk-5OK" kind="show" identifier="segueToCameraVC" id="drH-ZI-iOK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
