@@ -15,9 +15,8 @@ class CameraViewController: UIViewController {
     var photoViewController = PhotoViewController()
     var cameraPreview: UIView!
     var shuttherButton: UIButton!
+    var imageOverlay = UIImageView()
     var santasSelfie = UIImage()
-
-    @IBOutlet weak var imageOverlay: UIImageView!
     
     let captureSession = AVCaptureSession()
     let imageOutput = AVCaptureStillImageOutput()
@@ -52,11 +51,17 @@ class CameraViewController: UIViewController {
     func setupCamPreview() {
         cameraPreview = UIView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height))
         cameraPreview.contentMode = .scaleAspectFill
-        view.addSubview(cameraPreview)
+        
+        imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2))
+        imageOverlay.contentMode = .scaleAspectFit
         
         shuttherButton = UIButton(frame: CGRect(x: view.center.x - 40, y: view.bounds.height - 120, width: 80, height: 80))
         shuttherButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
         shuttherButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
+        
+        
+        view.addSubview(cameraPreview)
+        view.addSubview(imageOverlay)
         view.addSubview(shuttherButton)
     }
     

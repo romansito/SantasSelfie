@@ -92,23 +92,9 @@
                     <view key="view" contentMode="scaleToFill" id="gvT-uz-U9X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g29-nD-UBn">
-                                <rect key="frame" x="0.0" y="289" width="375" height="378"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="378" id="iWV-s9-Zmx"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="g29-nD-UBn" firstAttribute="leading" secondItem="gvT-uz-U9X" secondAttribute="leading" id="EO8-9q-FUg"/>
-                            <constraint firstItem="15p-0p-IuF" firstAttribute="top" secondItem="g29-nD-UBn" secondAttribute="bottom" id="KgP-hW-Zai"/>
-                            <constraint firstAttribute="trailing" secondItem="g29-nD-UBn" secondAttribute="trailing" id="Ldk-je-KBa"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageOverlay" destination="g29-nD-UBn" id="jP6-6S-WGZ"/>
                         <segue destination="nrf-H4-ME1" kind="show" identifier="toPhotoDetailSegue" id="I80-cc-7iO"/>
                     </connections>
                 </viewController>

@@ -11,6 +11,7 @@ import UIKit
 class ChoosePhotoViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    var cell: SantaCollectionViewCell!
         
     var santasSelfies = [UIImage]()
         {
@@ -45,6 +46,7 @@ class ChoosePhotoViewController: UIViewController {
         collectionView.collectionViewLayout = CustomCollectionViewFlowLayout()
     }
     
+    
 }
 
 
@@ -52,7 +54,7 @@ extension ChoosePhotoViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SantaCollectionViewCell.identifier(), for: indexPath) as! SantaCollectionViewCell
+        cell = collectionView.dequeueReusableCell(withReuseIdentifier: SantaCollectionViewCell.identifier(), for: indexPath) as! SantaCollectionViewCell
         cell.santaImage = santasSelfies[indexPath.row]
         cell.backgroundColor = .white
         
@@ -63,17 +65,14 @@ extension ChoosePhotoViewController: UICollectionViewDataSource {
         return santasSelfies.count
     }
     
-    
 }
 
 extension ChoosePhotoViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let nextVC = CameraViewController()
-//        nextVC.imageOverlay.image! = santasSelfies[indexPath.row]
-        performSegue(withIdentifier: "segueToCameraVC", sender: nil)
+        let nextVC = CameraViewController()
+            nextVC.imageOverlay.image = santasSelfies[indexPath.row]
+//        performSegue(withIdentifier: "segueToCameraVC", sender: nil)
     }
-    
-
     
 }
