@@ -13,9 +13,12 @@ import Photos
 class CameraViewController: UIViewController {
     
     var photoViewController = PhotoViewController()
+    var chooseViewController = ChoosePhotoViewController()
+    
     var cameraPreview: UIView!
     var shuttherButton: UIButton!
     var imageOverlay = UIImageView()
+    var santaImage = UIImage()
     var santasSelfie = UIImage()
     
     let captureSession = AVCaptureSession()
@@ -35,13 +38,19 @@ class CameraViewController: UIViewController {
 
         self.navigationController?.navigationBar.isHidden = true
         
+        
         setupCamPreview()
         setupSession()
         setupPreview()
         startSession()
         stopSession()
+        
+        print(imageOverlay.image!)
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     func shutterButtonPressed() {
         takePhoto()
@@ -53,12 +62,12 @@ class CameraViewController: UIViewController {
         cameraPreview.contentMode = .scaleAspectFill
         
         imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2))
-        imageOverlay.contentMode = .scaleAspectFit
+        imageOverlay.image = santaImage
+        imageOverlay.contentMode = .scaleAspectFill
         
         shuttherButton = UIButton(frame: CGRect(x: view.center.x - 40, y: view.bounds.height - 120, width: 80, height: 80))
         shuttherButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
         shuttherButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
-        
         
         view.addSubview(cameraPreview)
         view.addSubview(imageOverlay)
@@ -93,7 +102,6 @@ class CameraViewController: UIViewController {
         previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         cameraPreview.layer.addSublayer(previewLayer)
         
-        
         // Attach tap recognizer for focus & exposure
         let tapForFocus = UITapGestureRecognizer(target: self, action: #selector(CameraViewController.tapToFocus(recognizer:)))
         tapForFocus.numberOfTapsRequired = 1
@@ -112,7 +120,6 @@ class CameraViewController: UIViewController {
         cameraPreview.addSubview(focusMarker)
         cameraPreview.addSubview(exposureMarker)
   
-
     }
     
     func startSession() {

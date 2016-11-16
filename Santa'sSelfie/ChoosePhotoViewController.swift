@@ -46,7 +46,6 @@ class ChoosePhotoViewController: UIViewController {
         collectionView.collectionViewLayout = CustomCollectionViewFlowLayout()
     }
     
-    
 }
 
 
@@ -70,20 +69,20 @@ extension ChoosePhotoViewController: UICollectionViewDataSource {
 extension ChoosePhotoViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let nextVC = CameraViewController()
-        nextVC.imageOverlay.image = santasSelfies[indexPath.row]
-
-        performSegue(withIdentifier: "segueToCameraVC", sender: nil)
+            performSegue(withIdentifier: "segueToCameraVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "segueToCameraVC" {
+    
+            let indexPaths = self.collectionView.indexPathsForSelectedItems!
+            let indexPath = indexPaths[0] as NSIndexPath
             
-//            let indexPaths = self.collectionView.indexPathsForSelectedItems!
-//            let indexPath = indexPaths[0] as NSIndexPath
-            
-//            let nextVC = CameraViewController()
-//            nextVC.imageOverlay.image = santasSelfies[indexPath.row]
+            let nextVC = segue.destination as! CameraViewController
+            print(self.santasSelfies[indexPath.row])
+            nextVC.santaImage = self.santasSelfies[indexPath.row]
+
         }
     }
     
