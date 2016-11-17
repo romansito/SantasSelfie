@@ -63,7 +63,7 @@ class CameraViewController: UIViewController {
         
         imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2))
         imageOverlay.image = santaImage
-        imageOverlay.contentMode = .scaleAspectFill
+        imageOverlay.contentMode = .scaleAspectFit
         
         shuttherButton = UIButton(frame: CGRect(x: view.center.x - 40, y: view.bounds.height - 120, width: 80, height: 80))
         shuttherButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
@@ -148,16 +148,10 @@ class CameraViewController: UIViewController {
                 if sampleBuffer != nil {
                     let imageData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer!, previewPhotoSampleBuffer: nil)
                     let santaImage = UIImage(data: imageData!)
-                    
-//                    let newSize = CGSize(width: 300, height: 300) // set this to what you need
-//                    UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-                    
-                
-                    
-                
                     let santaBomb = self.santaPhotoBomb(image: santaImage!)
                     self.savePhotoToLibrary(santaBomb)
-//                    self.santasSelfie = santaBomb
+                    self.santasSelfie = santaBomb
+            
                     self.performSegue(withIdentifier: "toPhotoDetailSegue", sender: nil)
                 } else {
                     print("ERROR capturing photo: \(error?.localizedDescription)")
@@ -166,68 +160,24 @@ class CameraViewController: UIViewController {
         }
     }
     
-//    func saveImage() {
-//        let bottomImage = UIImage(named: "bottom")!
-//        let topImage = UIImage(named: "top")!
-//        
-//        let newSize = CGSize(width: 300, height: 300) // set this to what you need
-//        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-//        
-//        bottomImage.draw(in: CGRect(origin: CGPoint.zero, size: newSize))
-//        topImage.draw(in: CGRect(origin: CGPoint.zero, size: newSize))
-//        
-//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//    }
     
 //     MARK : Image overlay function
     func santaPhotoBomb(image: UIImage) -> UIImage {
-        
-//        let imagesize = self.view.frame.height
-    
-//        UIGraphicsBeginImageContextWithOptions(, true, 0.0)
         UIGraphicsBeginImageContextWithOptions(image.size, true, 0.0)
         image.draw(at: CGPoint(x: 0.0, y: 0.0))
-    
+        
         // Composite Penguin
         let penguinImage = santaImage
-        
-//        var xFactor : CGFloat
-//        if let randomFloat(from: 0.0, to: 1.0) >= 0.5 {
-//            xFactor = randomFloat(from: 0.0, to: 0.25)
-//        }
-    
-//        var xFactor: CGFloat
-//        if randomFloat(from: 0.0, to: 1.0) >= 0.5 {
-//            xFactor = randomFloat(from: 0.0, to: 0.25)
-//        } else {
-//            xFactor = randomFloat(from: 0.75, to: 1.0)
-//        }
-    
-//        var yFactor: CGFloat
-//        if image.size.width < image.size.height {
-//            yFactor = 0.0
-//        } else {
-//            yFactor = 0.35
-//        }
-        
-//        let penguinX = (image.size.width * xFactor) - (penguinImage!.size.width / 2)
-//        let penguinY = (image.size.height * 0.5) - (penguinImage!.size.height * yFactor)
-//        let penguinOrigin = CGPoint(x: penguinX, y: penguinY)
 
-//
-//        let penguinX = penguinImage.size.width
-//        let penguinY = penguinImage.size.height
         let penguinOrigin = CGPoint(x: 0.0, y: self.view.bounds.height)
-//
         penguinImage.draw(at: penguinOrigin)
-    
+        
         let finalImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return finalImage!
     }
     
-    
+
     // MARK : Focus Methods
     func tapToFocus(recognizer: UITapGestureRecognizer) {
         if activeInput.device.isFocusPointOfInterestSupported {
