@@ -33,7 +33,7 @@ class ChoosePhotoViewController: UIViewController {
     }
 
     func setupDataSource() {
-        for i in 0...3 {
+        for i in 0...5 {
             guard let image = UIImage(named: "\(i)") else { return }
             self.santasSelfies.append(image)
         } 

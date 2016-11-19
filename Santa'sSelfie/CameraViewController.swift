@@ -21,6 +21,9 @@ class CameraViewController: UIViewController {
     var santaImage = UIImage()
     var santasSelfie = UIImage()
     
+    var exposureSlider: UISlider!
+    var exposureSegmentController: UISegmentedControl!
+    
     let captureSession = AVCaptureSession()
     let imageOutput = AVCaptureStillImageOutput()
     
@@ -63,15 +66,85 @@ class CameraViewController: UIViewController {
         
         imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2))
         imageOverlay.image = santaImage
-        imageOverlay.contentMode = .scaleAspectFit
+        imageOverlay.contentMode = .scaleAspectFill
         
         shuttherButton = UIButton(frame: CGRect(x: view.center.x - 40, y: view.bounds.height - 120, width: 80, height: 80))
         shuttherButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
         shuttherButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
         
+        let items = ["1", "2", "3", "4", "5"]
+        exposureSegmentController = UISegmentedControl(items: items)
+        exposureSegmentController.frame = CGRect(x: 40, y: 100, width: 300, height: 40)
+//        exposureSegmentController.selectedSegmentIndex = 0
+        exposureSegmentController.addTarget(self, action: #selector(CameraViewController.segmentValueChange(sender:)), for: .valueChanged)
+
         view.addSubview(cameraPreview)
         view.addSubview(imageOverlay)
         view.addSubview(shuttherButton)
+        view.addSubview(exposureSegmentController)
+
+    }
+    
+    func segmentValueChange(sender: UISegmentedControl) {
+        
+        guard let image = imageOverlay.image, let cgimg = image.cgImage else {
+            print("imageView doesn't have an image!")
+            return
+        }
+        
+        let openGLContext = EAGLContext(api: .openGLES2)
+        let context = CIContext(eaglContext: openGLContext!)
+        let coreImage = CIImage(cgImage: cgimg)
+        
+        let filter = CIFilter(name: "CIExposureAdjust")
+        filter?.setValue(coreImage, forKey: kCIInputImageKey)
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            filter?.setValue(0.0, forKey: "inputEV")
+        case 1:
+            filter?.setValue(0.2, forKey: "inputEV")
+        case 2:
+            filter?.setValue(0.4, forKey: "inputEV")
+        case 3:
+            filter?.setValue(0.6, forKey: "inputEV")
+        case 4:
+            filter?.setValue(0.8, forKey: "inputEV")
+        default:
+            print("Purple")
+        }
+        
+        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
+            let cgimgresult = context.createCGImage(output, from: output.extent)
+            let result = UIImage(cgImage: cgimgresult!)
+            imageOverlay.image = result
+        }
+        
+    }
+    
+    func userSlider(sender: UISlider) {
+        print(sender.value)
+        
+        guard let image = imageOverlay.image, let cgimg = image.cgImage else {
+            print("imageView doesn't have an image!")
+            return
+        }
+        
+        let openGLContext = EAGLContext(api: .openGLES2)
+        let context = CIContext(eaglContext: openGLContext!)
+        
+        let coreImage = CIImage(cgImage: cgimg)
+        
+        let filter = CIFilter(name: "CIExposureAdjust")
+        filter?.setValue(coreImage, forKey: kCIInputImageKey)
+        filter?.setValue(sender.value, forKey: "inputEV")
+        
+        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
+            let cgimgresult = context.createCGImage(output, from: output.extent)
+            let result = UIImage(cgImage: cgimgresult!)
+            imageOverlay.image = result
+        }
+        
     }
     
     func setupSession() {
@@ -119,7 +192,6 @@ class CameraViewController: UIViewController {
         
         cameraPreview.addSubview(focusMarker)
         cameraPreview.addSubview(exposureMarker)
-  
     }
     
     func startSession() {

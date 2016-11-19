@@ -16,33 +16,40 @@ class PhotoViewController: UIViewController {
     var detailImageView: UIImageView!
     var photoFromCamera: UIImage!
     var exposureSlider: UISlider!
+    var filterButton: UIButton!
     
     
     func userSlider(sender: UISlider) {
         print(sender.value)
-        guard let image = self.detailImageView.image?.cgImage else { return }
         
-        let openGLContext = EAGLContext(api: .openGLES3)
+        guard let image = detailImageView?.image, let cgimg = image.cgImage else {
+            print("imageView doesn't have an image!")
+            return
+        }
+        
+        let openGLContext = EAGLContext(api: .openGLES2)
         let context = CIContext(eaglContext: openGLContext!)
-//        let ciImage = CIImage(cgImage: image)
         
-        let filter = CIFilter(name: "\(esposureFilter)") // CISepiaTone
-//        filter?.setValue(ciImage, forKey: kCIInputImageKey)
-        filter?.setValue(sender.value, forKey: kCIInputImageKey)
+        let coreImage = CIImage(cgImage: cgimg)
         
-        //filter?.setValue(1, forKey: kCIInputIntensityKey) // for CISepiaTone
+        let filter = CIFilter(name: "CIExposureAdjust")
+        filter?.setValue(coreImage, forKey: kCIInputImageKey)
+        filter?.setValue(sender.value, forKey: "inputEV")
         
         if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
-            self.detailImageView?.image = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
+            let cgimgresult = context.createCGImage(output, from: output.extent)
+            let result = UIImage(cgImage: cgimgresult!)
+            detailImageView?.image = result
         }
-
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         setupdetailImageView()
-        setupSlider()
+//        setupSlider()
+        
         detailImageView.image = photoFromCamera
         print(photoFromCamera)
         
@@ -56,11 +63,36 @@ class PhotoViewController: UIViewController {
     
     func setupSlider() {
         self.exposureSlider = UISlider(frame: CGRect(x: 40, y: self.view.bounds.height - 100, width: 300, height: 40))
-        exposureSlider.tintColor = .red
-        exposureSlider.backgroundColor = .white
         exposureSlider.addTarget(self, action: #selector(PhotoViewController.userSlider(sender:)), for: .valueChanged)
         self.view.addSubview(exposureSlider)
         
+    }
+    
+//    func setupButton() {
+//        self.filterButton = UIButton(frame: CGRect(x: 12, y: 20, width: 50, height: 30))
+//        filterButton.backgroundColor = .white
+//        filterButton.setTitle("Filter", for: .selected)
+//        filterButton.addTarget(self, action: #selector(PhotoViewController.userTapFilterButton(sender:)), for: .touchUpInside)
+//        view.addSubview(filterButton)
+//    }
+    
+    func userTapFilterButton(sender: UIButton) {
+        guard let image = self.detailImageView.image?.cgImage else { return }
+        
+        let openGLContext = EAGLContext(api: .openGLES3)
+        let context = CIContext(eaglContext: openGLContext!)
+        let ciImage = CIImage(cgImage: image)
+        
+        let filter = CIFilter(name: "\(esposureFilter)") // CISepiaTone
+        //        filter?.setValue(ciImage, forKey: kCIInputImageKey)
+//        filter?.setValue(sender.value, forKey: kCIInputImageKey)
+        
+        filter?.setValue(1, forKey: kCIInputIntensityKey) // for CISepiaTone
+        
+        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
+            self.detailImageView?.image = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
+        }
+
     }
     
     override func didReceiveMemoryWarning() {
