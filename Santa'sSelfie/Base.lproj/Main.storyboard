@@ -92,9 +92,64 @@
                     <view key="view" contentMode="scaleToFill" id="gvT-uz-U9X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_2" translatesAutoresizingMaskIntoConstraints="NO" id="krv-Q7-t03">
+                                <rect key="frame" x="0.0" y="252" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9e-Co-fc9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ids-Gq-CkN">
+                                <rect key="frame" x="0.0" y="255" width="375" height="251"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ge4-ka-TwV">
+                                <rect key="frame" x="36" y="541" width="304" height="29"/>
+                                <color key="backgroundColor" red="0.93418170081292595" green="0.9354851168886017" blue="0.97680455446243286" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                </segments>
+                                <color key="tintColor" red="0.92083135887639367" green="1" blue="0.98066347042400703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="exposureSegmentedControl:" destination="hTU-kk-5OK" eventType="valueChanged" id="B7r-DY-sL0"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cb8-YZ-WTl">
+                                <rect key="frame" x="157" y="587" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Zad-lk-RZc"/>
+                                    <constraint firstAttribute="height" constant="60" id="kox-Xv-j3P"/>
+                                </constraints>
+                                <state key="normal" image="Capture_Butt"/>
+                                <connections>
+                                    <action selector="shutterButton:" destination="hTU-kk-5OK" eventType="touchUpInside" id="t5O-b3-94e"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cb8-YZ-WTl" firstAttribute="centerY" secondItem="gvT-uz-U9X" secondAttribute="centerY" constant="283.5" id="8kV-J1-EE4"/>
+                            <constraint firstItem="ge4-ka-TwV" firstAttribute="centerY" secondItem="gvT-uz-U9X" secondAttribute="centerY" constant="221.5" id="Ne3-mj-tYH"/>
+                            <constraint firstItem="krv-Q7-t03" firstAttribute="leading" secondItem="gvT-uz-U9X" secondAttribute="leading" id="PSO-65-pEH"/>
+                            <constraint firstItem="ge4-ka-TwV" firstAttribute="top" secondItem="A9e-Co-fc9" secondAttribute="bottom" constant="35" id="cDU-Dk-tNr"/>
+                            <constraint firstItem="A9e-Co-fc9" firstAttribute="leading" secondItem="gvT-uz-U9X" secondAttribute="leading" id="dda-M4-IWa"/>
+                            <constraint firstItem="krv-Q7-t03" firstAttribute="top" secondItem="55j-H6-6AI" secondAttribute="bottom" constant="188" id="eqF-l4-cr0"/>
+                            <constraint firstItem="A9e-Co-fc9" firstAttribute="top" secondItem="gvT-uz-U9X" secondAttribute="top" id="fJc-BM-p7U"/>
+                            <constraint firstItem="cb8-YZ-WTl" firstAttribute="centerX" secondItem="gvT-uz-U9X" secondAttribute="centerX" id="h6H-tP-VXl"/>
+                            <constraint firstItem="ge4-ka-TwV" firstAttribute="centerX" secondItem="gvT-uz-U9X" secondAttribute="centerX" id="kbk-bp-6JM"/>
+                            <constraint firstAttribute="trailing" secondItem="A9e-Co-fc9" secondAttribute="trailing" id="kfi-ql-F5F"/>
+                            <constraint firstAttribute="trailing" secondItem="krv-Q7-t03" secondAttribute="trailing" id="pix-of-uBf"/>
+                            <constraint firstAttribute="bottom" secondItem="krv-Q7-t03" secondAttribute="bottom" constant="-252" id="tgq-rN-JH6"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="cameraPreview" destination="A9e-Co-fc9" id="J1F-xT-MBT"/>
+                        <outlet property="imageOverlay" destination="Ids-Gq-CkN" id="08b-IE-N91"/>
                         <segue destination="nrf-H4-ME1" kind="show" identifier="toPhotoDetailSegue" id="I80-cc-7iO"/>
                     </connections>
                 </viewController>
@@ -139,4 +194,8 @@
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background_2" width="640" height="1136"/>
+        <image name="Capture_Butt" width="80" height="80"/>
+    </resources>
 </document>

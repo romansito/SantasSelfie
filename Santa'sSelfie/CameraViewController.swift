@@ -15,9 +15,11 @@ class CameraViewController: UIViewController {
     var photoViewController = PhotoViewController()
     var chooseViewController = ChoosePhotoViewController()
     
-    var cameraPreview: UIView!
-    var shuttherButton: UIButton!
-    var imageOverlay = UIImageView()
+    @IBOutlet weak var cameraPreview: UIView!
+    @IBOutlet weak var imageOverlay: UIImageView!
+//    var cameraPreview: UIView!
+//    var shuttherButton: UIButton!
+//    var imageOverlay = UIImageView()
     var santaImage = UIImage()
     var santasSelfie = UIImage()
     
@@ -33,21 +35,18 @@ class CameraViewController: UIViewController {
     var focusMarker : UIImageView!
     var exposureMarker : UIImageView!
     private var adjustingExposureContext: String = ""
-
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.navigationController?.navigationBar.isHidden = true
+//        setupCamPreview()
         
-        
-        setupCamPreview()
+        imageOverlay.image = santaImage
         setupSession()
         setupPreview()
         startSession()
         stopSession()
-        
         print(imageOverlay.image!)
     }
     
@@ -55,35 +54,42 @@ class CameraViewController: UIViewController {
         return true
     }
 
-    func shutterButtonPressed() {
+//    func shutterButtonPressed() {
+//        takePhoto()
+//    }
+    @IBAction func shutterButton(_ sender: Any) {
         takePhoto()
     }
     
-    // MARK: - Setup session and preview
-    func setupCamPreview() {
-        cameraPreview = UIView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height))
-        cameraPreview.contentMode = .scaleAspectFill
-        
-        imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2))
-        imageOverlay.image = santaImage
-        imageOverlay.contentMode = .scaleAspectFill
-        
-        shuttherButton = UIButton(frame: CGRect(x: view.center.x - 40, y: view.bounds.height - 120, width: 80, height: 80))
-        shuttherButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
-        shuttherButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
-        
-        let items = ["1", "2", "3", "4", "5"]
-        exposureSegmentController = UISegmentedControl(items: items)
-        exposureSegmentController.frame = CGRect(x: 40, y: 100, width: 300, height: 40)
-//        exposureSegmentController.selectedSegmentIndex = 0
-        exposureSegmentController.addTarget(self, action: #selector(CameraViewController.segmentValueChange(sender:)), for: .valueChanged)
-
-        view.addSubview(cameraPreview)
-        view.addSubview(imageOverlay)
-        view.addSubview(shuttherButton)
-        view.addSubview(exposureSegmentController)
-
+    @IBAction func exposureSegmentedControl(_ sender: Any) {
     }
+    
+    
+    // MARK: - Setup session and preview
+//    func setupCamPreview() {
+//        cameraPreview = UIView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height - 200))
+//        cameraPreview.contentMode = .scaleAspectFill
+//        
+//        imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2 - 200, width: view.bounds.width, height: view.bounds.height / 3))
+//        imageOverlay.image = santaImage
+//        imageOverlay.contentMode = .scaleAspectFill
+//        
+//        shuttherButton = UIButton(frame: CGRect(x: view.center.x - 40, y: view.bounds.height - 120, width: 80, height: 80))
+//        shuttherButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
+//        shuttherButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
+//        
+//        let items = ["1", "2", "3", "4", "5"]
+//        exposureSegmentController = UISegmentedControl(items: items)
+//        exposureSegmentController.frame = CGRect(x: 40, y: 100, width: 300, height: 40)
+////        exposureSegmentController.selectedSegmentIndex = 0
+//        exposureSegmentController.addTarget(self, action: #selector(CameraViewController.segmentValueChange(sender:)), for: .valueChanged)
+//
+//        view.addSubview(cameraPreview)
+//        view.addSubview(imageOverlay)
+//        view.addSubview(shuttherButton)
+//        view.addSubview(exposureSegmentController)
+//
+//    }
     
     func segmentValueChange(sender: UISegmentedControl) {
         
@@ -220,8 +226,8 @@ class CameraViewController: UIViewController {
                 if sampleBuffer != nil {
                     let imageData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer!, previewPhotoSampleBuffer: nil)
                     let santaImage = UIImage(data: imageData!)
-                    let santaBomb = self.santaPhotoBomb(image: santaImage!)
-                    self.savePhotoToLibrary(santaBomb)
+                    let santaBomb = self.santaScreenShot(image: santaImage!)
+//                    self.savePhotoToLibrary(santaBomb)
                     self.santasSelfie = santaBomb
             
                     self.performSegue(withIdentifier: "toPhotoDetailSegue", sender: nil)
@@ -234,15 +240,31 @@ class CameraViewController: UIViewController {
     
     
 //     MARK : Image overlay function
-    func santaPhotoBomb(image: UIImage) -> UIImage {
+    func santaScreenShot(image: UIImage) -> UIImage {
+        
+//        UIGraphicsBeginImageContext(view.frame.size)
+//        UIGraphicsBeginImageContextWithOptions(view.frame.size, true, 0.0)
+//        image.draw(at: CGPoint(x: 0.0, y: 0.0))
+//        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return image!
+        
+//        UIGraphicsBeginImageContext(CGSize(width: view.frame.size.width, height: view.frame.size.height))
+//        var context:CGContext  = UIGraphicsGetCurrentContext()!
+//        self.view?.drawHierarchy(in: view.frame, afterScreenUpdates: true)
+//        let screenShot = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext();
+//        return screenShot!
+        
+        
         UIGraphicsBeginImageContextWithOptions(image.size, true, 0.0)
         image.draw(at: CGPoint(x: 0.0, y: 0.0))
-        
-        // Composite Penguin
-        let penguinImage = santaImage
 
-        let penguinOrigin = CGPoint(x: 0.0, y: self.view.bounds.height)
-        penguinImage.draw(at: penguinOrigin)
+        // Composite Santas Selfie
+        let santaSelfie = santaImage
+        let origin = CGPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2)
+        santaSelfie.draw(at: origin)
         
         let finalImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
