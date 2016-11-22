@@ -15,12 +15,11 @@ class CameraViewController: UIViewController {
     var photoViewController = PhotoViewController()
     var chooseViewController = ChoosePhotoViewController()
     
-//    @IBOutlet weak var cameraPreview: UIView!
-//    @IBOutlet weak var imageOverlay: UIImageView!
-    var cameraPreview: UIView!
-    var shuttherButton: UIButton!
-    var imageOverlay = UIImageView()
-    
+    @IBOutlet weak var cameraPreview: UIView!
+    @IBOutlet weak var imageOverlay: UIImageView!
+//    var cameraPreview: UIView!
+//    var shuttherButton: UIButton!
+//    var imageOverlay = UIImageView()
     var santaImage = UIImage()
     var santasSelfie = UIImage()
     
@@ -41,9 +40,12 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        setupCamPreview()
         
         imageOverlay.image = santaImage
+//        setupCamPreview()
+//        setupviews()
+//        setupConstraints()
+        
         setupSession()
         setupPreview()
         startSession()
@@ -55,42 +57,105 @@ class CameraViewController: UIViewController {
         return true
     }
 
-    func shutterButtonPressed() {
-        takePhoto()
-    }
-//    @IBAction func shutterButton(_ sender: Any) {
+//    func shutterButtonPressed() {
 //        takePhoto()
 //    }
-//    
-//    @IBAction func exposureSegmentedControl(_ sender: Any) {
-//    }
+    @IBAction func shutterButton(_ sender: Any) {
+        takePhoto()
+    }
+    
+    @IBAction func exposureSegmentedControl(_ sender: Any) {
+    }
     
     
     // MARK: - Setup session and preview
-    func setupCamPreview() {
-        cameraPreview = UIView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height - 200))
-        cameraPreview.contentMode = .scaleAspectFill
-        
-        imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2 - 200, width: view.bounds.width, height: view.bounds.height / 3))
-        imageOverlay.image = santaImage
-        imageOverlay.contentMode = .scaleAspectFill
-        
-        shuttherButton = UIButton(frame: CGRect(x: view.center.x - 40, y: view.bounds.height - 120, width: 80, height: 80))
-        shuttherButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
-        shuttherButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
-        
-        let items = ["1", "2", "3", "4", "5"]
-        exposureSegmentController = UISegmentedControl(items: items)
-        exposureSegmentController.frame = CGRect(x: 40, y: 100, width: 300, height: 40)
+    
+//    func setupviews() {
+//        setupCameraPreview()
+//        setupImageOverview()
+//        setupImageOverview()
+//        setupShutterButton()
+//        setupExposureSegmentController()
+//    }
+//    
+//    func setupCameraPreview() {
+//        cameraPreview = UIView()
+//        cameraPreview.contentMode = .scaleAspectFill
+//        view.addSubview(cameraPreview)
+//    }
+//    
+//    func setupImageOverview() {
+//        imageOverlay = UIImageView()
+//        imageOverlay.image = santaImage
+//        imageOverlay.contentMode = .scaleAspectFill
+//        view.addSubview(imageOverlay)
+//    }
+//    
+//    func setupShutterButton() {
+//        shuttherButton = UIButton()
+//        shuttherButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
+//        shuttherButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
+//        view.addSubview(shuttherButton)
+//    }
+//    
+//    func setupExposureSegmentController() {
+//        exposureSegmentController = UISegmentedControl()
 //        exposureSegmentController.selectedSegmentIndex = 0
-        exposureSegmentController.addTarget(self, action: #selector(CameraViewController.segmentValueChange(sender:)), for: .valueChanged)
+//        exposureSegmentController.addTarget(self, action: #selector(CameraViewController.segmentValueChange(sender:)), for: .valueChanged)
+//        view.addSubview(exposureSegmentController)
+//    }
+//    
+//    func setupConstraints() {
+//        
+//        let viewDictionaries = ["v0": cameraPreview, "v1": imageOverlay, "v2": exposureSegmentController, "v3": shuttherButton]
+//        
+//        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: viewDictionaries))
+//        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[v0]-120-|", options: NSLayoutFormatOptions(), metrics: nil, views: viewDictionaries))
+//        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[0]-12-[v2]-12-[v3]-12|", options: NSLayoutFormatOptions(), metrics: nil, views: viewDictionaries))
+        
+        
+//    }
+    
+//    func setupCamPreview() {
+//        cameraPreview = UIView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height - 120))
+//        cameraPreview.contentMode = .scaleAspectFill
+//        
+//        imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height - 120, width: view.bounds.width, height: view.bounds.height / 3))
+//        imageOverlay.image = santaImage
+//        imageOverlay.contentMode = .scaleAspectFill
+//        
+//        shuttherButton = UIButton(frame: CGRect(x: view.center.x - 40, y: view.bounds.height - 120, width: 80, height: 80))
+//        shuttherButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
+//        shuttherButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
+//        
+//        let items = ["1", "2", "3", "4", "5"]
+//        exposureSegmentController = UISegmentedControl(items: items)
+//        exposureSegmentController.frame = CGRect(x: 40, y: 100, width: 300, height: 40)
+////        exposureSegmentController.selectedSegmentIndex = 0
+//        exposureSegmentController.addTarget(self, action: #selector(CameraViewController.segmentValueChange(sender:)), for: .valueChanged)
+//        
+//        view.addSubview(cameraPreview)
+//        view.addSubview(imageOverlay)
+//        view.addSubview(shuttherButton)
+//        view.addSubview(exposureSegmentController)
 
-        view.addSubview(cameraPreview)
-        view.addSubview(imageOverlay)
-        view.addSubview(shuttherButton)
-        view.addSubview(exposureSegmentController)
-
-    }
+//        let views = ["v0": cameraPreview, "v1": imageOverlay, "v2": shuttherButton, "v3": exposureSegmentController]
+//        
+//        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
+//        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]-120-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
+//        
+//        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-12-[v3]-12-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
+//        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-12-[v3]-12-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
+//        
+//        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-60-[v2]-60-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
+//        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-12-[v2]-12-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
+//        
+//        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v1]-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
+//        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v1(\(view.frame.size.height/3))]-120-|", options: NSLayoutFormatOptions(), metrics: nil, views: views))
+//        
+//        
+       
+//    }
     
     func segmentValueChange(sender: UISegmentedControl) {
         
@@ -180,6 +245,7 @@ class CameraViewController: UIViewController {
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.frame = cameraPreview.bounds
         previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+//        previewLayer.videoGravity = AVLayerVideoGravityResizeAspect
         cameraPreview.layer.addSublayer(previewLayer)
         
         // Attach tap recognizer for focus & exposure
