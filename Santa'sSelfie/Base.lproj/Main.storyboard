@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -92,10 +93,11 @@
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="W6w-Ov-a86">
             <objects>
-                <viewController id="qWq-3s-yIe" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6z-qT-Dhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="qWq-3s-yIe" customClass="SettingsViewController" customModule="Santa_sSelfie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CgD-vc-kXQ"/>
                         <viewControllerLayoutGuide type="bottom" id="jvz-5q-119"/>
@@ -103,12 +105,59 @@
                     <view key="view" contentMode="scaleToFill" id="Ns2-8z-VMZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFf-zT-apR">
+                                <rect key="frame" x="314" y="28" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="qWq-3s-yIe" eventType="touchUpInside" id="mJl-2A-nvQ"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ISG-9S-Jvm">
+                                <rect key="frame" x="0.0" y="111" width="375" height="330"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Aum-An-mDB">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aum-An-mDB" id="a6T-kT-emc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="szE-zp-PWF">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="szE-zp-PWF" id="GGD-Kf-tzJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="K7g-s5-IBi">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K7g-s5-IBi" id="iJH-xz-fV8">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92189106632610263" green="0.92189106632610263" blue="0.92189106632610263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ISG-9S-Jvm" firstAttribute="leading" secondItem="Ns2-8z-VMZ" secondAttribute="leading" id="KNI-Z3-b4G"/>
+                            <constraint firstItem="WFf-zT-apR" firstAttribute="top" secondItem="CgD-vc-kXQ" secondAttribute="bottom" constant="8" id="i65-D7-M8q"/>
+                            <constraint firstItem="WFf-zT-apR" firstAttribute="trailing" secondItem="Ns2-8z-VMZ" secondAttribute="trailingMargin" constant="-8" id="rnk-um-v5B"/>
+                            <constraint firstItem="ISG-9S-Jvm" firstAttribute="top" secondItem="WFf-zT-apR" secondAttribute="bottom" constant="53" id="sWq-XO-Lax"/>
+                            <constraint firstItem="jvz-5q-119" firstAttribute="top" secondItem="ISG-9S-Jvm" secondAttribute="bottom" constant="226" id="u8D-C1-OIT"/>
+                            <constraint firstAttribute="trailing" secondItem="ISG-9S-Jvm" secondAttribute="trailing" id="w7G-bA-Ox1"/>
+                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f6z-qT-Dhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="868"/>
+            <point key="canvasLocation" x="1076" y="867.61619190404804"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="MT6-ME-sXd">
@@ -153,7 +202,31 @@
                     <view key="view" contentMode="scaleToFill" id="agN-fe-g6h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6h-UK-pQw">
+                                <rect key="frame" x="16" y="72" width="70" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Vsd-Bl-WjB"/>
+                                    <constraint firstAttribute="height" constant="40" id="x7O-ap-2xB"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="RestartButton.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83B-9C-ZT5">
+                                <rect key="frame" x="289" y="72" width="70" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="0GH-q4-j1X"/>
+                                    <constraint firstAttribute="height" constant="40" id="nrK-eK-7hK"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="SaveButton.png"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="83B-9C-ZT5" firstAttribute="trailing" secondItem="agN-fe-g6h" secondAttribute="trailingMargin" id="Bfn-DZ-Aki"/>
+                            <constraint firstItem="P6h-UK-pQw" firstAttribute="leading" secondItem="agN-fe-g6h" secondAttribute="leadingMargin" id="dQo-RY-BGY"/>
+                            <constraint firstItem="P6h-UK-pQw" firstAttribute="top" secondItem="Zgo-DA-orQ" secondAttribute="bottom" constant="8" id="jti-F8-4Lw"/>
+                            <constraint firstItem="83B-9C-ZT5" firstAttribute="top" secondItem="Zgo-DA-orQ" secondAttribute="bottom" constant="8" id="vM1-5t-Knj"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KWN-Jn-nc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,5 +254,7 @@
     </scenes>
     <resources>
         <image name="Background_2" width="640" height="1136"/>
+        <image name="RestartButton.png" width="280" height="94"/>
+        <image name="SaveButton.png" width="214" height="94"/>
     </resources>
 </document>
