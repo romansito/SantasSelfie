@@ -76,7 +76,10 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N2k-v5-vbR">
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Menu"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="qWq-3s-yIe" kind="presentation" id="bk7-ac-Xlk"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -88,6 +91,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="W6w-Ov-a86">
+            <objects>
+                <viewController id="qWq-3s-yIe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CgD-vc-kXQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="jvz-5q-119"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ns2-8z-VMZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6z-qT-Dhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="868"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="MT6-ME-sXd">
