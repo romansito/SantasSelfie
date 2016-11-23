@@ -7,42 +7,42 @@
 //
 
 import UIKit
-
+import Photos
 let esposureFilter = "CIExposureAdjust"
 
 class PhotoViewController: UIViewController {
 
     
-    var detailImageView: UIImageView!
+    @IBOutlet weak var detailImageView: UIImageView!
+//    var detailImageView: UIImageView!
     var photoFromCamera: UIImage!
-    var exposureSlider: UISlider!
-    var filterButton: UIButton!
+
     
     
-    func userSlider(sender: UISlider) {
-        print(sender.value)
-        
-        guard let image = detailImageView?.image, let cgimg = image.cgImage else {
-            print("imageView doesn't have an image!")
-            return
-        }
-        
-        let openGLContext = EAGLContext(api: .openGLES2)
-        let context = CIContext(eaglContext: openGLContext!)
-        
-        let coreImage = CIImage(cgImage: cgimg)
-        
-        let filter = CIFilter(name: "CIExposureAdjust")
-        filter?.setValue(coreImage, forKey: kCIInputImageKey)
-        filter?.setValue(sender.value, forKey: "inputEV")
-        
-        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
-            let cgimgresult = context.createCGImage(output, from: output.extent)
-            let result = UIImage(cgImage: cgimgresult!)
-            detailImageView?.image = result
-        }
-        
-    }
+//    func userSlider(sender: UISlider) {
+//        print(sender.value)
+//        
+//        guard let image = detailImageView?.image, let cgimg = image.cgImage else {
+//            print("imageView doesn't have an image!")
+//            return
+//        }
+//        
+//        let openGLContext = EAGLContext(api: .openGLES2)
+//        let context = CIContext(eaglContext: openGLContext!)
+//        
+//        let coreImage = CIImage(cgImage: cgimg)
+//        
+//        let filter = CIFilter(name: "CIExposureAdjust")
+//        filter?.setValue(coreImage, forKey: kCIInputImageKey)
+//        filter?.setValue(sender.value, forKey: "inputEV")
+//        
+//        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
+//            let cgimgresult = context.createCGImage(output, from: output.extent)
+//            let result = UIImage(cgImage: cgimgresult!)
+//            detailImageView?.image = result
+//        }
+//        
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -53,27 +53,33 @@ class PhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
-        setupdetailImageView()
+//        setupdetailImageView()
 //        setupSlider()
         
         detailImageView.image = photoFromCamera
         print(photoFromCamera)
+        addBorderToImage()
         
     }
     
-    func setupdetailImageView() {
-        detailImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height))
-        detailImageView.contentMode = .scaleAspectFill
-        view.addSubview(detailImageView)
+    func addBorderToImage() {
+//        detailImageView = UIImageView()
+        detailImageView.layer.borderColor = UIColor.white.cgColor
+        detailImageView.layer.borderWidth = 3.0
     }
     
-    func setupSlider() {
-        self.exposureSlider = UISlider(frame: CGRect(x: 40, y: self.view.bounds.height - 100, width: 300, height: 40))
-        exposureSlider.addTarget(self, action: #selector(PhotoViewController.userSlider(sender:)), for: .valueChanged)
-        self.view.addSubview(exposureSlider)
-        
-    }
+//    func setupdetailImageView() {
+//        detailImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height))
+//        detailImageView.contentMode = .scaleAspectFill
+//        view.addSubview(detailImageView)
+//    }
+    
+//    func setupSlider() {
+//        self.exposureSlider = UISlider(frame: CGRect(x: 40, y: self.view.bounds.height - 100, width: 300, height: 40))
+//        exposureSlider.addTarget(self, action: #selector(PhotoViewController.userSlider(sender:)), for: .valueChanged)
+//        self.view.addSubview(exposureSlider)
+//        
+//    }
     
 //    func setupButton() {
 //        self.filterButton = UIButton(frame: CGRect(x: 12, y: 20, width: 50, height: 30))
@@ -83,24 +89,37 @@ class PhotoViewController: UIViewController {
 //        view.addSubview(filterButton)
 //    }
     
-    func userTapFilterButton(sender: UIButton) {
-        guard let image = self.detailImageView.image?.cgImage else { return }
+//    func userTapFilterButton(sender: UIButton) {
+//        guard let image = self.detailImageView.image?.cgImage else { return }
+//        
+//        let openGLContext = EAGLContext(api: .openGLES3)
+//        let context = CIContext(eaglContext: openGLContext!)
+//        let ciImage = CIImage(cgImage: image)
+//        
+//        let filter = CIFilter(name: "\(esposureFilter)") // CISepiaTone
+//        //        filter?.setValue(ciImage, forKey: kCIInputImageKey)
+////        filter?.setValue(sender.value, forKey: kCIInputImageKey)
+//        
+//        filter?.setValue(1, forKey: kCIInputIntensityKey) // for CISepiaTone
+//        
+//        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
+//            self.detailImageView?.image = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
+//        }
+//
+//    }
+    
+    @IBAction func restartButtonPressed(_ sender: Any) {
         
-        let openGLContext = EAGLContext(api: .openGLES3)
-        let context = CIContext(eaglContext: openGLContext!)
-        let ciImage = CIImage(cgImage: image)
+        navigationController?.popViewController(animated: true)
         
-        let filter = CIFilter(name: "\(esposureFilter)") // CISepiaTone
-        //        filter?.setValue(ciImage, forKey: kCIInputImageKey)
-//        filter?.setValue(sender.value, forKey: kCIInputImageKey)
-        
-        filter?.setValue(1, forKey: kCIInputIntensityKey) // for CISepiaTone
-        
-        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
-            self.detailImageView?.image = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
-        }
-
     }
+    
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        
+        UIImageWriteToSavedPhotosAlbum(detailImageView.image!, nil, nil, nil)
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

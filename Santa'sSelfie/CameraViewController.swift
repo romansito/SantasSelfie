@@ -81,7 +81,7 @@ class CameraViewController: UIViewController {
         cameraPreview = UIView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height))
         cameraPreview.contentMode = .scaleAspectFill
         
-        imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 3))
+        imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2))
         imageOverlay.image = santaImage
         imageOverlay.contentMode = .scaleAspectFill
         
@@ -273,18 +273,18 @@ class CameraViewController: UIViewController {
 //        return screenShot!
         
         // test
-//        UIGraphicsBeginImageContextWithOptions(image.size, true, 0.0)
-//        UIGraphicsBeginImageContext(image.size)
-//        image.draw(at: CGPoint(x: 0.0, y: 0.0))
-//
-//        // Composite Santas Selfie
-//        let santaSelfie = santaImage
-//        let origin = CGPoint(x: 0.0, y: self.view.frame.size.height / 2)
-//        santaSelfie.draw(at: origin)
-//        
-//        let finalImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        return finalImage!
+        UIGraphicsBeginImageContextWithOptions(image.size, true, 0.0)
+        UIGraphicsBeginImageContext(image.size)
+        image.draw(at: CGPoint(x: 0.0, y: 0.0))
+
+        // Composite Santas Selfie
+        let santaSelfie = santaImage
+        let origin = CGPoint(x: 0.0, y: self.view.frame.size.height / 2)
+        santaSelfie.draw(at: origin)
+        
+        let finalImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return finalImage!
         
 //        // test 
 //        let layer = UIApplication.shared.keyWindow!.layer
@@ -314,15 +314,16 @@ class CameraViewController: UIViewController {
 //        
 //        return image!
         
-        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, 0);
-        
-        self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-        
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        
-        UIGraphicsEndImageContext()
-        
-        return image
+        // this is the good working function
+//        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, 0);
+//        
+//        self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+//        
+//        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        
+//        UIGraphicsEndImageContext()
+//        
+//        return image
     }
     
 

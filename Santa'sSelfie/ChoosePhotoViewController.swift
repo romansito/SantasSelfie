@@ -27,11 +27,19 @@ class ChoosePhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         collectionViewSetup()
-        
         setupDataSource()
+        setupNavigationBar()
     }
 
+    func setupNavigationBar() {
+        view.backgroundColor = .red
+        self.navigationController?.navigationBar.isTranslucent = false
+//        self.navigationController?.navigationBar.barTintColor = UIColo
+        self.navigationController?.navigationBar.tintColor = .white
+    }
+    
     func setupDataSource() {
         for i in 0...5 {
             guard let image = UIImage(named: "\(i)") else { return }
