@@ -34,9 +34,12 @@ class ChoosePhotoViewController: UIViewController {
     }
 
     func setupNavigationBar() {
+        let myGreenColor = UIColor(red: 24/255, green: 96/255, blue: 39/255, alpha: 1.0)
+
         view.backgroundColor = .red
         self.navigationController?.navigationBar.isTranslucent = false
-//        self.navigationController?.navigationBar.barTintColor = UIColo
+        self.navigationController?.navigationBar.barTintColor = myGreenColor
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         self.navigationController?.navigationBar.tintColor = .white
     }
     
