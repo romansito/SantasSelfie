@@ -19,6 +19,7 @@
 		309B3D681DCD4EC000C1FF24 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D671DCD4EC000C1FF24 /* Extensions.swift */; };
 		309B3D6A1DCEB86200C1FF24 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D691DCEB86200C1FF24 /* CameraViewController.swift */; };
 		30E145491DDB8041002177C4 /* CameraHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E145481DDB8041002177C4 /* CameraHelperMethods.swift */; };
+		30E145731DE53C81002177C4 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E145721DE53C7F002177C4 /* Logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		309B3D671DCD4EC000C1FF24 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		309B3D691DCEB86200C1FF24 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		30E145481DDB8041002177C4 /* CameraHelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraHelperMethods.swift; sourceTree = "<group>"; };
+		30E145721DE53C7F002177C4 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				309B3D541DCD414400C1FF24 /* Assets.xcassets */,
+				30E145721DE53C7F002177C4 /* Logo.png */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			files = (
 				309B3D641DCD468A00C1FF24 /* .gitignore in Resources */,
 				309B3D581DCD414400C1FF24 /* LaunchScreen.storyboard in Resources */,
+				30E145731DE53C81002177C4 /* Logo.png in Resources */,
 				309B3D551DCD414400C1FF24 /* Assets.xcassets in Resources */,
 				309B3D531DCD414400C1FF24 /* Main.storyboard in Resources */,
 			);

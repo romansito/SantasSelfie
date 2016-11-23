@@ -40,7 +40,7 @@ class ChoosePhotoViewController: UIViewController {
     }
 
     func collectionViewSetup() {
-        collectionView.backgroundColor = .red
+        collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.collectionViewLayout = CustomCollectionViewFlowLayout()
@@ -55,7 +55,7 @@ extension ChoosePhotoViewController: UICollectionViewDataSource {
         
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: SantaCollectionViewCell.identifier(), for: indexPath) as! SantaCollectionViewCell
         cell.santaImage = santasSelfies[indexPath.row]
-        cell.backgroundColor = .white
+        cell.backgroundColor = .red
         
         return cell
     }
