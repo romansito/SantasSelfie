@@ -118,15 +118,15 @@ class CameraViewController: UIViewController {
         
         switch sender.selectedSegmentIndex {
         case 0:
-            filter?.setValue(0.0, forKey: "inputEV")
+            filter?.setValue(-0.6, forKey: "inputEV")
         case 1:
-            filter?.setValue(0.2, forKey: "inputEV")
+            filter?.setValue(-0.3, forKey: "inputEV")
         case 2:
-            filter?.setValue(0.4, forKey: "inputEV")
+            filter?.setValue(0.0, forKey: "inputEV")
         case 3:
-            filter?.setValue(0.6, forKey: "inputEV")
+            filter?.setValue(0.3, forKey: "inputEV")
         case 4:
-            filter?.setValue(0.8, forKey: "inputEV")
+            filter?.setValue(0.6, forKey: "inputEV")
         default:
             print("Purple")
         }
@@ -237,6 +237,8 @@ class CameraViewController: UIViewController {
                 if sampleBuffer != nil {
                     let imageData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer!, previewPhotoSampleBuffer: nil)
                     let santaImage = UIImage(data: imageData!)
+                    print("\(imageData)")
+//                    let snapShot = self.view.snapshotView(afterScreenUpdates: true)
                     let santaBomb = self.santaScreenShot(image: santaImage!)
 //                    self.savePhotoToLibrary(santaBomb)
                     self.santasSelfie = santaBomb
@@ -272,14 +274,14 @@ class CameraViewController: UIViewController {
 //        UIGraphicsEndImageContext();
 //        return screenShot!
         
-        // test
+//        // test
         UIGraphicsBeginImageContextWithOptions(image.size, true, 0.0)
         UIGraphicsBeginImageContext(image.size)
         image.draw(at: CGPoint(x: 0.0, y: 0.0))
 
         // Composite Santas Selfie
         let santaSelfie = santaImage
-        let origin = CGPoint(x: 0.0, y: self.view.frame.size.height / 2)
+        let origin = CGPoint(x: 0.0, y: self.view.frame.size.height)
         santaSelfie.draw(at: origin)
         
         let finalImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -315,7 +317,7 @@ class CameraViewController: UIViewController {
 //        return image!
         
         // this is the good working function
-//        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, 0);
+//        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, true, 0)
 //        
 //        self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
 //        
