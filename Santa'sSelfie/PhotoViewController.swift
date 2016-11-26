@@ -16,6 +16,9 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var detailImageView: UIImageView!
 //    var detailImageView: UIImageView!
     var photoFromCamera: UIImage!
+    
+    var imageOverlay = UIImageView()
+    var santaImage = UIImage()
 
     
     
@@ -47,7 +50,7 @@ class PhotoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 //        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.isHidden = true
+//        self.navigationController?.navigationBar.isHidden = true
         
     }
     
@@ -57,8 +60,12 @@ class PhotoViewController: UIViewController {
 //        setupSlider()
         
         detailImageView.image = photoFromCamera
+        imageOverlay.image = santaImage
+        
+        
+        setupImageOverlay()
         print(photoFromCamera)
-        addBorderToImage()
+//        addBorderToImage()
         
     }
     
@@ -66,6 +73,13 @@ class PhotoViewController: UIViewController {
 //        detailImageView = UIImageView()
         detailImageView.layer.borderColor = UIColor.white.cgColor
         detailImageView.layer.borderWidth = 3.0
+    }
+    
+    func setupImageOverlay() {
+        imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2))
+        imageOverlay.image = santaImage
+        imageOverlay.contentMode = .scaleAspectFill
+        view.addSubview(imageOverlay)
     }
     
 //    func setupdetailImageView() {

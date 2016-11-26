@@ -194,50 +194,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_2" translatesAutoresizingMaskIntoConstraints="NO" id="Ppc-Kx-Amf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KYI-v5-c61">
-                                <rect key="frame" x="53" y="76" width="269" height="435"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6h-UK-pQw">
-                                <rect key="frame" x="16" y="585" width="140" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="Vsd-Bl-WjB"/>
-                                    <constraint firstAttribute="height" constant="60" id="x7O-ap-2xB"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="RestartButton.png"/>
-                                <connections>
-                                    <action selector="restartButtonPressed:" destination="nrf-H4-ME1" eventType="touchUpInside" id="Xcc-fa-o9y"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83B-9C-ZT5">
-                                <rect key="frame" x="219" y="585" width="140" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="0GH-q4-j1X"/>
-                                    <constraint firstAttribute="height" constant="60" id="nrK-eK-7hK"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="SaveButton.png" backgroundImage="SaveButton.png"/>
-                                <connections>
-                                    <action selector="saveButtonPressed:" destination="nrf-H4-ME1" eventType="touchUpInside" id="PF9-2A-nQJ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.094117647058823528" green="0.37647058823529411" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="83B-9C-ZT5" secondAttribute="trailing" id="7z9-Ea-6VO"/>
-                            <constraint firstItem="PqQ-E0-uVY" firstAttribute="top" secondItem="83B-9C-ZT5" secondAttribute="bottom" constant="22" id="8CP-He-4cz"/>
-                            <constraint firstAttribute="trailing" secondItem="KYI-v5-c61" secondAttribute="trailing" constant="53" id="9Hz-Tk-mGk"/>
-                            <constraint firstItem="KYI-v5-c61" firstAttribute="top" secondItem="Zgo-DA-orQ" secondAttribute="bottom" constant="12" id="DNk-f5-fOI"/>
-                            <constraint firstItem="PqQ-E0-uVY" firstAttribute="top" secondItem="KYI-v5-c61" secondAttribute="bottom" constant="156" id="JCg-V6-Ynr"/>
-                            <constraint firstAttribute="trailing" secondItem="Ppc-Kx-Amf" secondAttribute="trailing" id="JVp-xG-3vS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="83B-9C-ZT5" secondAttribute="trailing" id="Ouf-V7-L4V"/>
-                            <constraint firstItem="KYI-v5-c61" firstAttribute="leading" secondItem="agN-fe-g6h" secondAttribute="leading" constant="53" id="apI-xA-Pve"/>
-                            <constraint firstItem="Ppc-Kx-Amf" firstAttribute="leading" secondItem="agN-fe-g6h" secondAttribute="leading" id="i24-P6-eqY"/>
-                            <constraint firstItem="Ppc-Kx-Amf" firstAttribute="top" secondItem="agN-fe-g6h" secondAttribute="top" id="jdm-R1-qps"/>
-                            <constraint firstItem="PqQ-E0-uVY" firstAttribute="top" secondItem="Ppc-Kx-Amf" secondAttribute="bottom" id="jxh-DK-EV4"/>
-                            <constraint firstItem="P6h-UK-pQw" firstAttribute="leading" secondItem="agN-fe-g6h" secondAttribute="leadingMargin" id="kx3-wr-iav"/>
-                            <constraint firstItem="PqQ-E0-uVY" firstAttribute="top" secondItem="P6h-UK-pQw" secondAttribute="bottom" constant="22" id="vVg-0f-Pk1"/>
+                            <constraint firstAttribute="trailing" secondItem="KYI-v5-c61" secondAttribute="trailing" id="9Hz-Tk-mGk"/>
+                            <constraint firstItem="KYI-v5-c61" firstAttribute="top" secondItem="Zgo-DA-orQ" secondAttribute="bottom" id="DNk-f5-fOI"/>
+                            <constraint firstItem="PqQ-E0-uVY" firstAttribute="top" secondItem="KYI-v5-c61" secondAttribute="bottom" id="JCg-V6-Ynr"/>
+                            <constraint firstItem="KYI-v5-c61" firstAttribute="leading" secondItem="agN-fe-g6h" secondAttribute="leading" id="apI-xA-Pve"/>
                         </constraints>
                     </view>
                     <connections>
@@ -269,7 +235,5 @@
     </scenes>
     <resources>
         <image name="Background_2" width="640" height="1136"/>
-        <image name="RestartButton.png" width="280" height="94"/>
-        <image name="SaveButton.png" width="214" height="94"/>
     </resources>
 </document>

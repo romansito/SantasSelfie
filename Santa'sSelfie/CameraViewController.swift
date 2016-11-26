@@ -22,11 +22,9 @@ class CameraViewController: UIViewController {
     var shutterButton: UIButton!
     var imageOverlay = UIImageView()
     var santaImage = UIImage()
+    
     var santasSelfie = UIImage()
-    
-    var exposureSlider: UISlider!
-    var exposureSegmentController: UISegmentedControl!
-    
+
     let captureSession = AVCaptureSession()
     let imageOutput = AVCaptureStillImageOutput()
     
@@ -41,7 +39,6 @@ class CameraViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         shutterButton.isHidden = false
-        exposureSegmentController.isHidden = false
     }
     
     override func viewDidLoad() {
@@ -62,19 +59,8 @@ class CameraViewController: UIViewController {
     }
 
     func shutterButtonPressed() {
-        
-        shutterButton.isHidden = true
-        exposureSegmentController.isHidden = true
-        
         takePhoto()
     }
-//    @IBAction func shutterButton(_ sender: Any) {
-//        takePhoto()
-//    }
-//    
-//    @IBAction func exposureSegmentedControl(_ sender: Any) {
-//    }
-    
     
     // MARK: - Setup session and preview
     func setupCamPreview() {
@@ -89,79 +75,9 @@ class CameraViewController: UIViewController {
         shutterButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
         shutterButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
         
-        let items = ["1", "2", "3", "4", "5"]
-        exposureSegmentController = UISegmentedControl(items: items)
-        exposureSegmentController.frame = CGRect(x: 40, y: 100, width: 300, height: 40)
-//        exposureSegmentController.selectedSegmentIndex = 0
-        exposureSegmentController.addTarget(self, action: #selector(CameraViewController.segmentValueChange(sender:)), for: .valueChanged)
-
         view.addSubview(cameraPreview)
         view.addSubview(imageOverlay)
         view.addSubview(shutterButton)
-        view.addSubview(exposureSegmentController)
-
-    }
-    
-    func segmentValueChange(sender: UISegmentedControl) {
-        
-        guard let image = imageOverlay.image, let cgimg = image.cgImage else {
-            print("imageView doesn't have an image!")
-            return
-        }
-        
-        let openGLContext = EAGLContext(api: .openGLES2)
-        let context = CIContext(eaglContext: openGLContext!)
-        let coreImage = CIImage(cgImage: cgimg)
-        
-        let filter = CIFilter(name: "CIExposureAdjust")
-        filter?.setValue(coreImage, forKey: kCIInputImageKey)
-        
-        switch sender.selectedSegmentIndex {
-        case 0:
-            filter?.setValue(-0.6, forKey: "inputEV")
-        case 1:
-            filter?.setValue(-0.3, forKey: "inputEV")
-        case 2:
-            filter?.setValue(0.0, forKey: "inputEV")
-        case 3:
-            filter?.setValue(0.3, forKey: "inputEV")
-        case 4:
-            filter?.setValue(0.6, forKey: "inputEV")
-        default:
-            print("Purple")
-        }
-        
-        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
-            let cgimgresult = context.createCGImage(output, from: output.extent)
-            let result = UIImage(cgImage: cgimgresult!)
-            imageOverlay.image = result
-        }
-        
-    }
-    
-    func userSlider(sender: UISlider) {
-        print(sender.value)
-        
-        guard let image = imageOverlay.image, let cgimg = image.cgImage else {
-            print("imageView doesn't have an image!")
-            return
-        }
-        
-        let openGLContext = EAGLContext(api: .openGLES2)
-        let context = CIContext(eaglContext: openGLContext!)
-        
-        let coreImage = CIImage(cgImage: cgimg)
-        
-        let filter = CIFilter(name: "CIExposureAdjust")
-        filter?.setValue(coreImage, forKey: kCIInputImageKey)
-        filter?.setValue(sender.value, forKey: "inputEV")
-        
-        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
-            let cgimgresult = context.createCGImage(output, from: output.extent)
-            let result = UIImage(cgImage: cgimgresult!)
-            imageOverlay.image = result
-        }
-        
     }
     
     func setupSession() {
@@ -239,9 +155,9 @@ class CameraViewController: UIViewController {
                     let santaImage = UIImage(data: imageData!)
                     print("\(imageData)")
 //                    let snapShot = self.view.snapshotView(afterScreenUpdates: true)
-                    let santaBomb = self.santaScreenShot(image: santaImage!)
+//                    let santaBomb = self.santaScreenShot(image: santaImage!)
 //                    self.savePhotoToLibrary(santaBomb)
-                    self.santasSelfie = santaBomb
+                    self.santasSelfie = santaImage!
             
                     self.performSegue(withIdentifier: "toPhotoDetailSegue", sender: nil)
                 } else {
@@ -418,6 +334,7 @@ class CameraViewController: UIViewController {
         if segue.identifier == "toPhotoDetailSegue" {
             if let newVC = segue.destination as? PhotoViewController {
                 newVC.photoFromCamera = santasSelfie
+                newVC.santaImage = santaImage
             }
         }
     }
