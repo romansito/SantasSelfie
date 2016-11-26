@@ -40,11 +40,13 @@ class ChoosePhotoViewController: UIViewController {
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         
+        print("NUMBER OF SELFIES")
+        print(santasSelfies.count)
+        
     }
 
     func setupNavigationBar() {
         let myGreenColor = UIColor(red: 24/255, green: 96/255, blue: 39/255, alpha: 1.0)
-
         view.backgroundColor = .red
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = myGreenColor
@@ -53,7 +55,8 @@ class ChoosePhotoViewController: UIViewController {
     }
     
     func setupDataSource() {
-        for i in 0...5 {
+        
+        for i in 1...4 {
             guard let image = UIImage(named: "\(i)") else { return }
             self.santasSelfies.append(image)
         } 
