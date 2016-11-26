@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3021A4BC1DD1250F003E035D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021A4BB1DD1250F003E035D /* PhotoViewController.swift */; };
+		30220C7D1DE90C68006AF59A /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30220C7C1DE90C68006AF59A /* GoogleMobileAds.framework */; };
 		309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */; };
 		309B3D531DCD414400C1FF24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309B3D511DCD414400C1FF24 /* Main.storyboard */; };
 		309B3D551DCD414400C1FF24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309B3D541DCD414400C1FF24 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		3021A4BB1DD1250F003E035D /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		30220C7C1DE90C68006AF59A /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		309B3D4A1DCD414400C1FF24 /* Santa'sSelfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santa'sSelfie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		309B3D521DCD414400C1FF24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30220C7D1DE90C68006AF59A /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +119,14 @@
 			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		30220C7B1DE90C22006AF59A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30220C7C1DE90C68006AF59A /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3088C5721DD16C24005B5940 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				309B3D4C1DCD414400C1FF24 /* Santa'sSelfie */,
-				309B3D4B1DCD414400C1FF24 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +147,7 @@
 				309B3D4A1DCD414400C1FF24 /* Santa'sSelfie.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		309B3D4C1DCD414400C1FF24 /* Santa'sSelfie */ = {
@@ -145,8 +156,10 @@
 				3021A4C01DD127D5003E035D /* App */,
 				3021A4BE1DD127C5003E035D /* Controller */,
 				3021A4C11DD127DF003E035D /* Extensions */,
+				30220C7B1DE90C22006AF59A /* Frameworks */,
 				3021A4BD1DD127BE003E035D /* Modal */,
 				3088C5721DD16C24005B5940 /* Pictures */,
+				309B3D4B1DCD414400C1FF24 /* Products */,
 				3021A4C21DD127E6003E035D /* SupportingFiles */,
 				3021A4BF1DD127CF003E035D /* View */,
 			);
@@ -362,6 +375,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9KY7XN9N45;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Santa\\'sSelfie",
+				);
 				INFOPLIST_FILE = "Santa'sSelfie/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.romansalazar.Santa-sSelfie";
@@ -375,6 +392,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9KY7XN9N45;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Santa\\'sSelfie",
+				);
 				INFOPLIST_FILE = "Santa'sSelfie/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.romansalazar.Santa-sSelfie";
