@@ -9,7 +9,15 @@
 import UIKit
 import GoogleMobileAds
 
+
+protocol ChoosePhotoViewControllerIndexPathSelectedDelegate: class {
+    func numberOfIndexPathSelected(indexSelected: Int)
+}
+
 class ChoosePhotoViewController: UIViewController {
+    
+    weak var delegate : ChoosePhotoViewControllerIndexPathSelectedDelegate?
+    var photoVC = PhotoViewController()
 
     @IBOutlet weak var collectionView: UICollectionView!
     var cell: SantaCollectionViewCell!
@@ -32,7 +40,9 @@ class ChoosePhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+//        photoVC.delegate = self
+        
         collectionViewSetup()
         setupDataSource()
         setupNavigationBar()
@@ -74,7 +84,7 @@ class ChoosePhotoViewController: UIViewController {
 }
 
 
-extension ChoosePhotoViewController: UICollectionViewDataSource {
+extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -85,37 +95,32 @@ extension ChoosePhotoViewController: UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        guard let delegate = self.delegate else { return }
+//        let selectedIndex = indexPath.row
+//        delegate?.numberOfIndexPathSelected(indexSelected: selectedIndex)
+        performSegue(withIdentifier: "segueToCameraVC", sender: nil)
+        selectedRow = indexPath.row
+//        delegate?.numberOfIndexPathSelected(indexSelected: selectedIndex)
+        print(selectedRow)
+
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return santasSelfies.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        selectedRow = indexPath.row
-        print(selectedRow)
-    }
-    
-}
 
-extension ChoosePhotoViewController: UICollectionViewDelegate {
-    
-
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            performSegue(withIdentifier: "segueToCameraVC", sender: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "segueToCameraVC" {
-    
+            
             let indexPaths = self.collectionView.indexPathsForSelectedItems!
             let indexPath = indexPaths[0] as NSIndexPath
             
             let nextVC = segue.destination as! CameraViewController
-            print(self.santasSelfies[indexPath.row])
             nextVC.santaImage = self.santasSelfies[indexPath.row]
-
         }
     }
     
 }
+

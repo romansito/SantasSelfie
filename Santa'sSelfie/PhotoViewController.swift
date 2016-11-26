@@ -10,9 +10,9 @@ import UIKit
 import Photos
 let esposureFilter = "CIExposureAdjust"
 
-class PhotoViewController: UIViewController {
+class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathSelectedDelegate  {
 
-    var chooseVC = ChoosePhotoViewController()
+    var chooseVC : ChoosePhotoViewController!
     
     @IBOutlet weak var detailImageView: UIImageView!
     var photoFromCamera: UIImage!
@@ -23,6 +23,9 @@ class PhotoViewController: UIViewController {
     
     var scrollView: UIScrollView!
     var pageControl: UIPageControl!
+    
+    var numberOfCell = Int()
+    var santasArray = [UIImage]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -42,10 +45,26 @@ class PhotoViewController: UIViewController {
         configurePageControl()
         imageOverlay.image = santaImage
         
-        print(photoFromCamera)
-        setupDataSource()
+//        print(photoFromCamera)
+//        setupDataSource()
 //        addBorderToImage()
         
+        chooseVC = ChoosePhotoViewController()
+        numberOfCell = chooseVC.selectedRow
+        print(numberOfCell)
+        
+        santasArray = [#imageLiteral(resourceName: "1DD.png"), #imageLiteral(resourceName: "1D.png"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "1B.png"), #imageLiteral(resourceName: "1BB.png")]
+//        santasArray = ["1DD", "1D", "1", "1B", "1BB"]
+        
+        for i in 0..<santasArray.count  {
+            let imageView = UIImageView()
+            imageView.image = santasArray[i]
+            let xPosition = self.view.frame.width * CGFloat(i)
+            imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
+            
+            scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
+            scrollView.addSubview(imageView)
+        }
     }
     
     func setupDataSource() {
@@ -100,45 +119,12 @@ class PhotoViewController: UIViewController {
         view.addSubview(imageOverlay)
     }
     
-//    func setupdetailImageView() {
-//        detailImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height))
-//        detailImageView.contentMode = .scaleAspectFill
-//        view.addSubview(detailImageView)
-//    }
-    
-//    func setupSlider() {
-//        self.exposureSlider = UISlider(frame: CGRect(x: 40, y: self.view.bounds.height - 100, width: 300, height: 40))
-//        exposureSlider.addTarget(self, action: #selector(PhotoViewController.userSlider(sender:)), for: .valueChanged)
-//        self.view.addSubview(exposureSlider)
-//        
-//    }
-    
-//    func setupButton() {
-//        self.filterButton = UIButton(frame: CGRect(x: 12, y: 20, width: 50, height: 30))
-//        filterButton.backgroundColor = .white
-//        filterButton.setTitle("Filter", for: .selected)
-//        filterButton.addTarget(self, action: #selector(PhotoViewController.userTapFilterButton(sender:)), for: .touchUpInside)
-//        view.addSubview(filterButton)
-//    }
-    
-//    func userTapFilterButton(sender: UIButton) {
-//        guard let image = self.detailImageView.image?.cgImage else { return }
-//        
-//        let openGLContext = EAGLContext(api: .openGLES3)
-//        let context = CIContext(eaglContext: openGLContext!)
-//        let ciImage = CIImage(cgImage: image)
-//        
-//        let filter = CIFilter(name: "\(esposureFilter)") // CISepiaTone
-//        //        filter?.setValue(ciImage, forKey: kCIInputImageKey)
-////        filter?.setValue(sender.value, forKey: kCIInputImageKey)
-//        
-//        filter?.setValue(1, forKey: kCIInputIntensityKey) // for CISepiaTone
-//        
-//        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
-//            self.detailImageView?.image = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
-//        }
-//
-//    }
+    func numberOfIndexPathSelected(indexSelected: Int) {
+        numberOfCell = indexSelected
+        print("ChooseVC index selected")
+        print(numberOfCell)
+    }
+
     
     @IBAction func restartButtonPressed(_ sender: Any) {
         
@@ -172,7 +158,6 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
-        
         
         return cell
     }
