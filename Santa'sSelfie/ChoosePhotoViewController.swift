@@ -21,6 +21,9 @@ class ChoosePhotoViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var bannerView: GADBannerView!
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.isHidden = false
@@ -32,6 +35,11 @@ class ChoosePhotoViewController: UIViewController {
         collectionViewSetup()
         setupDataSource()
         setupNavigationBar()
+
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        
     }
 
     func setupNavigationBar() {

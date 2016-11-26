@@ -93,9 +93,9 @@
 		3021A4C01DD127D5003E035D /* App */ = {
 			isa = PBXGroup;
 			children = (
-				309B3D631DCD468A00C1FF24 /* .gitignore */,
-				309B3D591DCD414400C1FF24 /* Info.plist */,
 				309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */,
+				309B3D591DCD414400C1FF24 /* Info.plist */,
+				309B3D631DCD468A00C1FF24 /* .gitignore */,
 			);
 			name = App;
 			sourceTree = "<group>";

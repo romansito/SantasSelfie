@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rSp-wE-JyL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qk1-xX-DZi">
                                     <size key="itemSize" width="126" height="125"/>
@@ -56,20 +56,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vkY-AV-VxF">
-                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYj-vi-Qct" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.72336632010000002" green="0.0" blue="0.033833895359999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="TfT-KR-YWd"/>
+                                    <constraint firstAttribute="height" constant="50" id="yog-3V-HDW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="rSp-wE-JyL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8sY-Ua-y5x"/>
-                            <constraint firstAttribute="trailing" secondItem="vkY-AV-VxF" secondAttribute="trailing" id="9iK-3A-4gM"/>
-                            <constraint firstItem="vkY-AV-VxF" firstAttribute="top" secondItem="rSp-wE-JyL" secondAttribute="bottom" id="DPP-Gx-87W"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vkY-AV-VxF" secondAttribute="bottom" id="IgW-Yr-9dy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YYj-vi-Qct" secondAttribute="bottom" id="UsJ-NZ-UmY"/>
                             <constraint firstItem="rSp-wE-JyL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="aMB-Vh-L3P"/>
+                            <constraint firstItem="YYj-vi-Qct" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cqP-zX-cUu"/>
                             <constraint firstAttribute="trailing" secondItem="rSp-wE-JyL" secondAttribute="trailing" id="eg7-l5-rHN"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rSp-wE-JyL" secondAttribute="bottom" constant="60" id="mUk-YN-1Pa"/>
-                            <constraint firstItem="vkY-AV-VxF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xis-qU-Tlk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rSp-wE-JyL" secondAttribute="bottom" id="mUk-YN-1Pa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Choose" id="aOw-y4-rwk">
@@ -85,6 +88,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bannerView" destination="YYj-vi-Qct" id="XGr-dd-hPb"/>
                         <outlet property="collectionView" destination="rSp-wE-JyL" id="c80-Iz-7tX"/>
                         <segue destination="hTU-kk-5OK" kind="show" identifier="segueToCameraVC" id="drH-ZI-iOK"/>
                     </connections>
@@ -96,7 +100,6 @@
         <!--Settings View Controller-->
         <scene sceneID="W6w-Ov-a86">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f6z-qT-Dhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="qWq-3s-yIe" customClass="SettingsViewController" customModule="Santa_sSelfie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CgD-vc-kXQ"/>
@@ -121,7 +124,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aum-An-mDB" id="a6T-kT-emc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -143,6 +146,7 @@
                         <outlet property="tableView" destination="ISG-9S-Jvm" id="NY0-qD-AQl"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f6z-qT-Dhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="867.61619190404804"/>
         </scene>
