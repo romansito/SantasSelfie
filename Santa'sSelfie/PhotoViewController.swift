@@ -12,40 +12,17 @@ let esposureFilter = "CIExposureAdjust"
 
 class PhotoViewController: UIViewController {
 
+    var chooseVC = ChoosePhotoViewController()
     
     @IBOutlet weak var detailImageView: UIImageView!
-//    var detailImageView: UIImageView!
     var photoFromCamera: UIImage!
-    
+
+    var collectionView : UICollectionView!
     var imageOverlay = UIImageView()
     var santaImage = UIImage()
-
     
-    
-//    func userSlider(sender: UISlider) {
-//        print(sender.value)
-//        
-//        guard let image = detailImageView?.image, let cgimg = image.cgImage else {
-//            print("imageView doesn't have an image!")
-//            return
-//        }
-//        
-//        let openGLContext = EAGLContext(api: .openGLES2)
-//        let context = CIContext(eaglContext: openGLContext!)
-//        
-//        let coreImage = CIImage(cgImage: cgimg)
-//        
-//        let filter = CIFilter(name: "CIExposureAdjust")
-//        filter?.setValue(coreImage, forKey: kCIInputImageKey)
-//        filter?.setValue(sender.value, forKey: "inputEV")
-//        
-//        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage {
-//            let cgimgresult = context.createCGImage(output, from: output.extent)
-//            let result = UIImage(cgImage: cgimgresult!)
-//            detailImageView?.image = result
-//        }
-//        
-//    }
+    var scrollView: UIScrollView!
+    var pageControl: UIPageControl!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -58,15 +35,56 @@ class PhotoViewController: UIViewController {
         super.viewDidLoad()
 //        setupdetailImageView()
 //        setupSlider()
-        
         detailImageView.image = photoFromCamera
+//        setupCollectionView()
+//        setupImageOverlay()
+        setupScrollView()
+        configurePageControl()
         imageOverlay.image = santaImage
         
-        
-        setupImageOverlay()
         print(photoFromCamera)
+        setupDataSource()
 //        addBorderToImage()
         
+    }
+    
+    func setupDataSource() {
+        let collectionView = chooseVC.selectedRow
+        print(collectionView)
+    }
+    
+    func setupCollectionView() {
+        let frame = CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2)
+        let layout = UICollectionViewFlowLayout()
+        collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
+        collectionView.backgroundColor = .blue
+        collectionView.isPagingEnabled = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        layout.scrollDirection = .horizontal
+        
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
+        view.addSubview(collectionView)
+    }
+    
+    func setupScrollView() {
+        let frame = CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2)
+        scrollView = UIScrollView(frame: frame)
+        scrollView.backgroundColor = .yellow
+        scrollView.delegate = self
+        scrollView.isPagingEnabled = true
+        
+        view.addSubview(scrollView)
+    }
+    
+    func configurePageControl() {
+        pageControl = UIPageControl(frame: CGRect(x: view.center.x - 100, y: view.frame.size.height - 50, width: 200, height: 50))
+        pageControl.numberOfPages = 5
+        pageControl.currentPage = 2
+        pageControl.tintColor = UIColor.red
+        pageControl.pageIndicatorTintColor = UIColor.black
+        pageControl.currentPageIndicatorTintColor = UIColor.green
+        view.addSubview(pageControl)
     }
     
     func addBorderToImage() {
@@ -140,5 +158,28 @@ class PhotoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
+
+extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
+        
+        
+        return cell
+    }
+    
+}
+
+
+
+
+

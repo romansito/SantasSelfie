@@ -13,6 +13,7 @@ class ChoosePhotoViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var cell: SantaCollectionViewCell!
+    var selectedRow = 0
         
     var santasSelfies = [UIImage]()
         {
@@ -63,7 +64,8 @@ class ChoosePhotoViewController: UIViewController {
     }
 
     func collectionViewSetup() {
-        collectionView.backgroundColor = .white
+        //        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor.init(white: 1.0, alpha: 0.0)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.collectionViewLayout = CustomCollectionViewFlowLayout()
@@ -87,9 +89,16 @@ extension ChoosePhotoViewController: UICollectionViewDataSource {
         return santasSelfies.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        selectedRow = indexPath.row
+        print(selectedRow)
+    }
+    
 }
 
 extension ChoosePhotoViewController: UICollectionViewDelegate {
+    
+
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             performSegue(withIdentifier: "segueToCameraVC", sender: nil)
