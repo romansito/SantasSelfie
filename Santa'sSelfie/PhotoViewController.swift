@@ -54,7 +54,6 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         print(numberOfCell)
         
         santasArray = [#imageLiteral(resourceName: "1DD.png"), #imageLiteral(resourceName: "1D.png"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "1B.png"), #imageLiteral(resourceName: "1BB.png")]
-//        santasArray = ["1DD", "1D", "1", "1B", "1BB"]
         
         for i in 0..<santasArray.count  {
             let imageView = UIImageView()
