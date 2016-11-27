@@ -62,6 +62,7 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
             let xPosition = self.view.frame.width * CGFloat(i)
             imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
             
+            imageView.contentMode = .scaleAspectFill
             scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
             scrollView.addSubview(imageView)
         }
@@ -87,11 +88,12 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
     }
     
     func setupScrollView() {
-        let frame = CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2)
+        let frame = CGRect(x: 0.0, y: view.bounds.height / 2 - 100, width: view.bounds.width, height: view.bounds.height / 2 + 100)
         scrollView = UIScrollView(frame: frame)
-        scrollView.backgroundColor = .yellow
+        scrollView.backgroundColor = .clear
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
         
         view.addSubview(scrollView)
     }
@@ -132,12 +134,29 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         
     }
     
-    @IBAction func saveButtonPressed(_ sender: Any) {
+    
+    @IBAction func savePressed(_ sender: Any) {
         
-        UIImageWriteToSavedPhotosAlbum(detailImageView.image!, nil, nil, nil)
+        let photoTaken = santaImage
+        let finalImage = santaScreenShot(image: photoTaken)
+        UIImageWriteToSavedPhotosAlbum(finalImage, nil, nil, nil)
         
     }
     
+    func santaScreenShot(image: UIImage) -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, true, 0)
+
+        self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+
+        UIGraphicsEndImageContext()
+        
+        return image
+        
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

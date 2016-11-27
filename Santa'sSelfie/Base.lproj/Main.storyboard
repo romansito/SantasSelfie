@@ -197,13 +197,41 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KYI-v5-c61">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUp-cr-hj0">
+                                <rect key="frame" x="166" y="96" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3K4-oh-EZz"/>
+                                    <constraint firstAttribute="width" constant="42" id="kJR-ws-gf2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvu-rl-Ukn">
+                                <rect key="frame" x="304" y="92" width="55" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4Eh-5v-DhI"/>
+                                    <constraint firstAttribute="width" constant="55" id="Ol2-o8-OeU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="savePressed:" destination="nrf-H4-ME1" eventType="touchUpInside" id="mxQ-ub-j9C"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.094117647058823528" green="0.37647058823529411" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="KYI-v5-c61" secondAttribute="trailing" id="9Hz-Tk-mGk"/>
                             <constraint firstItem="KYI-v5-c61" firstAttribute="top" secondItem="Zgo-DA-orQ" secondAttribute="bottom" id="DNk-f5-fOI"/>
                             <constraint firstItem="PqQ-E0-uVY" firstAttribute="top" secondItem="KYI-v5-c61" secondAttribute="bottom" id="JCg-V6-Ynr"/>
+                            <constraint firstItem="Rvu-rl-Ukn" firstAttribute="trailing" secondItem="agN-fe-g6h" secondAttribute="trailingMargin" id="Mfh-ea-5RN"/>
                             <constraint firstItem="KYI-v5-c61" firstAttribute="leading" secondItem="agN-fe-g6h" secondAttribute="leading" id="apI-xA-Pve"/>
+                            <constraint firstItem="KUp-cr-hj0" firstAttribute="leading" secondItem="agN-fe-g6h" secondAttribute="leadingMargin" constant="150" id="hWg-7b-aic"/>
+                            <constraint firstItem="KUp-cr-hj0" firstAttribute="top" secondItem="Zgo-DA-orQ" secondAttribute="bottom" constant="32" id="u9c-DD-KKq"/>
+                            <constraint firstItem="Rvu-rl-Ukn" firstAttribute="top" secondItem="Zgo-DA-orQ" secondAttribute="bottom" constant="28" id="yL9-BH-6M4"/>
                         </constraints>
                     </view>
                     <connections>
