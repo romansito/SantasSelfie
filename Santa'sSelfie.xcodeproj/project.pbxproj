@@ -60,6 +60,7 @@
 		300275F41DEB96FF001FE78C /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
 		300275F51DEB96FF001FE78C /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		300275F61DEB96FF001FE78C /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		300275FD1DEB9D6F001FE78C /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		3021A4BB1DD1250F003E035D /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		30220C7C1DE90C68006AF59A /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		306394071DE92DAA004F9EF3 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -183,6 +184,7 @@
 		30220C7B1DE90C22006AF59A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				300275FD1DEB9D6F001FE78C /* Firebase.h */,
 				300275F11DEB96FF001FE78C /* FirebaseAnalytics.framework */,
 				300275F21DEB96FF001FE78C /* FirebaseCore.framework */,
 				300275F31DEB96FF001FE78C /* FirebaseInstanceID.framework */,
