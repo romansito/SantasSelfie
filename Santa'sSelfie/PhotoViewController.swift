@@ -98,20 +98,27 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         view.addSubview(scrollView)
     }
     
+    // MARK : Configure page control!
     func configurePageControl() {
         pageControl = UIPageControl(frame: CGRect(x: view.center.x - 100, y: view.frame.size.height - 50, width: 200, height: 50))
         pageControl.numberOfPages = 5
-        pageControl.currentPage = 2
+        pageControl.currentPage = 0
         pageControl.tintColor = UIColor.red
-        pageControl.pageIndicatorTintColor = UIColor.black
-        pageControl.currentPageIndicatorTintColor = UIColor.green
+        pageControl.pageIndicatorTintColor = UIColor.green
+        pageControl.currentPageIndicatorTintColor = UIColor.white
+        pageControl.addTarget(self, action: Selector(("changePage:")), for: .valueChanged)
         view.addSubview(pageControl)
     }
     
-    func addBorderToImage() {
-//        detailImageView = UIImageView()
-        detailImageView.layer.borderColor = UIColor.white.cgColor
-        detailImageView.layer.borderWidth = 3.0
+    func changePage(sender: AnyObject) -> () {
+        let x = CGFloat(pageControl.currentPage) * scrollView.frame.size.width
+        scrollView.setContentOffset(CGPoint(x: x,y :0), animated: true)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+        pageControl.currentPage = Int(pageNumber)
     }
     
     func setupImageOverlay() {
@@ -146,11 +153,8 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
     func santaScreenShot(image: UIImage) -> UIImage {
         
         UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, true, 0)
-
         self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-
         UIGraphicsEndImageContext()
         
         return image
