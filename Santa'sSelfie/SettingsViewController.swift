@@ -11,15 +11,17 @@ import GoogleMobileAds
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var greenBG: UIView!
     
     let cellsArray = ["Contact Us"]
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
+        setupView()
         
         bannerView.adUnitID = "ca-app-pub-3020802165335227/6308842392"
         bannerView.rootViewController = self
@@ -27,14 +29,20 @@ class SettingsViewController: UIViewController {
 
     }
     
-    func setupTableView() {
+    func setupView() {
+        let myGreenColor = UIColor(red: 10/255, green: 122/255, blue: 60/255, alpha: 1.0)
+        navBar.barTintColor = myGreenColor
+        greenBG.backgroundColor = myGreenColor
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
 
-    @IBAction func doneButtonPressed(_ sender: Any) {
+    @IBAction func donePressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+   
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
