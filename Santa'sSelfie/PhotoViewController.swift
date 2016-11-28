@@ -105,10 +105,13 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
     
     // MARK : Configure page control!
     func configurePageControl() {
+        
+        let greenPageControlColor = UIColor(red: 4/255, green: 179/255, blue: 120/255, alpha: 1.0)
+        
         pageControl = UIPageControl(frame: CGRect(x: view.center.x - 100, y: view.frame.size.height - 50, width: 200, height: 50))
         pageControl.numberOfPages = 5
         pageControl.currentPage = 0
-        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        pageControl.pageIndicatorTintColor = greenPageControlColor
         pageControl.currentPageIndicatorTintColor = UIColor.white
         pageControl.addTarget(self, action: Selector(("changePage:")), for: .valueChanged)
         pageControl.isHidden = false
