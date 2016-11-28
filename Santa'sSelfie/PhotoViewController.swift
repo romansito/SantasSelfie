@@ -108,10 +108,10 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         pageControl = UIPageControl(frame: CGRect(x: view.center.x - 100, y: view.frame.size.height - 50, width: 200, height: 50))
         pageControl.numberOfPages = 5
         pageControl.currentPage = 0
-        pageControl.tintColor = UIColor.red
-        pageControl.pageIndicatorTintColor = UIColor.green
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.currentPageIndicatorTintColor = UIColor.white
         pageControl.addTarget(self, action: Selector(("changePage:")), for: .valueChanged)
+        pageControl.isHidden = false
         view.addSubview(pageControl)
     }
     
@@ -147,13 +147,17 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
     }
     
     func saveButtonPressed(sender: Any) {
+        
+        // take screenshot
         let photoTaken = santaImage
         let finalImage = santaScreenShot(image: photoTaken)
-//        UIImageWriteToSavedPhotosAlbum(finalImage, nil, nil, nil)
         savePhotoToLibrary(finalImage)
     }
     
     func santaScreenShot(image: UIImage) -> UIImage {
+        
+        // hide the page controller
+        pageControl.isHidden = true
         
         UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, true, 0)
         self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
@@ -204,6 +208,8 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
             else {
                 DispatchQueue.main.async {
                    self.showSaveViewAlert()
+                    // hide the page controller
+                    self.pageControl.isHidden = false
                 }
             }
         })
