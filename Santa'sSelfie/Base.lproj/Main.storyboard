@@ -185,13 +185,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KYI-v5-c61">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.094117647058823528" green="0.37647058823529411" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="KYI-v5-c61" secondAttribute="trailing" id="9Hz-Tk-mGk"/>
-                            <constraint firstItem="KYI-v5-c61" firstAttribute="top" secondItem="Zgo-DA-orQ" secondAttribute="bottom" id="DNk-f5-fOI"/>
+                            <constraint firstItem="KYI-v5-c61" firstAttribute="top" secondItem="Zgo-DA-orQ" secondAttribute="bottom" constant="-64" id="DNk-f5-fOI"/>
                             <constraint firstItem="PqQ-E0-uVY" firstAttribute="top" secondItem="KYI-v5-c61" secondAttribute="bottom" id="JCg-V6-Ynr"/>
                             <constraint firstItem="KYI-v5-c61" firstAttribute="leading" secondItem="agN-fe-g6h" secondAttribute="leading" id="apI-xA-Pve"/>
                         </constraints>

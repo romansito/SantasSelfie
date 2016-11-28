@@ -150,7 +150,6 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         let photoTaken = santaImage
         let finalImage = santaScreenShot(image: photoTaken)
 //        UIImageWriteToSavedPhotosAlbum(finalImage, nil, nil, nil)
-        showSaveViewAlert()
         savePhotoToLibrary(finalImage)
     }
     
@@ -170,18 +169,26 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         if !UIAccessibilityIsReduceTransparencyEnabled() {
             self.view.backgroundColor = UIColor.clear
             
-            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             //always fill the view
             blurEffectView.frame = self.view.bounds
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             
-            let saveLabel = UILabel(frame: CGRect(x: view.center.x - 50, y: view.center.y - 25, width: 100, height: 50))
+            let saveLabel = UILabel(frame: CGRect(x: view.center.x - 50, y: view.center.y - 50, width: 100, height: 50))
             saveLabel.text = "Saved!"
+            saveLabel.textColor = .white
+            saveLabel.textAlignment = .center
             saveLabel.font = UIFont.boldSystemFont(ofSize: 18)
             
             self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
             self.view.addSubview(saveLabel)
+            
+            blurEffectView.fadeIn()
+            saveLabel.fadeIn()
+            
+            blurEffectView.fadeOut()
+            saveLabel.fadeOut()
 
         } else {
             self.view.backgroundColor = UIColor.black
@@ -192,7 +199,14 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         let photoLibrary = PHPhotoLibrary.shared()
         photoLibrary.performChanges({
             PHAssetChangeRequest.creationRequestForAsset(from: image)
-        }, completionHandler: nil)
+        }, completionHandler: { success, error in
+            if !success { NSLog("error creating asset: \(error)") }
+            else {
+                DispatchQueue.main.async {
+                   self.showSaveViewAlert()
+                }
+            }
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -220,6 +234,24 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
 }
 
+extension UIView {
+    func fadeIn(withDuration duration: TimeInterval = 1.0) {
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 1.0
+        })
+    }
+    
+    /**
+     Fade out a view with a duration
+     
+     - parameter duration: custom animation duration
+     */
+    func fadeOut(withDuration duration: TimeInterval = 3.0) {
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 0.0
+        })
+    }
+}
 
 
 
