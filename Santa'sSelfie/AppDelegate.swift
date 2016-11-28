@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        UIApplication.shared.statusBarStyle = .lightContent
+
         GADMobileAds.configure(withApplicationID: "ca-app-pub-3020802165335227~1878642794")
         
         return true
