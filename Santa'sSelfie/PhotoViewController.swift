@@ -150,6 +150,7 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         let photoTaken = santaImage
         let finalImage = santaScreenShot(image: photoTaken)
 //        UIImageWriteToSavedPhotosAlbum(finalImage, nil, nil, nil)
+        showSaveViewAlert()
         savePhotoToLibrary(finalImage)
     }
     
@@ -189,25 +190,9 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
 
     func savePhotoToLibrary(_ image: UIImage) {
         let photoLibrary = PHPhotoLibrary.shared()
-        photoLibrary.performChanges({ 
-            PHAssetChangeRequest.creationRequestForAsset(from: image, completionHandler: (Bool) -> Void {
-                
-            })
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        photoLibrary.performChanges({
-//        
-//            PHAssetChangeRequest.creationRequestForAsset(from: image)
-//        }, completionHandler: nil)
+        photoLibrary.performChanges({
+            PHAssetChangeRequest.creationRequestForAsset(from: image)
+        }, completionHandler: nil)
     }
     
     override func didReceiveMemoryWarning() {
