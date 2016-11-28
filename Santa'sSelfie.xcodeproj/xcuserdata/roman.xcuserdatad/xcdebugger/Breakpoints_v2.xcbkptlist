@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Santa&apos;sSelfie/PhotoViewController.swift"
-            timestampString = "501898994.017963"
+            timestampString = "502010724.107657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "numberOfIndexPathSelected(indexSelected:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Santa&apos;sSelfie/PhotoViewController.swift"
-            timestampString = "501898994.017963"
+            timestampString = "502010724.107657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "numberOfIndexPathSelected(indexSelected:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Santa&apos;sSelfie/PhotoViewController.swift"
-            timestampString = "501898994.017963"
+            timestampString = "502010724.107657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "numberOfIndexPathSelected(indexSelected:)"
             landmarkType = "7">
          </BreakpointContent>

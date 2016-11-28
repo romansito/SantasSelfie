@@ -22,6 +22,7 @@ class CameraViewController: UIViewController {
     var shutterButton: UIButton!
     var imageOverlay = UIImageView()
     var santaImage = UIImage()
+    var backButton = UIButton()
     
     var santasSelfie = UIImage()
 
@@ -38,6 +39,7 @@ class CameraViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isHidden = true
         shutterButton.isHidden = false
     }
     
@@ -61,6 +63,8 @@ class CameraViewController: UIViewController {
         takePhoto()
     }
     
+    
+    
     // MARK: - Setup session and preview
     func setupCamPreview() {
         cameraPreview = UIView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height))
@@ -74,10 +78,21 @@ class CameraViewController: UIViewController {
         shutterButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
         shutterButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
         
+        backButton = UIButton(frame: CGRect(x: 24, y: 24, width: 25, height: 25))
+        backButton.setBackgroundImage(UIImage.init(named: "backButton"), for: .normal)
+        backButton.contentMode = UIViewContentMode.scaleAspectFit
+        backButton.addTarget(self, action: #selector(CameraViewController.backButtonPressed), for: .touchUpInside)
+        
         view.addSubview(cameraPreview)
+        view.addSubview(backButton)
         view.addSubview(imageOverlay)
         view.addSubview(shutterButton)
     }
+    
+    func backButtonPressed() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     
     func setupSession() {
         captureSession.sessionPreset = AVCaptureSessionPresetHigh

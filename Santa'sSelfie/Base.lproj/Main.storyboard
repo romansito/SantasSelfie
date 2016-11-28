@@ -57,10 +57,10 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYj-vi-Qct" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <rect key="frame" x="13" y="617" width="350" height="50"/>
                                 <color key="backgroundColor" red="0.72336632010000002" green="0.0" blue="0.033833895359999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="TfT-KR-YWd"/>
+                                    <constraint firstAttribute="width" priority="100" constant="350" id="TfT-KR-YWd"/>
                                     <constraint firstAttribute="height" constant="50" id="yog-3V-HDW"/>
                                 </constraints>
                             </view>
@@ -70,7 +70,8 @@
                             <constraint firstItem="rSp-wE-JyL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8sY-Ua-y5x"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YYj-vi-Qct" secondAttribute="bottom" id="UsJ-NZ-UmY"/>
                             <constraint firstItem="rSp-wE-JyL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="aMB-Vh-L3P"/>
-                            <constraint firstItem="YYj-vi-Qct" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cqP-zX-cUu"/>
+                            <constraint firstItem="YYj-vi-Qct" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="arE-MS-dg1"/>
+                            <constraint firstItem="YYj-vi-Qct" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="13" id="cqP-zX-cUu"/>
                             <constraint firstAttribute="trailing" secondItem="rSp-wE-JyL" secondAttribute="trailing" id="eg7-l5-rHN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rSp-wE-JyL" secondAttribute="bottom" id="mUk-YN-1Pa"/>
                         </constraints>
@@ -124,7 +125,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aum-An-mDB" id="a6T-kT-emc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

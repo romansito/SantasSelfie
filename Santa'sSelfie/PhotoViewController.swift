@@ -39,6 +39,7 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
 //        setupdetailImageView()
 //        setupSlider()
         detailImageView.image = photoFromCamera
+        setupNavigationBar()
 //        setupCollectionView()
 //        setupImageOverlay()
         setupScrollView()
@@ -70,6 +71,11 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
     func setupDataSource() {
         let collectionView = chooseVC.selectedRow
         print(collectionView)
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(PhotoViewController.saveButtonPressed))
+        navigationItem.title = "Edit"        
     }
     
     func setupCollectionView() {
@@ -140,13 +146,11 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         
     }
     
-    
-    @IBAction func savePressed(_ sender: Any) {
-        
+    func saveButtonPressed(sender: Any) {
         let photoTaken = santaImage
         let finalImage = santaScreenShot(image: photoTaken)
-        UIImageWriteToSavedPhotosAlbum(finalImage, nil, nil, nil)
-        
+//        UIImageWriteToSavedPhotosAlbum(finalImage, nil, nil, nil)
+        savePhotoToLibrary(finalImage)
     }
     
     func santaScreenShot(image: UIImage) -> UIImage {
@@ -159,7 +163,52 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         return image
         
     }
+    
+    func showSaveViewAlert() {
+        //only apply the blur if the user hasn't disabled transparency effects
+        if !UIAccessibilityIsReduceTransparencyEnabled() {
+            self.view.backgroundColor = UIColor.clear
+            
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            //always fill the view
+            blurEffectView.frame = self.view.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            
+            let saveLabel = UILabel(frame: CGRect(x: view.center.x - 50, y: view.center.y - 25, width: 100, height: 50))
+            saveLabel.text = "Saved!"
+            saveLabel.font = UIFont.boldSystemFont(ofSize: 18)
+            
+            self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
+            self.view.addSubview(saveLabel)
 
+        } else {
+            self.view.backgroundColor = UIColor.black
+        }
+    }
+
+    func savePhotoToLibrary(_ image: UIImage) {
+        let photoLibrary = PHPhotoLibrary.shared()
+        photoLibrary.performChanges({ 
+            PHAssetChangeRequest.creationRequestForAsset(from: image, completionHandler: (Bool) -> Void {
+                
+            })
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        photoLibrary.performChanges({
+//        
+//            PHAssetChangeRequest.creationRequestForAsset(from: image)
+//        }, completionHandler: nil)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
