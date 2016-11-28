@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    let cellsArray = ["Remove Ads"]
+    @IBOutlet weak var bannerView: GADBannerView!
+    
+    let cellsArray = ["Contact Us"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        
+        bannerView.adUnitID = "ca-app-pub-3020802165335227/6308842392"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+
     }
     
     func setupTableView() {

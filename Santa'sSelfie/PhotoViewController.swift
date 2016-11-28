@@ -8,9 +8,14 @@
 
 import UIKit
 import Photos
+import GoogleMobileAds
+
 let esposureFilter = "CIExposureAdjust"
 
-class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathSelectedDelegate  {
+typealias CompletionHandler = (_ success:Bool) -> Void
+
+
+class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathSelectedDelegate, GADInterstitialDelegate  {
 
     var chooseVC : ChoosePhotoViewController!
     
@@ -27,6 +32,8 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
     var numberOfCell = Int()
     var santasArray = [UIImage]()
     
+    var interstitial: GADInterstitial!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 //        self.navigationController?.navigationBar.isTranslucent = true
@@ -36,6 +43,7 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interstitial = createAndLoadInterstitial()
 //        setupdetailImageView()
 //        setupSlider()
         detailImageView.image = photoFromCamera
@@ -141,20 +149,24 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         print("ChooseVC index selected")
         print(numberOfCell)
     }
-
-    
-    @IBAction func restartButtonPressed(_ sender: Any) {
-        
-        navigationController?.popViewController(animated: true)
-        
-    }
     
     func saveButtonPressed(sender: Any) {
         
         // take screenshot
         let photoTaken = santaImage
         let finalImage = santaScreenShot(image: photoTaken)
-        savePhotoToLibrary(finalImage)
+//        savePhotoToLibrary(finalImage)
+        savePhotoToLibrary(finalImage, {(success) -> Void in
+            if !success {
+                print("error showing the ad")
+            } else {
+                if self.interstitial.isReady {
+                    self.interstitial.present(fromRootViewController: self)
+                } else {
+                    print("Ad wasn't ready")
+                }
+            }
+        })
     }
     
     func santaScreenShot(image: UIImage) -> UIImage {
@@ -196,13 +208,16 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
             
             blurEffectView.fadeOut()
             saveLabel.fadeOut()
+            
+
+            
 
         } else {
             self.view.backgroundColor = UIColor.black
         }
     }
 
-    func savePhotoToLibrary(_ image: UIImage) {
+    func savePhotoToLibrary(_ image: UIImage, _: CompletionHandler) {
         let photoLibrary = PHPhotoLibrary.shared()
         photoLibrary.performChanges({
             PHAssetChangeRequest.creationRequestForAsset(from: image)
@@ -222,7 +237,35 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//    func createAndLoadInterstitial() {
+//        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3020802165335227/6638416397")
+//        let request = GADRequest()
+//        interstitial.load(request)
+//    }
 
+    
+// MARK: Create a interstitial
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3020802165335227/6638416397")
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+    
+//    func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
+//        if interstitial.isReady {
+//            interstitial.present(fromRootViewController: self)
+//        } else {
+//            print("Ad wasn't ready")
+//        }
+//        // Give user the option to start the next game.
+//    }
+
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+    }
+    
 }
 
 extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -255,7 +298,7 @@ extension UIView {
      
      - parameter duration: custom animation duration
      */
-    func fadeOut(withDuration duration: TimeInterval = 3.0) {
+    func fadeOut(withDuration duration: TimeInterval = 2.5) {
         UIView.animate(withDuration: duration, animations: {
             self.alpha = 0.0
         })

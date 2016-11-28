@@ -118,8 +118,11 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ISG-9S-Jvm">
-                                <rect key="frame" x="0.0" y="111" width="375" height="330"/>
+                                <rect key="frame" x="0.0" y="111" width="375" height="380"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="380" id="O0X-Ok-AM3"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Aum-An-mDB">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -132,18 +135,26 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-3Y-CqK" customClass="GADBannerView">
+                                <rect key="frame" x="12" y="617" width="350" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92189106632610263" green="0.92189106632610263" blue="0.92189106632610263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="eGM-3Y-CqK" firstAttribute="leading" secondItem="Ns2-8z-VMZ" secondAttribute="leading" constant="12" id="At3-2T-dTA"/>
                             <constraint firstItem="ISG-9S-Jvm" firstAttribute="leading" secondItem="Ns2-8z-VMZ" secondAttribute="leading" id="KNI-Z3-b4G"/>
+                            <constraint firstItem="jvz-5q-119" firstAttribute="top" secondItem="eGM-3Y-CqK" secondAttribute="bottom" id="UX3-aS-1Fo"/>
+                            <constraint firstItem="eGM-3Y-CqK" firstAttribute="top" secondItem="ISG-9S-Jvm" secondAttribute="bottom" constant="126" id="dKK-vw-5Po"/>
                             <constraint firstItem="WFf-zT-apR" firstAttribute="top" secondItem="CgD-vc-kXQ" secondAttribute="bottom" constant="8" id="i65-D7-M8q"/>
+                            <constraint firstItem="eGM-3Y-CqK" firstAttribute="centerX" secondItem="Ns2-8z-VMZ" secondAttribute="centerX" id="p06-Yy-uaj"/>
                             <constraint firstItem="WFf-zT-apR" firstAttribute="trailing" secondItem="Ns2-8z-VMZ" secondAttribute="trailingMargin" constant="-8" id="rnk-um-v5B"/>
                             <constraint firstItem="ISG-9S-Jvm" firstAttribute="top" secondItem="WFf-zT-apR" secondAttribute="bottom" constant="53" id="sWq-XO-Lax"/>
-                            <constraint firstItem="jvz-5q-119" firstAttribute="top" secondItem="ISG-9S-Jvm" secondAttribute="bottom" constant="226" id="u8D-C1-OIT"/>
                             <constraint firstAttribute="trailing" secondItem="ISG-9S-Jvm" secondAttribute="trailing" id="w7G-bA-Ox1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="eGM-3Y-CqK" id="kzI-Sb-gdy"/>
                         <outlet property="tableView" destination="ISG-9S-Jvm" id="NY0-qD-AQl"/>
                     </connections>
                 </viewController>
