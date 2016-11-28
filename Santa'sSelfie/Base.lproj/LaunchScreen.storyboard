@@ -25,10 +25,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="KWn-jk-9Mo">
-                                <rect key="frame" x="16" y="228" width="343" height="210"/>
+                                <rect key="frame" x="32" y="239" width="310" height="189"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="210" id="6NZ-ck-QhS"/>
-                                    <constraint firstAttribute="width" constant="343" id="8A5-GE-Vpn"/>
+                                    <constraint firstAttribute="height" constant="189" id="6NZ-ck-QhS"/>
+                                    <constraint firstAttribute="width" constant="310" id="8A5-GE-Vpn"/>
                                 </constraints>
                             </imageView>
                         </subviews>
