@@ -78,7 +78,7 @@ class CameraViewController: UIViewController {
         shutterButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
         shutterButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
         
-        backButton = UIButton(frame: CGRect(x: 24, y: 30, width: 25, height: 25))
+        backButton = UIButton(frame: CGRect(x: 24, y: 36, width: 30, height: 30))
         backButton.setBackgroundImage(UIImage.init(named: "backButton"), for: .normal)
         backButton.contentMode = UIViewContentMode.scaleAspectFit
         backButton.addTarget(self, action: #selector(CameraViewController.backButtonPressed), for: .touchUpInside)

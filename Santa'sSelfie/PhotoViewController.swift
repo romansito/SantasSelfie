@@ -24,6 +24,8 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
     var scrollView: UIScrollView!
     var pageControl: UIPageControl!
     
+    var santasArray = [UIImage]()
+    
     var santasArray0 = [UIImage]()
     var santasArray1 = [UIImage]()
     var santasArray2 = [UIImage]()
@@ -56,11 +58,18 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
 //        addBorderToImage()
         
         
-        santasArray0 = [#imageLiteral(resourceName: "1DD.png"), #imageLiteral(resourceName: "1D.png"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "1B.png"), #imageLiteral(resourceName: "1BB.png")]
+        santasArray = [#imageLiteral(resourceName: "1DD.png"), #imageLiteral(resourceName: "1D.png"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "1B.png"), #imageLiteral(resourceName: "1BB.png")]
         
-        for i in 0..<santasArray0.count  {
+        
+        
+        santasArray0 = [#imageLiteral(resourceName: "1DD.png"), #imageLiteral(resourceName: "1D.png"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "1B.png"), #imageLiteral(resourceName: "1BB.png")]
+        santasArray1 = [#imageLiteral(resourceName: "2DD.png"), #imageLiteral(resourceName: "2D.png"), #imageLiteral(resourceName: "2.png"), #imageLiteral(resourceName: "2B.png"), #imageLiteral(resourceName: "2BB.png")]
+        santasArray2 = [#imageLiteral(resourceName: "3BB.png"), #imageLiteral(resourceName: "3B.png"), #imageLiteral(resourceName: "3.png"), #imageLiteral(resourceName: "3B.png"), #imageLiteral(resourceName: "3BB.png")]
+        santasArray3 = [#imageLiteral(resourceName: "4BB.png"), #imageLiteral(resourceName: "4B.png"), #imageLiteral(resourceName: "4.png"), #imageLiteral(resourceName: "4B.png"), #imageLiteral(resourceName: "4BB.png")]
+        
+        for i in 0..<santasArray.count  {
             let imageView = UIImageView()
-            imageView.image = santasArray0[i]
+            imageView.image = santasArray[i]
             let xPosition = self.view.frame.width * CGFloat(i)
             imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
             
@@ -137,23 +146,13 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         imageOverlay.contentMode = .scaleAspectFill
         view.addSubview(imageOverlay)
     }
-    
+
     func saveButtonPressed(sender: Any) {
         
         // take screenshot
         let photoTaken = santaImage
         let finalImage = santaScreenShot(image: photoTaken)
-//        savePhotoToLibrary(finalImage)
         savePhotoToLibrary(finalImage)
-//            if !success {
-//                print("error showing the ad")
-//            } else {
-//                if self.interstitial.isReady {
-//                    self.interstitial.present(fromRootViewController: self)
-//                } else {
-//                    print("Ad wasn't ready")
-//                }
-//            }
     }
     
     func santaScreenShot(image: UIImage) -> UIImage {
