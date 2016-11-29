@@ -10,12 +10,7 @@ import UIKit
 import Photos
 import GoogleMobileAds
 
-let esposureFilter = "CIExposureAdjust"
-
-typealias CompletionHandler = (_ success:Bool) -> Void
-
-
-class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathSelectedDelegate, GADInterstitialDelegate  {
+class PhotoViewController: UIViewController, GADInterstitialDelegate  {
 
     var chooseVC : ChoosePhotoViewController!
     
@@ -29,10 +24,12 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
     var scrollView: UIScrollView!
     var pageControl: UIPageControl!
     
-    var numberOfCell = Int()
-    var santasArray = [UIImage]()
+    var santasArray0 = [UIImage]()
+    var santasArray1 = [UIImage]()
+    var santasArray2 = [UIImage]()
+    var santasArray3 = [UIImage]()
     
-    var interstitial: GADInterstitial!
+//    var interstitial: GADInterstitial!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -43,7 +40,7 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        interstitial = createAndLoadInterstitial()
+//        interstitial = createAndLoadInterstitial()
 //        setupdetailImageView()
 //        setupSlider()
         detailImageView.image = photoFromCamera
@@ -58,15 +55,12 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
 //        setupDataSource()
 //        addBorderToImage()
         
-        chooseVC = ChoosePhotoViewController()
-        numberOfCell = chooseVC.selectedRow
-        print(numberOfCell)
         
-        santasArray = [#imageLiteral(resourceName: "1DD.png"), #imageLiteral(resourceName: "1D.png"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "1B.png"), #imageLiteral(resourceName: "1BB.png")]
+        santasArray0 = [#imageLiteral(resourceName: "1DD.png"), #imageLiteral(resourceName: "1D.png"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "1B.png"), #imageLiteral(resourceName: "1BB.png")]
         
-        for i in 0..<santasArray.count  {
+        for i in 0..<santasArray0.count  {
             let imageView = UIImageView()
-            imageView.image = santasArray[i]
+            imageView.image = santasArray0[i]
             let xPosition = self.view.frame.width * CGFloat(i)
             imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
             
@@ -77,8 +71,8 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
     }
     
     func setupDataSource() {
-        let collectionView = chooseVC.selectedRow
-        print(collectionView)
+//        let collectionView = chooseVC.selectedRow
+//        print(collectionView)
     }
     
     func setupNavigationBar() {
@@ -144,29 +138,22 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         view.addSubview(imageOverlay)
     }
     
-    func numberOfIndexPathSelected(indexSelected: Int) {
-        numberOfCell = indexSelected
-        print("ChooseVC index selected")
-        print(numberOfCell)
-    }
-    
     func saveButtonPressed(sender: Any) {
         
         // take screenshot
         let photoTaken = santaImage
         let finalImage = santaScreenShot(image: photoTaken)
 //        savePhotoToLibrary(finalImage)
-        savePhotoToLibrary(finalImage, {(success) -> Void in
-            if !success {
-                print("error showing the ad")
-            } else {
-                if self.interstitial.isReady {
-                    self.interstitial.present(fromRootViewController: self)
-                } else {
-                    print("Ad wasn't ready")
-                }
-            }
-        })
+        savePhotoToLibrary(finalImage)
+//            if !success {
+//                print("error showing the ad")
+//            } else {
+//                if self.interstitial.isReady {
+//                    self.interstitial.present(fromRootViewController: self)
+//                } else {
+//                    print("Ad wasn't ready")
+//                }
+//            }
     }
     
     func santaScreenShot(image: UIImage) -> UIImage {
@@ -217,7 +204,7 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
         }
     }
 
-    func savePhotoToLibrary(_ image: UIImage, _: CompletionHandler) {
+    func savePhotoToLibrary(_ image: UIImage) {
         let photoLibrary = PHPhotoLibrary.shared()
         photoLibrary.performChanges({
             PHAssetChangeRequest.creationRequestForAsset(from: image)
@@ -246,12 +233,12 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
 
     
 // MARK: Create a interstitial
-    func createAndLoadInterstitial() -> GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3020802165335227/6638416397")
-        interstitial.delegate = self
-        interstitial.load(GADRequest())
-        return interstitial
-    }
+//    func createAndLoadInterstitial() -> GADInterstitial {
+//        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3020802165335227/6638416397")
+//        interstitial.delegate = self
+//        interstitial.load(GADRequest())
+//        return interstitial
+//    }
     
 //    func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
 //        if interstitial.isReady {
@@ -263,7 +250,7 @@ class PhotoViewController: UIViewController, ChoosePhotoViewControllerIndexPathS
 //    }
 
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        interstitial = createAndLoadInterstitial()
+//        interstitial = createAndLoadInterstitial()
     }
     
 }

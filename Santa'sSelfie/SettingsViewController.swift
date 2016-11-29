@@ -9,12 +9,14 @@
 import UIKit
 import GoogleMobileAds
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, GADInterstitialDelegate {
 
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var greenBG: UIView!
+    
+    var interstitial: GADInterstitial!
     
     let cellsArray = ["Contact Us"]
 
@@ -22,7 +24,10 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
+        self.navigationController?.navigationBar.barStyle = .black;
+        interstitial = createAndLoadInterstitial()
+
+
         bannerView.adUnitID = "ca-app-pub-3020802165335227/6308842392"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
@@ -40,12 +45,28 @@ class SettingsViewController: UIViewController {
 
     @IBAction func donePressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+//        if self.interstitial.isReady {
+//            self.interstitial.present(fromRootViewController: self)
+//        } else {
+//            print("Ad wasn't ready")
+//        }
     }
    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    // MARK : - AD Implementation
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3020802165335227/6638416397")
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
+
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
     }
 }
 

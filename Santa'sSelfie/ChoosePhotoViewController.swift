@@ -9,6 +9,9 @@
 import UIKit
 import GoogleMobileAds
 
+struct GlobalVariable {
+    static var selectedIndexPath = 0
+}
 
 protocol ChoosePhotoViewControllerIndexPathSelectedDelegate: class {
     func numberOfIndexPathSelected(indexSelected: Int)
@@ -21,8 +24,7 @@ class ChoosePhotoViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var cell: SantaCollectionViewCell!
-    var selectedRow = 0
-        
+    
     var santasSelfies = [UIImage]()
         {
         didSet {
@@ -53,6 +55,8 @@ class ChoosePhotoViewController: UIViewController {
         
         print("NUMBER OF SELFIES")
         print(santasSelfies.count)
+        
+        print("\(GlobalVariable.selectedIndexPath)")
         
     }
 
@@ -101,9 +105,11 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
 //        let selectedIndex = indexPath.row
 //        delegate?.numberOfIndexPathSelected(indexSelected: selectedIndex)
         performSegue(withIdentifier: "segueToCameraVC", sender: nil)
-        selectedRow = indexPath.row
+        let indexPathRow = indexPath.row
+        GlobalVariable.selectedIndexPath = indexPath.row
+        print(indexPathRow)
+        
 //        delegate?.numberOfIndexPathSelected(indexSelected: selectedIndex)
-        print(selectedRow)
 
     }
     
