@@ -24,8 +24,6 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
     var scrollView: UIScrollView!
     var pageControl: UIPageControl!
     
-    var santasArray = [UIImage]()
-    
     var santasArray0 = [UIImage]()
     var santasArray1 = [UIImage]()
     var santasArray2 = [UIImage]()
@@ -58,25 +56,72 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
 //        addBorderToImage()
         
         
-        santasArray = [#imageLiteral(resourceName: "1DD.png"), #imageLiteral(resourceName: "1D.png"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "1B.png"), #imageLiteral(resourceName: "1BB.png")]
         
+        let image3DD = UIImage.init(named: "3DD")
+        let image3D = UIImage.init(named: "3D")
+        let image3 = UIImage.init(named: "3")
+        let image3B = UIImage.init(named: "3B")
         
+        let image4 = UIImage.init(named: "4")
+
         
         santasArray0 = [#imageLiteral(resourceName: "1DD.png"), #imageLiteral(resourceName: "1D.png"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "1B.png"), #imageLiteral(resourceName: "1BB.png")]
         santasArray1 = [#imageLiteral(resourceName: "2DD.png"), #imageLiteral(resourceName: "2D.png"), #imageLiteral(resourceName: "2.png"), #imageLiteral(resourceName: "2B.png"), #imageLiteral(resourceName: "2BB.png")]
-        santasArray2 = [#imageLiteral(resourceName: "3BB.png"), #imageLiteral(resourceName: "3B.png"), #imageLiteral(resourceName: "3.png"), #imageLiteral(resourceName: "3B.png"), #imageLiteral(resourceName: "3BB.png")]
-        santasArray3 = [#imageLiteral(resourceName: "4BB.png"), #imageLiteral(resourceName: "4B.png"), #imageLiteral(resourceName: "4.png"), #imageLiteral(resourceName: "4B.png"), #imageLiteral(resourceName: "4BB.png")]
-        
-        for i in 0..<santasArray.count  {
-            let imageView = UIImageView()
-            imageView.image = santasArray[i]
-            let xPosition = self.view.frame.width * CGFloat(i)
-            imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
-            
-            imageView.contentMode = .scaleAspectFill
-            scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
-            scrollView.addSubview(imageView)
+        santasArray2 = [image3DD!, image3D!, image3!, image3B!]
+        santasArray3 = [image4!]
+//
+        switch GlobalVariable.selectedIndexPath {
+        case 0:
+            for i in 0..<santasArray0.count  {
+                let imageView = UIImageView()
+                imageView.image = santasArray0[i]
+                let xPosition = self.view.frame.width * CGFloat(i)
+                imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
+
+                imageView.contentMode = .scaleAspectFill
+                scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
+                scrollView.addSubview(imageView)
+            }
+        case 1:
+            for i in 0..<santasArray1.count  {
+                let imageView = UIImageView()
+                imageView.image = santasArray1[i]
+                let xPosition = self.view.frame.width * CGFloat(i)
+                imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
+                
+                imageView.contentMode = .scaleAspectFill
+                scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
+                scrollView.addSubview(imageView)
+            }
+
+        case 2:
+            for i in 0..<santasArray2.count  {
+                let imageView = UIImageView()
+                imageView.image = santasArray2[i]
+                let xPosition = self.view.frame.width * CGFloat(i)
+                imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
+                
+                imageView.contentMode = .scaleAspectFill
+                scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
+                scrollView.addSubview(imageView)
+            }
+
+        case 3:
+            for i in 0..<santasArray3.count  {
+                let imageView = UIImageView()
+                imageView.image = santasArray3[i]
+                let xPosition = self.view.frame.width * CGFloat(i)
+                imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
+                
+                imageView.contentMode = .scaleAspectFill
+                scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
+                scrollView.addSubview(imageView)
+            }
+
+        default:
+            break
         }
+
     }
     
     func setupDataSource() {
@@ -85,8 +130,12 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
     }
     
     func setupNavigationBar() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(PhotoViewController.saveButtonPressed))
-        navigationItem.title = "Edit"        
+        
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: Selector("userTappedShared"))
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(PhotoViewController.saveButtonPressed))
+        navigationItem.rightBarButtonItems = [saveButton, shareButton]
+        
+        navigationItem.title = "Edit"
     }
     
     func setupCollectionView() {
