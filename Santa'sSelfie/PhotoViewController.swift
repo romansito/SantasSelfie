@@ -93,7 +93,7 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
                 let imageView = UIImageView()
                 imageView.image = santasArray1[i]
                 let xPosition = self.view.frame.width * CGFloat(i)
-                imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
+                imageView.frame = CGRect(x: xPosition, y: 30, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
                 
                 imageView.contentMode = .scaleAspectFill
                 scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
@@ -142,7 +142,7 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         navigationItem.rightBarButtonItems = [saveButton, shareButton]
         navigationItem.title = "Edit"
     }
-    
+//    
     func setupCollectionView() {
         let frame = CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2)
         let layout = UICollectionViewFlowLayout()
@@ -167,6 +167,7 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         
         view.addSubview(scrollView)
     }
+
     
     // MARK : Configure page control!
     func configurePageControl() {
