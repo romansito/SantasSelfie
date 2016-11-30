@@ -76,18 +76,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rSp-wE-JyL" secondAttribute="bottom" id="mUk-YN-1Pa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Choose" id="aOw-y4-rwk">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="ZnZ-oK-e3N">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N2k-v5-vbR">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="qWq-3s-yIe" kind="presentation" id="bk7-ac-Xlk"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Choose" id="aOw-y4-rwk"/>
                     <connections>
                         <outlet property="bannerView" destination="YYj-vi-Qct" id="XGr-dd-hPb"/>
                         <outlet property="collectionView" destination="rSp-wE-JyL" id="c80-Iz-7tX"/>
