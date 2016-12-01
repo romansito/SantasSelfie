@@ -79,6 +79,18 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
 //        santasArray2 = [image3DD!, image3D!, image3!, image3B!, image3BB!]
 //        santasArray3 = [image4!, image4DD!, image4D!, image4B!, image4BB!]
 //
+        switch GlobalVariable.selectedIndexPath {
+        case 0:
+            mainSantasArrays = santasArray0
+        case 1:
+            mainSantasArrays = santasArray1
+        case 2:
+            mainSantasArrays = santasArray2
+        case 3:
+            mainSantasArrays = santasArray3
+        default:
+            break
+        }
 //        switch GlobalVariable.selectedIndexPath {
 //        case 0:
 //            for i in 0..<santasArray0.count  {
@@ -162,7 +174,7 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         let frame = CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2)
         let layout = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
-        collectionView.backgroundColor = .blue
+        collectionView.backgroundColor = .clear
         collectionView.isPagingEnabled = true
 //        collectionView.isScrollEnabled = true
         collectionView.showsHorizontalScrollIndicator = true
@@ -343,7 +355,8 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
-        if indexPath.item == 2 { cell.backgroundColor = .white } else { cell.backgroundColor = .red }
+//        if indexPath.item == 2 { cell.backgroundColor = .white } else { cell.backgroundColor = .red }
+        cell.backgroundColor = .clear
         
         let imageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: cell.frame.width, height: cell.frame.height))
         imageView.contentMode = .scaleAspectFill
@@ -351,7 +364,7 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
         imageView.image = image
         cell.contentView.addSubview(imageView)
         
-        imageView.image = santasArray0[indexPath.row]
+        imageView.image = mainSantasArrays[indexPath.row]
 
         return cell
     }
