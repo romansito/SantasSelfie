@@ -218,7 +218,7 @@
         <!--Photo View Controller-->
         <scene sceneID="rOj-uh-cbV">
             <objects>
-                <viewController id="nrf-H4-ME1" customClass="PhotoViewController" customModule="Santa_sSelfie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="nrf-H4-ME1" customClass="PhotoViewController" customModule="Santa_sSelfie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zgo-DA-orQ"/>
                         <viewControllerLayoutGuide type="bottom" id="PqQ-E0-uVY"/>
@@ -241,11 +241,30 @@
                     </view>
                     <connections>
                         <outlet property="detailImageView" destination="KYI-v5-c61" id="X2o-hz-MQZ"/>
+                        <segue destination="8Qn-3r-Bgv" kind="custom" id="1to-VR-5Oh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KWN-Jn-nc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2709.5999999999999" y="138.98050974512745"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="EgN-HM-gfT">
+            <objects>
+                <viewController id="8Qn-3r-Bgv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tGm-TQ-L0b"/>
+                        <viewControllerLayoutGuide type="bottom" id="CtG-ZF-bRJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TMG-kW-Cow">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lnJ-tn-HgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3444" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9e0-f0-Xon">

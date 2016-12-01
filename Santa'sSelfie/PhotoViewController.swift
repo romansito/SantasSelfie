@@ -216,12 +216,38 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
             if !success { NSLog("error creating asset: \(error)") }
             else {
                 DispatchQueue.main.async {
-                   self.showSaveViewAlert()
+                    self.showAlertController()
+//                   self.showSaveViewAlert()
                     // hide the page controller
                     self.pageControl.isHidden = false
                 }
             }
         })
+    }
+    
+    func showAlertController() {
+        let alertController = UIAlertController(title: "Saved!", message: "", preferredStyle: .actionSheet)
+        
+        let subview1 = alertController.view.subviews.first! as UIView
+        let subview2 = subview1.subviews.first! as UIView
+        let view = subview2.subviews.first! as UIView
+        
+        subview2.backgroundColor = .white
+        view.backgroundColor = .white
+        view.tintColor = .white
+        alertController.view.tintColor = UIColor.lightText
+        view.layer.cornerRadius = 10.0
+        
+        alertController.setValue(NSAttributedString(string: "Saved!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: 0),NSForegroundColorAttributeName : UIColor.black]), forKey: "attributedTitle")
+
+        let takePhotoAction = UIAlertAction(title: "Take an other photo", style: .default, handler: nil)
+        let goToLibraryAction = UIAlertAction(title: "Go to library", style: .default, handler: nil)
+        
+        alertController.addAction(takePhotoAction)
+        alertController.addAction(goToLibraryAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
     
