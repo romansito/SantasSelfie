@@ -70,7 +70,7 @@ class CameraViewController: UIViewController {
         cameraPreview = UIView(frame: CGRect(x: 0.0, y: 0.0, width: view.bounds.width, height: view.bounds.height))
         cameraPreview.contentMode = .scaleAspectFill
         
-        imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2))
+        imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2 - 5))
         imageOverlay.image = santaImage
         imageOverlay.contentMode = .scaleAspectFill
         
