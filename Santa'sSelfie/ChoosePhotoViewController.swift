@@ -13,13 +13,8 @@ struct GlobalVariable {
     static var selectedIndexPath = 0
 }
 
-protocol ChoosePhotoViewControllerIndexPathSelectedDelegate: class {
-    func numberOfIndexPathSelected(indexSelected: Int)
-}
-
 class ChoosePhotoViewController: UIViewController {
     
-    weak var delegate : ChoosePhotoViewControllerIndexPathSelectedDelegate?
     var photoVC = PhotoViewController()
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -43,8 +38,6 @@ class ChoosePhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        photoVC.delegate = self
-        
         collectionViewSetup()
         setupDataSource()
         setupNavigationBar()
@@ -52,12 +45,6 @@ class ChoosePhotoViewController: UIViewController {
         bannerView.adUnitID = "ca-app-pub-3020802165335227/3355375994"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
-        
-        print("NUMBER OF SELFIES")
-        print(santasSelfies.count)
-        
-        print("\(GlobalVariable.selectedIndexPath)")
-        
     }
 
     func setupNavigationBar() {
@@ -66,8 +53,6 @@ class ChoosePhotoViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = myGreenColor
-
-
     }
     
     func setupDataSource() {
@@ -79,7 +64,6 @@ class ChoosePhotoViewController: UIViewController {
     }
 
     func collectionViewSetup() {
-        //        collectionView.backgroundColor = .white
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -101,16 +85,9 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let delegate = self.delegate else { return }
-//        let selectedIndex = indexPath.row
-//        delegate?.numberOfIndexPathSelected(indexSelected: selectedIndex)
         performSegue(withIdentifier: "segueToCameraVC", sender: nil)
         let indexPathRow = indexPath.row
-        GlobalVariable.selectedIndexPath = indexPath.row
-        print(indexPathRow)
-        
-//        delegate?.numberOfIndexPathSelected(indexSelected: selectedIndex)
-
+        GlobalVariable.selectedIndexPath = indexPathRow
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
