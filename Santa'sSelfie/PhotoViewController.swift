@@ -99,18 +99,6 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         view.addSubview(collectionView)
     }
     
-//    func setupScrollView() {
-//        let frame = CGRect(x: 0.0, y: view.bounds.height / 2 - 100, width: view.bounds.width, height: view.bounds.height / 2 + 100)
-//        scrollView = UIScrollView(frame: frame)
-//        scrollView.backgroundColor = .clear
-//        scrollView.delegate = self
-//        scrollView.isPagingEnabled = true
-//        scrollView.showsHorizontalScrollIndicator = false
-//        
-//        view.addSubview(scrollView)
-//    }
-
-    
 //     MARK : Configure page control!
     func configurePageControl() {
         
@@ -136,13 +124,6 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         let pageNumber = round(collectionView.contentOffset.x / collectionView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
     }
-    
-//    func setupImageOverlay() {
-//        imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2))
-//        imageOverlay.image = santaImage
-//        imageOverlay.contentMode = .scaleAspectFill
-//        view.addSubview(imageOverlay)
-//    }
 
     func saveButtonPressed(sender: Any) {
         
@@ -235,19 +216,19 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         subview2.backgroundColor = .white
         view.backgroundColor = .white
         view.tintColor = .white
-        alertController.view.tintColor = UIColor.lightText
-        view.layer.cornerRadius = 10.0
+        alertController.view.tintColor = UIColor.lightGray
         
         alertController.setValue(NSAttributedString(string: "Saved!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: 0),NSForegroundColorAttributeName : UIColor.black]), forKey: "attributedTitle")
 
         let takePhotoAction = UIAlertAction(title: "Take an other photo", style: .default, handler: nil)
         let goToLibraryAction = UIAlertAction(title: "Go to library", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         
         alertController.addAction(takePhotoAction)
         alertController.addAction(goToLibraryAction)
+        alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
-        
     }
     
     
@@ -310,10 +291,6 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
         return CGSize(width: self.collectionView.bounds.width, height: self.collectionView.bounds.height)
     }
     
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        return CGSize(width: self.view.frame.width, height: self.view.frame.height/2)
-//    }
-    
 }
 
 extension UIView {
@@ -323,11 +300,7 @@ extension UIView {
         })
     }
     
-    /**
-     Fade out a view with a duration
-     
-     - parameter duration: custom animation duration
-     */
+// Fade out a view with a duration - parameter duration: custom animation duration
     func fadeOut(withDuration duration: TimeInterval = 2.5) {
         UIView.animate(withDuration: duration, animations: {
             self.alpha = 0.0
