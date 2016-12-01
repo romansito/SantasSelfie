@@ -58,24 +58,26 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         
         
         
-        let image3DD = UIImage.init(named: "3DD")
-        let image3D = UIImage.init(named: "3D")
-        let image3 = UIImage.init(named: "3")
-        let image3B = UIImage.init(named: "3B")
-        let image3BB = UIImage.init(named: "3BB")
-
-        
-        let image4 = UIImage.init(named: "4")
-        let image4DD = UIImage.init(named: "4DD")
-        let image4D = UIImage.init(named: "4D")
-        let image4B = UIImage.init(named: "4B")
-        let image4BB = UIImage.init(named: "4BB")
+//        let image3DD = UIImage.init(named: "3DD")
+//        let image3D = UIImage.init(named: "3D")
+//        let image3 = UIImage.init(named: "3")
+//        let image3B = UIImage.init(named: "3B")
+//        let image3BB = UIImage.init(named: "3BB")
+//
+//        
+//        let image4 = UIImage.init(named: "4")
+//        let image4DD = UIImage.init(named: "4DD")
+//        let image4D = UIImage.init(named: "4D")
+//        let image4B = UIImage.init(named: "4B")
+//        let image4BB = UIImage.init(named: "4BB")
 
         
         santasArray0 = [#imageLiteral(resourceName: "1DD.png"), #imageLiteral(resourceName: "1D.png"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "1B.png"), #imageLiteral(resourceName: "1BB.png")]
         santasArray1 = [#imageLiteral(resourceName: "2DD.png"), #imageLiteral(resourceName: "2D.png"), #imageLiteral(resourceName: "2.png"), #imageLiteral(resourceName: "2B.png"), #imageLiteral(resourceName: "2BB.png")]
-        santasArray2 = [image3DD!, image3D!, image3!, image3B!, image3BB!]
-        santasArray3 = [image4!, image4DD!, image4D!, image4B!, image4BB!]
+        santasArray2 = [#imageLiteral(resourceName: "3DD"), #imageLiteral(resourceName: "3D"), #imageLiteral(resourceName: "3"), #imageLiteral(resourceName: "3B"), #imageLiteral(resourceName: "3BB")]
+        santasArray3 = [#imageLiteral(resourceName: "4DD"), #imageLiteral(resourceName: "4D"), #imageLiteral(resourceName: "4"), #imageLiteral(resourceName: "4B"), #imageLiteral(resourceName: "4BB")]
+//        santasArray2 = [image3DD!, image3D!, image3!, image3B!, image3BB!]
+//        santasArray3 = [image4!, image4DD!, image4D!, image4B!, image4BB!]
 //
 //        switch GlobalVariable.selectedIndexPath {
 //        case 0:
@@ -342,8 +344,15 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
         if indexPath.item == 2 { cell.backgroundColor = .white } else { cell.backgroundColor = .red }
-
         
+        let imageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: cell.frame.width, height: cell.frame.height))
+        imageView.contentMode = .scaleAspectFill
+        let image = UIImage()
+        imageView.image = image
+        cell.contentView.addSubview(imageView)
+        
+        imageView.image = santasArray0[indexPath.row]
+
         return cell
     }
     
