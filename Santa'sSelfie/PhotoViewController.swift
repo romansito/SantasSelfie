@@ -21,7 +21,6 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
     var imageOverlay = UIImageView()
     var santaImage = UIImage()
     
-//    var scrollView: UIScrollView!
     var pageControl: UIPageControl!
     
     var mainSantasArrays = [UIImage]()
@@ -41,44 +40,18 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        interstitial = createAndLoadInterstitial()
-//        setupdetailImageView()
-//        setupSlider()
         detailImageView.image = photoFromCamera
         setupNavigationBar()
         setupCollectionView()
-//        setupImageOverlay()
-//        setupScrollView()
         configurePageControl()
-//        imageOverlay.image = santaImage
-        
-//        print(photoFromCamera)
-//        setupDataSource()
-//        addBorderToImage()
-        
-        
-        
-//        let image3DD = UIImage.init(named: "3DD")
-//        let image3D = UIImage.init(named: "3D")
-//        let image3 = UIImage.init(named: "3")
-//        let image3B = UIImage.init(named: "3B")
-//        let image3BB = UIImage.init(named: "3BB")
-//
-//        
-//        let image4 = UIImage.init(named: "4")
-//        let image4DD = UIImage.init(named: "4DD")
-//        let image4D = UIImage.init(named: "4D")
-//        let image4B = UIImage.init(named: "4B")
-//        let image4BB = UIImage.init(named: "4BB")
-
         
         santasArray0 = [#imageLiteral(resourceName: "1DD.png"), #imageLiteral(resourceName: "1D.png"), #imageLiteral(resourceName: "1"), #imageLiteral(resourceName: "1B.png"), #imageLiteral(resourceName: "1BB.png")]
         santasArray1 = [#imageLiteral(resourceName: "2DD.png"), #imageLiteral(resourceName: "2D.png"), #imageLiteral(resourceName: "2.png"), #imageLiteral(resourceName: "2B.png"), #imageLiteral(resourceName: "2BB.png")]
         santasArray2 = [#imageLiteral(resourceName: "3DD"), #imageLiteral(resourceName: "3D"), #imageLiteral(resourceName: "3"), #imageLiteral(resourceName: "3B"), #imageLiteral(resourceName: "3BB")]
         santasArray3 = [#imageLiteral(resourceName: "4DD"), #imageLiteral(resourceName: "4D"), #imageLiteral(resourceName: "4"), #imageLiteral(resourceName: "4B"), #imageLiteral(resourceName: "4BB")]
-//        santasArray2 = [image3DD!, image3D!, image3!, image3B!, image3BB!]
-//        santasArray3 = [image4!, image4DD!, image4D!, image4B!, image4BB!]
-//
+
         switch GlobalVariable.selectedIndexPath {
         case 0:
             mainSantasArrays = santasArray0
@@ -91,82 +64,22 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         default:
             break
         }
-//        switch GlobalVariable.selectedIndexPath {
-//        case 0:
-//            for i in 0..<santasArray0.count  {
-//                let imageView = UIImageView()
-//                imageView.image = santasArray0[i]
-//                let xPosition = self.view.frame.width * CGFloat(i)
-//                imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
-//
-//                imageView.contentMode = .scaleAspectFill
-//                scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
-//                scrollView.addSubview(imageView)
-//            }
-//        case 1:
-//            for i in 0..<santasArray1.count  {
-//                let imageView = UIImageView()
-//                imageView.image = santasArray1[i]
-//                let xPosition = self.view.frame.width * CGFloat(i)
-//                imageView.frame = CGRect(x: xPosition, y: 30, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
-//                
-//                imageView.contentMode = .scaleAspectFill
-//                scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
-//                scrollView.addSubview(imageView)
-//            }
-//
-//        case 2:
-//            for i in 0..<santasArray2.count  {
-//                let imageView = UIImageView()
-//                imageView.image = santasArray2[i]
-//                let xPosition = self.view.frame.width * CGFloat(i)
-//                imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
-//                
-//                imageView.contentMode = .scaleAspectFill
-//                scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
-//                scrollView.addSubview(imageView)
-//            }
-//
-//        case 3:
-//            for i in 0..<santasArray3.count  {
-//                let imageView = UIImageView()
-//                imageView.image = santasArray3[i]
-//                let xPosition = self.view.frame.width * CGFloat(i)
-//                imageView.frame = CGRect(x: xPosition, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
-//                
-//                imageView.contentMode = .scaleAspectFill
-//                scrollView.contentSize.width = scrollView.frame.width * CGFloat(i + 1)
-//                scrollView.addSubview(imageView)
-//            }
-//
-//        default:
-//            break
-//        }
-        
+
         print(self.collectionView.numberOfSections)
         print(self.collectionView.numberOfItems(inSection: 0))
         let index2 = NSIndexPath(item: 2, section: 0)
         collectionView.scrollToItem(at: index2 as IndexPath, at: .centeredHorizontally, animated: false)
 
-
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        let index2 = NSIndexPath(item: 2, section: 0)
-//        collectionView.scrollToItem(at: index2 as IndexPath, at: .centeredHorizontally, animated: false)
-//    }
-    
     func setupDataSource() {
-//        let collectionView = chooseVC.selectedRow
-//        print(collectionView)
+        //
     }
     
     func setupNavigationBar() {
-        
-//        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(PhotoViewController.userTappedShared(sender:)))
-//        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(PhotoViewController.saveButtonPressed))
-//        navigationItem.rightBarButtonItems = [saveButton, shareButton]
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(PhotoViewController.userTappedShared(sender:)))
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(PhotoViewController.saveButtonPressed))
+        navigationItem.rightBarButtonItems = [saveButton, shareButton]
         navigationItem.title = "Edit"
     }
 
@@ -231,69 +144,69 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
 //        view.addSubview(imageOverlay)
 //    }
 
-//    func saveButtonPressed(sender: Any) {
-//        
-//        // take screenshot
-//        let photoTaken = santaImage
-//        let finalImage = santaScreenShot(image: photoTaken)
-//        savePhotoToLibrary(finalImage)
-//    }
+    func saveButtonPressed(sender: Any) {
+        
+        // take screenshot
+        let photoTaken = santaImage
+        let finalImage = santaScreenShot(image: photoTaken)
+        savePhotoToLibrary(finalImage)
+    }
     
-    // Share Photo
-//    func userTappedShared(sender: Any) {
-//        let photoTaken = santaImage
-//        let finalImage = santaScreenShot(image: photoTaken)
-//        self.displayActionShareSheet(shareContent: finalImage)
-//    }
+//     Share Photo
+    func userTappedShared(sender: Any) {
+        let photoTaken = santaImage
+        let finalImage = santaScreenShot(image: photoTaken)
+        self.displayActionShareSheet(shareContent: finalImage)
+    }
     
-//    func displayActionShareSheet(shareContent: UIImage) {
-//        let activityViewController = UIActivityViewController(activityItems: [shareContent as UIImage], applicationActivities: nil)
-//        present(activityViewController, animated: true, completion: nil)
-//    }
+    func displayActionShareSheet(shareContent: UIImage) {
+        let activityViewController = UIActivityViewController(activityItems: [shareContent as UIImage], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
+    }
     
-//    func santaScreenShot(image: UIImage) -> UIImage {
-//        
-//        // hide the page controller
-//        pageControl.isHidden = true
-//        
-//        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, true, 0)
-//        self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-//        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-//        UIGraphicsEndImageContext()
-//        
-//        return image
-//        
-//    }
+    func santaScreenShot(image: UIImage) -> UIImage {
+        
+        // hide the page controller
+        pageControl.isHidden = true
+        
+        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, true, 0)
+        self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return image
+        
+    }
     
-//    func showSaveViewAlert() {
-//        //only apply the blur if the user hasn't disabled transparency effects
-//        if !UIAccessibilityIsReduceTransparencyEnabled() {
-//            self.view.backgroundColor = UIColor.clear
-//            
-//            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-//            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//            //always fill the view
-//            blurEffectView.frame = self.view.bounds
-//            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//            
-//            let saveLabel = UILabel(frame: CGRect(x: view.center.x - 50, y: view.center.y - 50, width: 100, height: 50))
-//            saveLabel.text = "Saved!"
-//            saveLabel.textColor = .white
-//            saveLabel.textAlignment = .center
-//            saveLabel.font = UIFont.boldSystemFont(ofSize: 18)
-//            
-//            self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
-//            self.view.addSubview(saveLabel)
-//            
-//            blurEffectView.fadeIn()
-//            saveLabel.fadeIn()
-//            
-//            blurEffectView.fadeOut()
-//            saveLabel.fadeOut()
-//        } else {
-//            self.view.backgroundColor = UIColor.black
-//        }
-//    }
+    func showSaveViewAlert() {
+        //only apply the blur if the user hasn't disabled transparency effects
+        if !UIAccessibilityIsReduceTransparencyEnabled() {
+            self.view.backgroundColor = UIColor.clear
+            
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            //always fill the view
+            blurEffectView.frame = self.view.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            
+            let saveLabel = UILabel(frame: CGRect(x: view.center.x - 50, y: view.center.y - 50, width: 100, height: 50))
+            saveLabel.text = "Saved!"
+            saveLabel.textColor = .white
+            saveLabel.textAlignment = .center
+            saveLabel.font = UIFont.boldSystemFont(ofSize: 18)
+            
+            self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
+            self.view.addSubview(saveLabel)
+            
+            blurEffectView.fadeIn()
+            saveLabel.fadeIn()
+            
+            blurEffectView.fadeOut()
+            saveLabel.fadeOut()
+        } else {
+            self.view.backgroundColor = UIColor.black
+        }
+    }
 
     func savePhotoToLibrary(_ image: UIImage) {
         let photoLibrary = PHPhotoLibrary.shared()
