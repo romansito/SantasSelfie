@@ -49,8 +49,8 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         setupCollectionView()
 //        setupImageOverlay()
 //        setupScrollView()
-//        configurePageControl()
-        imageOverlay.image = santaImage
+        configurePageControl()
+//        imageOverlay.image = santaImage
         
 //        print(photoFromCamera)
 //        setupDataSource()
@@ -199,31 +199,31 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
 //    }
 
     
-    // MARK : Configure page control!
-//    func configurePageControl() {
-//        
-//        let greenPageControlColor = UIColor(red: 4/255, green: 179/255, blue: 120/255, alpha: 1.0)
-//        
-//        pageControl = UIPageControl(frame: CGRect(x: view.center.x - 100, y: view.frame.size.height - 50, width: 200, height: 50))
-//        pageControl.numberOfPages = 5
-//        pageControl.currentPage = 0
-//        pageControl.pageIndicatorTintColor = greenPageControlColor
-//        pageControl.currentPageIndicatorTintColor = UIColor.white
-//        pageControl.addTarget(self, action: Selector(("changePage:")), for: .valueChanged)
-//        pageControl.isHidden = false
-//        view.addSubview(pageControl)
-//    }
+//     MARK : Configure page control!
+    func configurePageControl() {
+        
+        let greenPageControlColor = UIColor(red: 4/255, green: 179/255, blue: 120/255, alpha: 1.0)
+        
+        pageControl = UIPageControl(frame: CGRect(x: view.center.x - 100, y: view.frame.size.height - 50, width: 200, height: 50))
+        pageControl.numberOfPages = 5
+        pageControl.currentPage = 0
+        pageControl.pageIndicatorTintColor = greenPageControlColor
+        pageControl.currentPageIndicatorTintColor = UIColor.white
+        pageControl.addTarget(self, action: Selector(("changePage:")), for: .valueChanged)
+        pageControl.isHidden = false
+        view.addSubview(pageControl)
+    }
     
-//    func changePage(sender: AnyObject) -> () {
-//        let x = CGFloat(pageControl.currentPage) * scrollView.frame.size.width
-//        scrollView.setContentOffset(CGPoint(x: x,y :0), animated: true)
-//    }
+    func changePage(sender: AnyObject) -> () {
+        let x = CGFloat(pageControl.currentPage) * collectionView.frame.size.width
+        collectionView.setContentOffset(CGPoint(x: x,y :0), animated: true)
+    }
     
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        
-//        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
-//        pageControl.currentPage = Int(pageNumber)
-//    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        let pageNumber = round(collectionView.contentOffset.x / collectionView.frame.size.width)
+        pageControl.currentPage = Int(pageNumber)
+    }
     
 //    func setupImageOverlay() {
 //        imageOverlay = UIImageView(frame: CGRect(x: 0.0, y: view.bounds.height / 2, width: view.bounds.width, height: view.bounds.height / 2))
