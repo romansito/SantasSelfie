@@ -29,7 +29,7 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
     var santasArray2 = [UIImage]()
     var santasArray3 = [UIImage]()
     
-//    var interstitial: GADInterstitial!
+    var interstitial: GADInterstitial!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -41,7 +41,7 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        interstitial = createAndLoadInterstitial()
+        interstitial = createAndLoadInterstitial()
         detailImageView.image = photoFromCamera
         setupNavigationBar()
         setupCollectionView()
@@ -207,7 +207,7 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
     }
     
     func showAlertController() {
-        let alertController = UIAlertController(title: "Saved!", message: "", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "!", message: "", preferredStyle: .actionSheet)
         
         let subview1 = alertController.view.subviews.first! as UIView
         let subview2 = subview1.subviews.first! as UIView
@@ -221,7 +221,13 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         alertController.setValue(NSAttributedString(string: "Saved!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: 0),NSForegroundColorAttributeName : UIColor.black]), forKey: "attributedTitle")
 
         let takePhotoAction = UIAlertAction(title: "Take an other photo", style: .default, handler:{ (action) -> Void in
+            if self.interstitial.isReady {
+                self.interstitial.present(fromRootViewController: self)
+            } else {
+                print("Ad wasn't ready")
+            }
             self.navigationController?.popToRootViewController(animated: true)
+
         })
         
         let goToLibraryAction = UIAlertAction(title: "Go my photos", style: .default, handler:{ (action) -> Void in
@@ -245,13 +251,13 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
 //    }
 
     
-// MARK: Create a interstitial
-//    func createAndLoadInterstitial() -> GADInterstitial {
-//        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3020802165335227/6638416397")
-//        interstitial.delegate = self
-//        interstitial.load(GADRequest())
-//        return interstitial
-//    }
+    // MARK: Create a interstitial
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3020802165335227/6638416397")
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
     
 //    func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
 //        if interstitial.isReady {
@@ -262,9 +268,10 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
 //        // Give user the option to start the next game.
 //    }
 
-//    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-//        interstitial = createAndLoadInterstitial()
-//    }
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        interstitial = createAndLoadInterstitial()
+//        self.navigationController?.popToRootViewController(animated: true)
+    }
     
 }
 
