@@ -216,13 +216,19 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         subview2.backgroundColor = .white
         view.backgroundColor = .white
         view.tintColor = .white
-        alertController.view.tintColor = UIColor.lightGray
+        alertController.view.tintColor = UIColor.darkGray
         
         alertController.setValue(NSAttributedString(string: "Saved!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: 0),NSForegroundColorAttributeName : UIColor.black]), forKey: "attributedTitle")
 
-        let takePhotoAction = UIAlertAction(title: "Take an other photo", style: .default, handler: nil)
-        let goToLibraryAction = UIAlertAction(title: "Go to library", style: .default, handler: nil)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let takePhotoAction = UIAlertAction(title: "Take an other photo", style: .default, handler:{ (action) -> Void in
+            self.navigationController?.popToRootViewController(animated: true)
+        })
+        
+        let goToLibraryAction = UIAlertAction(title: "Go my photos", style: .default, handler:{ (action) -> Void in
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         
         alertController.addAction(takePhotoAction)
         alertController.addAction(goToLibraryAction)
