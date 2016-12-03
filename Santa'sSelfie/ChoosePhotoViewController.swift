@@ -17,6 +17,8 @@ class ChoosePhotoViewController: UIViewController {
     
     var photoVC = PhotoViewController()
 
+    var menuTransitionManager = MenuTransitionManager()
+
     @IBOutlet weak var collectionView: UICollectionView!
     var cell: SantaCollectionViewCell!
     
@@ -29,6 +31,9 @@ class ChoosePhotoViewController: UIViewController {
 
     @IBOutlet weak var bannerView: GADBannerView!
     
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        let sourceController = segue.source as! MenuTableViewController
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -94,8 +99,21 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
         return santasSelfies.count
     }
 
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let menuTableViewController = segue.destinationViewController as! MenuTableViewController
+//        menuTableViewController.currentItem = self.title!
+//        menuTableViewController.transitioningDelegate = self.menuTransitionManager
+//        
+//        self.menuTransitionManager.delegate = self
+//    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        let menuTableViewController = segue.destination as! MenuTableViewController
+        menuTableViewController.transitioningDelegate = self.menuTransitionManager
+        self.menuTransitionManager.delegate = self
+        
+
         if segue.identifier == "segueToCameraVC" {
             
             let indexPaths = self.collectionView.indexPathsForSelectedItems!
@@ -105,6 +123,13 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
             nextVC.santaImage = self.santasSelfies[indexPath.row]
         }
     }
+}
+
+extension ChoosePhotoViewController: MenuTransitionManagerDelegate {
     
+    func dismiss() {
+        dismiss(animated: true, completion: nil)
+    }
+
 }
 

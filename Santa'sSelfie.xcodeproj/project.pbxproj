@@ -26,6 +26,9 @@
 		309B3D661DCD4D6900C1FF24 /* SantaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D651DCD4D6900C1FF24 /* SantaCollectionViewCell.swift */; };
 		309B3D681DCD4EC000C1FF24 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D671DCD4EC000C1FF24 /* Extensions.swift */; };
 		309B3D6A1DCEB86200C1FF24 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D691DCEB86200C1FF24 /* CameraViewController.swift */; };
+		30BEF35C1DF2336D0000F841 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEF35B1DF2336D0000F841 /* MenuTableViewController.swift */; };
+		30BEF35E1DF2341B0000F841 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEF35D1DF2341B0000F841 /* MenuTableViewCell.swift */; };
+		30BEF3601DF238BD0000F841 /* MenuTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BEF35F1DF238BD0000F841 /* MenuTransitionManager.swift */; };
 		30E145491DDB8041002177C4 /* CameraHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E145481DDB8041002177C4 /* CameraHelperMethods.swift */; };
 		30E145731DE53C81002177C4 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E145721DE53C7F002177C4 /* Logo.png */; };
 		30E145751DE541E9002177C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E145741DE541E9002177C4 /* SettingsViewController.swift */; };
@@ -56,6 +59,9 @@
 		309B3D651DCD4D6900C1FF24 /* SantaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SantaCollectionViewCell.swift; sourceTree = "<group>"; };
 		309B3D671DCD4EC000C1FF24 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		309B3D691DCEB86200C1FF24 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		30BEF35B1DF2336D0000F841 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		30BEF35D1DF2341B0000F841 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		30BEF35F1DF238BD0000F841 /* MenuTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTransitionManager.swift; sourceTree = "<group>"; };
 		30E145481DDB8041002177C4 /* CameraHelperMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraHelperMethods.swift; sourceTree = "<group>"; };
 		30E145721DE53C7F002177C4 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		30E145741DE541E9002177C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 				309B3D651DCD4D6900C1FF24 /* SantaCollectionViewCell.swift */,
 				30E145481DDB8041002177C4 /* CameraHelperMethods.swift */,
 				3063942F1DE93832004F9EF3 /* ImageArrays.swift */,
+				30BEF35D1DF2341B0000F841 /* MenuTableViewCell.swift */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -99,6 +106,8 @@
 				309B3D691DCEB86200C1FF24 /* CameraViewController.swift */,
 				3021A4BB1DD1250F003E035D /* PhotoViewController.swift */,
 				30E145741DE541E9002177C4 /* SettingsViewController.swift */,
+				30BEF35B1DF2336D0000F841 /* MenuTableViewController.swift */,
+				30BEF35F1DF238BD0000F841 /* MenuTransitionManager.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -306,11 +315,14 @@
 			files = (
 				309B3D681DCD4EC000C1FF24 /* Extensions.swift in Sources */,
 				30E145491DDB8041002177C4 /* CameraHelperMethods.swift in Sources */,
+				30BEF35E1DF2341B0000F841 /* MenuTableViewCell.swift in Sources */,
+				30BEF35C1DF2336D0000F841 /* MenuTableViewController.swift in Sources */,
 				309B3D601DCD424500C1FF24 /* ChoosePhotoViewController.swift in Sources */,
 				309B3D621DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift in Sources */,
 				309B3D661DCD4D6900C1FF24 /* SantaCollectionViewCell.swift in Sources */,
 				306394301DE93832004F9EF3 /* ImageArrays.swift in Sources */,
 				3021A4BC1DD1250F003E035D /* PhotoViewController.swift in Sources */,
+				30BEF3601DF238BD0000F841 /* MenuTransitionManager.swift in Sources */,
 				309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */,
 				309B3D6A1DCEB86200C1FF24 /* CameraViewController.swift in Sources */,
 				30E145751DE541E9002177C4 /* SettingsViewController.swift in Sources */,
