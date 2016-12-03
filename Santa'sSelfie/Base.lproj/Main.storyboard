@@ -14,35 +14,37 @@
         <scene sceneID="YDm-pd-eyY">
             <objects>
                 <tableViewController id="0kA-FX-fVO" customClass="MenuTableViewController" customModule="Santa_sSelfie" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7dx-aX-0Ec">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" id="7dx-aX-0Ec">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="jpi-Mv-knc" customClass="MenuTableViewCell" customModule="Santa_sSelfie" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="52"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jpi-Mv-knc" id="gIm-B5-h73">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53c-oY-mrb">
-                                            <rect key="frame" x="8" y="11" width="214" height="21"/>
+                                            <rect key="frame" x="8" y="11" width="359" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="53c-oY-mrb" secondAttribute="trailing" constant="145" id="AtG-HH-4nJ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="53c-oY-mrb" secondAttribute="trailing" id="AtG-HH-4nJ"/>
                                         <constraint firstItem="53c-oY-mrb" firstAttribute="leading" secondItem="gIm-B5-h73" secondAttribute="leadingMargin" id="EdI-Qd-w2o"/>
                                         <constraint firstItem="53c-oY-mrb" firstAttribute="top" secondItem="gIm-B5-h73" secondAttribute="topMargin" constant="3" id="Mh6-io-JF2"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="53c-oY-mrb" secondAttribute="bottom" constant="3" id="uSu-fR-c3s"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="titleLabel" destination="53c-oY-mrb" id="qST-d4-PNZ"/>
-                                    <segue destination="04p-Ow-1G8" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="AYR-pm-Pnk"/>
+                                    <segue destination="04p-Ow-1G8" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="KIw-6N-Iyf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -53,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="1076" y="-548.27586206896558"/>
         </scene>
-        <!--Choose-->
+        <!--Choose Photo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ChoosePhotoViewController" customModule="Santa_sSelfie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Choose Photo" id="BYZ-38-t0r" customClass="ChoosePhotoViewController" customModule="Santa_sSelfie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -127,13 +129,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Choose" id="aOw-y4-rwk">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="aMK-lT-LpY">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9fT-Wl-7oK">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="bKB-tS-KDA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xUO-TG-Dmx">
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Menu"/>
                                 <connections>
-                                    <segue destination="0kA-FX-fVO" kind="presentation" id="RhL-wf-04r"/>
+                                    <segue destination="0kA-FX-fVO" kind="presentation" id="eTw-9H-hfG"/>
                                 </connections>
                             </button>
                         </barButtonItem>

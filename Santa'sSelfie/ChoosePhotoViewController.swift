@@ -33,6 +33,7 @@ class ChoosePhotoViewController: UIViewController {
     
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         let sourceController = segue.source as! MenuTableViewController
+        self.title = sourceController.currentItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,32 +100,47 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
         return santasSelfies.count
     }
 
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let menuTableViewController = segue.destinationViewController as! MenuTableViewController
+//    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let menuTableViewController = segue.destination as! MenuTableViewController
 //        menuTableViewController.currentItem = self.title!
 //        menuTableViewController.transitioningDelegate = self.menuTransitionManager
 //        
 //        self.menuTransitionManager.delegate = self
 //    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let menuTableViewController = segue.destination as! MenuTableViewController
-        menuTableViewController.transitioningDelegate = self.menuTransitionManager
-        self.menuTransitionManager.delegate = self
-        
-
         if segue.identifier == "segueToCameraVC" {
-            
             let indexPaths = self.collectionView.indexPathsForSelectedItems!
             let indexPath = indexPaths[0] as NSIndexPath
             
             let nextVC = segue.destination as! CameraViewController
             nextVC.santaImage = self.santasSelfies[indexPath.row]
+        } else {
+            let menuTableViewController = segue.destination as! MenuTableViewController
+            //        menuTableViewController.currentItem = self.title!
+            menuTableViewController.transitioningDelegate = self.menuTransitionManager
+            self.menuTransitionManager.delegate = self
         }
     }
 }
-
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        
+//        let menuTableViewController = segue.destination as! MenuTableViewController
+//        menuTableViewController.transitioningDelegate = self.menuTransitionManager
+//        self.menuTransitionManager.delegate = self
+//        
+//
+////        if segue.identifier == "segueToCameraVC" {
+////            
+////            let indexPaths = self.collectionView.indexPathsForSelectedItems!
+////            let indexPath = indexPaths[0] as NSIndexPath
+////            
+////            let nextVC = segue.destination as! CameraViewController
+////            nextVC.santaImage = self.santasSelfies[indexPath.row]
+////        }
+//    }
+//}
 extension ChoosePhotoViewController: MenuTransitionManagerDelegate {
     
     func dismiss() {
