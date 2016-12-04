@@ -40,7 +40,7 @@ class MenuTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UI
         
         // Setup transform for sliding
         let container = transitionContext.containerView
-        let moveDown = CGAffineTransform(translationX: 0, y: 270)
+        let moveDown = CGAffineTransform(translationX: 0, y: 268)
         let moveUp = CGAffineTransform(translationX: 0, y: -300)
         
         // Add both view to the container view

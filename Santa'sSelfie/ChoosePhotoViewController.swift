@@ -19,6 +19,7 @@ class ChoosePhotoViewController: UIViewController {
 
     var menuTransitionManager = MenuTransitionManager()
 
+   
     @IBOutlet weak var collectionView: UICollectionView!
     var cell: SantaCollectionViewCell!
     
@@ -30,10 +31,13 @@ class ChoosePhotoViewController: UIViewController {
     }
 
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var cellLabels: UILabel!
+    
+    
     
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         let sourceController = segue.source as! MenuTableViewController
-        self.title = sourceController.currentItem
+//        self.title = sourceController.currentItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +63,10 @@ class ChoosePhotoViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = myGreenColor
+        
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage.init(named: "menuIcon"), for: UIControlState.normal)
+        
     }
     
     func setupDataSource() {
@@ -85,7 +93,20 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
         
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: SantaCollectionViewCell.identifier(), for: indexPath) as! SantaCollectionViewCell
         cell.santaImage = santasSelfies[indexPath.row]
-        cell.backgroundColor = .clear
+//        cell.backgroundColor = .white
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 2
+        
+        // Labels: 
+        if indexPath.row == 0 {
+            cell.santaCellLabels.text = "Portrait"
+        } else if indexPath.row == 1 {
+            cell.santaCellLabels.text = "Portrait"
+        } else if indexPath.row == 2 {
+            cell.santaCellLabels.text = "Portrait"
+        } else {
+            cell.santaCellLabels.text = "Landscape"
+        }
         
         return cell
     }
@@ -99,14 +120,6 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return santasSelfies.count
     }
-
-//    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let menuTableViewController = segue.destination as! MenuTableViewController
-//        menuTableViewController.currentItem = self.title!
-//        menuTableViewController.transitioningDelegate = self.menuTransitionManager
-//        
-//        self.menuTransitionManager.delegate = self
-//    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "segueToCameraVC" {
@@ -123,24 +136,7 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
         }
     }
 }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        let menuTableViewController = segue.destination as! MenuTableViewController
-//        menuTableViewController.transitioningDelegate = self.menuTransitionManager
-//        self.menuTransitionManager.delegate = self
-//        
-//
-////        if segue.identifier == "segueToCameraVC" {
-////            
-////            let indexPaths = self.collectionView.indexPathsForSelectedItems!
-////            let indexPath = indexPaths[0] as NSIndexPath
-////            
-////            let nextVC = segue.destination as! CameraViewController
-////            nextVC.santaImage = self.santasSelfies[indexPath.row]
-////        }
-//    }
-//}
+
 extension ChoosePhotoViewController: MenuTransitionManagerDelegate {
     
     func dismiss() {

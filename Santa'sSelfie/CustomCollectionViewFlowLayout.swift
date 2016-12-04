@@ -12,8 +12,8 @@ class CustomCollectionViewFlowLayout:
 UICollectionViewFlowLayout {
     override init() {
         super.init()
-        minimumLineSpacing = 1
-        minimumInteritemSpacing = 1
+        minimumLineSpacing = -1
+        minimumInteritemSpacing = -1
         scrollDirection = .vertical
     }
     
@@ -26,7 +26,7 @@ UICollectionViewFlowLayout {
             //
         } get {
             let numberOfCulumns: CGFloat = 2
-            let itemWidth = ((self.collectionView?.frame)!.width - (numberOfCulumns - 1)) / numberOfCulumns
+            let itemWidth = ((self.collectionView?.frame)!.width - (numberOfCulumns - 2)) / numberOfCulumns
             return CGSize(width: itemWidth, height: itemWidth)
         }
     }

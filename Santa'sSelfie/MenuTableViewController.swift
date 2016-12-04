@@ -10,12 +10,12 @@ import UIKit
 
 
 class MenuTableViewController: UITableViewController {
-    var menuItems = ["Home", "Buy more Images (coming soon)", "Contact", "Review App"]
-    var currentItem = "Home"
+    var menuItems = ["Home", "Contact", "Review App"]
+//    var currentItem = "Home"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = .black
+        self.tableView.backgroundColor = .white
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,6 +24,16 @@ class MenuTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            UIApplication.shared.openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id959379869")! as URL)
+        } else if indexPath.row == 1 {
+            let email = "foo@bar.com"
+            let url = URL(string: "mailto:\(email)")
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        }
+    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
@@ -37,9 +47,9 @@ class MenuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MenuTableViewCell
-        cell.backgroundColor = .black
+        cell.backgroundColor = .white
         cell.titleLabel.text = menuItems[indexPath.row]
-        cell.titleLabel.textColor = .white
+        cell.titleLabel.textColor = .black
 
         return cell
     }
@@ -48,12 +58,17 @@ class MenuTableViewController: UITableViewController {
         return 60
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Menu"
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let menuTableViewController = segue.source as! MenuTableViewController
         if let selectedRow = menuTableViewController.tableView.indexPathForSelectedRow?.row {
-            currentItem = menuItems[selectedRow]
+//            currentItem = menuItems[selectedRow]
         }
     }
+    
     
     
 }

@@ -12,6 +12,7 @@ class SantaCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var santaImageView: UIImageView!
+    @IBOutlet weak var santaCellLabels: UILabel!
     
     var santaImage: UIImage! {
         didSet{

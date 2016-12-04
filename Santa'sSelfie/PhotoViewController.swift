@@ -77,9 +77,9 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
     }
     
     func setupNavigationBar() {
-        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(PhotoViewController.userTappedShared(sender:)))
+//        let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(PhotoViewController.userTappedShared(sender:)))
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(PhotoViewController.saveButtonPressed))
-        navigationItem.rightBarButtonItems = [saveButton, shareButton]
+        navigationItem.rightBarButtonItems = [saveButton]
         navigationItem.title = "Edit"
     }
 
@@ -134,7 +134,7 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
     }
     
 //     Share Photo
-    func userTappedShared(sender: Any) {
+    func userTappedShared() {
         let photoTaken = santaImage
         let finalImage = santaScreenShot(image: photoTaken)
         self.displayActionShareSheet(shareContent: finalImage)
@@ -230,8 +230,8 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
 
         })
         
-        let goToLibraryAction = UIAlertAction(title: "Go my photos", style: .default, handler:{ (action) -> Void in
-            
+        let goToLibraryAction = UIAlertAction(title: "Share", style: .default, handler:{ (action) -> Void in
+            self.userTappedShared()
         })
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
