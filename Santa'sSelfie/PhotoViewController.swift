@@ -84,7 +84,7 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
     }
 
     func setupCollectionView() {
-        let frame = CGRect(x: 0.0, y: view.bounds.height / 2 - 75, width: view.bounds.width, height: view.bounds.height / 2 + 125)
+        let frame = CGRect(x: 0.0, y: view.bounds.height / 2 - 100, width: view.bounds.width, height: view.bounds.height / 2 + 200)
         let layout = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear

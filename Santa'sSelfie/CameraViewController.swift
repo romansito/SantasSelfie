@@ -15,9 +15,6 @@ class CameraViewController: UIViewController {
     var photoViewController = PhotoViewController()
     var chooseViewController = ChoosePhotoViewController()
     
-//    @IBOutlet weak var cameraPreview: UIView!
-//    @IBOutlet weak var imageOverlay: UIImageView!
-    
     var cameraPreview: UIView!
     var shutterButton: UIButton!
     var imageOverlay = UIImageView()
@@ -169,9 +166,6 @@ class CameraViewController: UIViewController {
                     let imageData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer!, previewPhotoSampleBuffer: nil)
                     let santaImage = UIImage(data: imageData!)
                     print("\(imageData)")
-//                    let snapShot = self.view.snapshotView(afterScreenUpdates: true)
-//                    let santaBomb = self.santaScreenShot(image: santaImage!)
-//                    self.savePhotoToLibrary(santaBomb)
                     self.santasSelfie = santaImage!
             
                     self.performSegue(withIdentifier: "toPhotoDetailSegue", sender: nil)
@@ -184,91 +178,31 @@ class CameraViewController: UIViewController {
     
     
 //     MARK : Image overlay function
-    func santaScreenShot(image: UIImage) -> UIImage {
-        // try one
-//        UIGraphicsBeginImageContextWithOptions(view.frame.size, true, 0.0)
-//        UIGraphicsBeginImageContext(image.size)
-
-//        UIGraphicsBeginImageContext(image.size)
-//        image.draw(at: CGPoint(x: 0.0, y: 0.0))
-//        view.layer.render(in: UIGraphicsGetCurrentContext()!)
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        return image!
-        
-        // test
-//        UIGraphicsBeginImageContext(CGSize(width: view.frame.size.width, height: view.frame.size.height))
-//            UIGraphicsBeginImageContext(image.size)
-//
-//        self.view?.drawHierarchy(in: view.frame, afterScreenUpdates: true)
-//        let screenShot = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext();
-//        return screenShot!
-        
-//        // test
-        UIGraphicsBeginImageContextWithOptions(image.size, true, 0.0)
-        UIGraphicsBeginImageContext(image.size)
-        image.draw(at: CGPoint(x: 0.0, y: 0.0))
-
-        // Composite Santas Selfie
-        let santaSelfie = santaImage
-        let origin = CGPoint(x: 0.0, y: self.view.frame.size.height)
-        santaSelfie.draw(at: origin)
-        
-        let finalImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return finalImage!
-        
-//        // test 
-//        let layer = UIApplication.shared.keyWindow!.layer
-//        let scale = UIScreen.main.scale
-//        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
-//                image.draw(at: CGPoint(x: 0.0, y: 0.0))
-//        
-//        layer.render(in: UIGraphicsGetCurrentContext()!)
-//        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        
-////        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
-//        
-//        return screenshot!
-        
-        // test 
-//
-//        UIGraphicsBeginImageContextWithOptions(self.view.frame.size, self.view.isOpaque, UIScreen.main.scale)
-////        self.view.layer.render(in: UIGraphicsGetCurrentContext()!)
+//    func santaScreenShot(image: UIImage) -> UIImage {
+//        UIGraphicsBeginImageContextWithOptions(image.size, true, 0.0)
 //        UIGraphicsBeginImageContext(image.size)
 //        image.draw(at: CGPoint(x: 0.0, y: 0.0))
 //
+//        // Composite Santas Selfie
+//        let santaSelfie = santaImage
+//        let origin = CGPoint(x: 0.0, y: self.view.frame.size.height)
+//        santaSelfie.draw(at: origin)
+//        
+//        let finalImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return finalImage!
+//    }
+//    
 //
-//        
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        
-//        return image!
-        
-        // this is the good working function
-//        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, true, 0)
-//        
-//        self.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-//        
-//        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-//        
-//        UIGraphicsEndImageContext()
-//        
-//        return image
-    }
-    
-
-    // MARK : Focus Methods
-    func tapToFocus(recognizer: UITapGestureRecognizer) {
-        if activeInput.device.isFocusPointOfInterestSupported {
-            let point = recognizer.location(in: cameraPreview)
-            let pointOfInterest = previewLayer.captureDevicePointOfInterest(for: point)
-            showMarkerAtPoint(point: point, marker: focusMarker)
-            focusAtPoint(point: pointOfInterest)
-        }
-    }
+//    // MARK : Focus Methods
+//    func tapToFocus(recognizer: UITapGestureRecognizer) {
+//        if activeInput.device.isFocusPointOfInterestSupported {
+//            let point = recognizer.location(in: cameraPreview)
+//            let pointOfInterest = previewLayer.captureDevicePointOfInterest(for: point)
+//            showMarkerAtPoint(point: point, marker: focusMarker)
+//            focusAtPoint(point: pointOfInterest)
+//        }
+//    }
     
     func focusAtPoint(point: CGPoint) {
         let device = activeInput.device
