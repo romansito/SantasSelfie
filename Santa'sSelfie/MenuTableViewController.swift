@@ -29,7 +29,7 @@ class MenuTableViewController: UITableViewController {
         if indexPath.row == 2 {
             UIApplication.shared.openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id959379869")! as URL)
         } else if indexPath.row == 1 {
-            let email = "foo@bar.com"
+            let email = "romansito18@gmail.com"
             let url = URL(string: "mailto:\(email)")
             UIApplication.shared.open(url!, options: [:], completionHandler: nil)
         }

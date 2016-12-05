@@ -194,15 +194,15 @@ class CameraViewController: UIViewController {
 //    }
 //    
 //
-//    // MARK : Focus Methods
-//    func tapToFocus(recognizer: UITapGestureRecognizer) {
-//        if activeInput.device.isFocusPointOfInterestSupported {
-//            let point = recognizer.location(in: cameraPreview)
-//            let pointOfInterest = previewLayer.captureDevicePointOfInterest(for: point)
-//            showMarkerAtPoint(point: point, marker: focusMarker)
-//            focusAtPoint(point: pointOfInterest)
-//        }
-//    }
+    // MARK : Focus Methods
+    func tapToFocus(recognizer: UITapGestureRecognizer) {
+        if activeInput.device.isFocusPointOfInterestSupported {
+            let point = recognizer.location(in: cameraPreview)
+            let pointOfInterest = previewLayer.captureDevicePointOfInterest(for: point)
+            showMarkerAtPoint(point: point, marker: focusMarker)
+            focusAtPoint(point: pointOfInterest)
+        }
+    }
     
     func focusAtPoint(point: CGPoint) {
         let device = activeInput.device

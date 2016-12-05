@@ -220,7 +220,7 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         
         alertController.setValue(NSAttributedString(string: "Saved!", attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: 0),NSForegroundColorAttributeName : UIColor.black]), forKey: "attributedTitle")
 
-        let takePhotoAction = UIAlertAction(title: "Take an other photo", style: .default, handler:{ (action) -> Void in
+        let takePhotoAction = UIAlertAction(title: "Take another photo", style: .default, handler:{ (action) -> Void in
             if self.interstitial.isReady {
                 self.interstitial.present(fromRootViewController: self)
             } else {
