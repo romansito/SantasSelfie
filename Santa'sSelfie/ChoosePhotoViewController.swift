@@ -120,21 +120,23 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return santasSelfies.count
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "segueToCameraVC" {
-            let indexPaths = self.collectionView.indexPathsForSelectedItems!
-            let indexPath = indexPaths[0] as NSIndexPath
-            
-            let nextVC = segue.destination as! CameraViewController
-            nextVC.santaImage = self.santasSelfies[indexPath.row]
-        } else {
-            let menuTableViewController = segue.destination as! MenuTableViewController
-            //        menuTableViewController.currentItem = self.title!
-            menuTableViewController.transitioningDelegate = self.menuTransitionManager
-            self.menuTransitionManager.delegate = self
-        }
+//        if segue.identifier == "segueToCameraVC" {
+//            let indexPaths = self.collectionView.indexPathsForSelectedItems!
+//            let indexPath = indexPaths[0] as NSIndexPath
+//            
+//            let nextVC = segue.destination as! CameraViewController
+//            nextVC.santaImage = self.santasSelfies[indexPath.row]
+//        } else {
+//            let menuTableViewController = segue.destination as! MenuTableViewController
+//            //        menuTableViewController.currentItem = self.title!
+//            menuTableViewController.transitioningDelegate = self.menuTransitionManager
+//            self.menuTransitionManager.delegate = self
+//        }
     }
+    
 }
 
 extension ChoosePhotoViewController: MenuTransitionManagerDelegate {
