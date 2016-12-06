@@ -15,6 +15,10 @@ class StoreViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func buyButtonPressed(_ sender: Any) {
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
