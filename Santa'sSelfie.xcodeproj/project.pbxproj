@@ -15,6 +15,7 @@
 		300275FC1DEB96FF001FE78C /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300275F61DEB96FF001FE78C /* GoogleToolboxForMac.framework */; };
 		3021A4BC1DD1250F003E035D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021A4BB1DD1250F003E035D /* PhotoViewController.swift */; };
 		30220C7D1DE90C68006AF59A /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30220C7C1DE90C68006AF59A /* GoogleMobileAds.framework */; };
+		303CD6F31DF73A6C009D5555 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303CD6F21DF73A6C009D5555 /* StoreKit.framework */; };
 		3045A0C61DF29E7200450D71 /* menuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3045A0C51DF29E7200450D71 /* menuIcon.png */; };
 		306394301DE93832004F9EF3 /* ImageArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3063942F1DE93832004F9EF3 /* ImageArrays.swift */; };
 		309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		300275FD1DEB9D6F001FE78C /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		3021A4BB1DD1250F003E035D /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		30220C7C1DE90C68006AF59A /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		303CD6F21DF73A6C009D5555 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3045A0C51DF29E7200450D71 /* menuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuIcon.png; sourceTree = "<group>"; };
 		3063942F1DE93832004F9EF3 /* ImageArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageArrays.swift; sourceTree = "<group>"; };
 		309B3D4A1DCD414400C1FF24 /* Santa'sSelfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santa'sSelfie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +83,7 @@
 				300275FC1DEB96FF001FE78C /* GoogleToolboxForMac.framework in Frameworks */,
 				300275FB1DEB96FF001FE78C /* GoogleSymbolUtilities.framework in Frameworks */,
 				300275F71DEB96FF001FE78C /* FirebaseAnalytics.framework in Frameworks */,
+				303CD6F31DF73A6C009D5555 /* StoreKit.framework in Frameworks */,
 				30220C7D1DE90C68006AF59A /* GoogleMobileAds.framework in Frameworks */,
 				300275F81DEB96FF001FE78C /* FirebaseCore.framework in Frameworks */,
 				300275F91DEB96FF001FE78C /* FirebaseInstanceID.framework in Frameworks */,
@@ -170,6 +173,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		303CD6F11DF73A6C009D5555 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				303CD6F21DF73A6C009D5555 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		306394021DE92D45004F9EF3 /* One */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				309B3D4C1DCD414400C1FF24 /* Santa'sSelfie */,
+				303CD6F11DF73A6C009D5555 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -276,6 +288,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 9KY7XN9N45;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

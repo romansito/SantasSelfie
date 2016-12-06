@@ -67,6 +67,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="idO-Qn-fKD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eB1-jG-cb2">
                                 <rect key="frame" x="108" y="288" width="159" height="91"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -88,9 +91,13 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="eB1-jG-cb2" secondAttribute="trailing" constant="92" id="3QP-um-txK"/>
                             <constraint firstItem="eB1-jG-cb2" firstAttribute="leading" secondItem="VaK-jj-aEb" secondAttribute="leadingMargin" constant="92" id="B6c-yz-mLc"/>
+                            <constraint firstItem="idO-Qn-fKD" firstAttribute="leading" secondItem="VaK-jj-aEb" secondAttribute="leading" id="Niz-OA-esC"/>
+                            <constraint firstItem="idO-Qn-fKD" firstAttribute="top" secondItem="VaK-jj-aEb" secondAttribute="top" id="PmC-kZ-lpG"/>
                             <constraint firstItem="eB1-jG-cb2" firstAttribute="top" secondItem="5Zr-5C-MSv" secondAttribute="bottom" constant="268" id="dwZ-be-TXp"/>
                             <constraint firstItem="X1z-4s-d0f" firstAttribute="top" secondItem="5Zr-5C-MSv" secondAttribute="bottom" constant="8" id="edp-q4-2rX"/>
                             <constraint firstItem="X1z-4s-d0f" firstAttribute="trailing" secondItem="VaK-jj-aEb" secondAttribute="trailingMargin" id="ia8-gH-pV3"/>
+                            <constraint firstItem="Y2K-nu-sxJ" firstAttribute="top" secondItem="idO-Qn-fKD" secondAttribute="bottom" id="oj6-wF-aqi"/>
+                            <constraint firstAttribute="trailing" secondItem="idO-Qn-fKD" secondAttribute="trailing" id="qGX-BQ-sWi"/>
                             <constraint firstItem="Y2K-nu-sxJ" firstAttribute="top" secondItem="eB1-jG-cb2" secondAttribute="bottom" constant="288" id="xQe-pn-mUo"/>
                         </constraints>
                     </view>
