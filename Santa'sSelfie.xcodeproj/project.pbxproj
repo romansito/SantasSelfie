@@ -35,6 +35,7 @@
 		30E145751DE541E9002177C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E145741DE541E9002177C4 /* SettingsViewController.swift */; };
 		30E145781DE54845002177C4 /* RestartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E145761DE54845002177C4 /* RestartButton.png */; };
 		30E145791DE54845002177C4 /* SaveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E145771DE54845002177C4 /* SaveButton.png */; };
+		30E5EA5B1DF7332300BD7FCB /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E5EA5A1DF7332300BD7FCB /* StoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		30E145741DE541E9002177C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		30E145761DE54845002177C4 /* RestartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RestartButton.png; sourceTree = "<group>"; };
 		30E145771DE54845002177C4 /* SaveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SaveButton.png; sourceTree = "<group>"; };
+		30E5EA5A1DF7332300BD7FCB /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				30E145741DE541E9002177C4 /* SettingsViewController.swift */,
 				30BEF35B1DF2336D0000F841 /* MenuTableViewController.swift */,
 				30BEF35F1DF238BD0000F841 /* MenuTransitionManager.swift */,
+				30E5EA5A1DF7332300BD7FCB /* StoreViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				30BEF35C1DF2336D0000F841 /* MenuTableViewController.swift in Sources */,
 				309B3D601DCD424500C1FF24 /* ChoosePhotoViewController.swift in Sources */,
 				309B3D621DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift in Sources */,
+				30E5EA5B1DF7332300BD7FCB /* StoreViewController.swift in Sources */,
 				309B3D661DCD4D6900C1FF24 /* SantaCollectionViewCell.swift in Sources */,
 				306394301DE93832004F9EF3 /* ImageArrays.swift in Sources */,
 				3021A4BC1DD1250F003E035D /* PhotoViewController.swift in Sources */,
