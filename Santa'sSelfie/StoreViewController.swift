@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import StoreKit
 
 class StoreViewController: UIViewController {
 
+    let products = [SKProduct]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let profuct = SantaProducts.ExtendedSantaSelfiesPack
+        print("number of prooducts\(profuct)")
 
         // Do any additional setup after loading the view.
     }

@@ -16,6 +16,8 @@
 		3021A4BC1DD1250F003E035D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021A4BB1DD1250F003E035D /* PhotoViewController.swift */; };
 		30220C7D1DE90C68006AF59A /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30220C7C1DE90C68006AF59A /* GoogleMobileAds.framework */; };
 		303CD6F31DF73A6C009D5555 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303CD6F21DF73A6C009D5555 /* StoreKit.framework */; };
+		303CD6F51DF74FF8009D5555 /* SantaProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303CD6F41DF74FF8009D5555 /* SantaProducts.swift */; };
+		303CD6F71DF751FF009D5555 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303CD6F61DF751FF009D5555 /* IAPHelper.swift */; };
 		3045A0C61DF29E7200450D71 /* menuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3045A0C51DF29E7200450D71 /* menuIcon.png */; };
 		306394301DE93832004F9EF3 /* ImageArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3063942F1DE93832004F9EF3 /* ImageArrays.swift */; };
 		309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */; };
@@ -50,6 +52,8 @@
 		3021A4BB1DD1250F003E035D /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		30220C7C1DE90C68006AF59A /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		303CD6F21DF73A6C009D5555 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		303CD6F41DF74FF8009D5555 /* SantaProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SantaProducts.swift; sourceTree = "<group>"; };
+		303CD6F61DF751FF009D5555 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		3045A0C51DF29E7200450D71 /* menuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuIcon.png; sourceTree = "<group>"; };
 		3063942F1DE93832004F9EF3 /* ImageArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageArrays.swift; sourceTree = "<group>"; };
 		309B3D4A1DCD414400C1FF24 /* Santa'sSelfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santa'sSelfie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +106,8 @@
 				30E145481DDB8041002177C4 /* CameraHelperMethods.swift */,
 				3063942F1DE93832004F9EF3 /* ImageArrays.swift */,
 				30BEF35D1DF2341B0000F841 /* MenuTableViewCell.swift */,
+				303CD6F41DF74FF8009D5555 /* SantaProducts.swift */,
+				303CD6F61DF751FF009D5555 /* IAPHelper.swift */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 				30E145491DDB8041002177C4 /* CameraHelperMethods.swift in Sources */,
 				30BEF35E1DF2341B0000F841 /* MenuTableViewCell.swift in Sources */,
 				30BEF35C1DF2336D0000F841 /* MenuTableViewController.swift in Sources */,
+				303CD6F71DF751FF009D5555 /* IAPHelper.swift in Sources */,
 				309B3D601DCD424500C1FF24 /* ChoosePhotoViewController.swift in Sources */,
 				309B3D621DCD44FE00C1FF24 /* CustomCollectionViewFlowLayout.swift in Sources */,
 				30E5EA5B1DF7332300BD7FCB /* StoreViewController.swift in Sources */,
@@ -351,6 +358,7 @@
 				309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */,
 				309B3D6A1DCEB86200C1FF24 /* CameraViewController.swift in Sources */,
 				30E145751DE541E9002177C4 /* SettingsViewController.swift in Sources */,
+				303CD6F51DF74FF8009D5555 /* SantaProducts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
