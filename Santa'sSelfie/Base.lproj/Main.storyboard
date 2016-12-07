@@ -82,7 +82,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="Tnj-Y6-RGz">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="IBk-Z5-JxO"/>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="IBk-Z5-JxO">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="rfu-DT-TsU" id="auq-yO-IiM"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

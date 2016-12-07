@@ -9,6 +9,8 @@
 import UIKit
 import StoreKit
 
+let notificationsConstantName = "NotificationName"
+
 class StoreViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
     var list = [SKProduct]()
@@ -36,11 +38,16 @@ class StoreViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
             if(productID == "01") {
                 myProduct = product
                 buyProduct()
+                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: notificationsConstantName), object: nil)
                 break;
             }
+//            self.dismiss(animated: true, completion: nil)
         }
     }
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     // 3
     func buyProduct() {
         print("buy " + myProduct.productIdentifier)

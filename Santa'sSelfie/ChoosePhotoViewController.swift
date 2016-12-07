@@ -17,6 +17,8 @@ class ChoosePhotoViewController: UIViewController {
     
     var photoVC = PhotoViewController()
     var menuTransitionManager = MenuTransitionManager()
+    
+    
 
     @IBOutlet weak var collectionView: UICollectionView!
     var cell: SantaCollectionViewCell!
@@ -44,12 +46,22 @@ class ChoosePhotoViewController: UIViewController {
         super.viewDidLoad()
         
         collectionViewSetup()
-        setupDataSource()
+        setupBasicImageArray()
+//        setupExtendedImageArray()
         setupNavigationBar()
 
         bannerView.adUnitID = "ca-app-pub-3020802165335227/3355375994"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
+        
+        NotificationCenter.default.addObserver(self, selector: "addExtraImagePack", name: NSNotification.Name(rawValue: notificationsConstantName), object: nil)
+    }
+    
+    func addExtraImagePack() {
+        for i in 5...8 {
+            guard let image = UIImage(named: "\(i)") else { return }
+            self.santasSelfies.append(image)
+        }
     }
 
     func setupNavigationBar() {
@@ -63,12 +75,21 @@ class ChoosePhotoViewController: UIViewController {
         button.setImage(UIImage.init(named: "menuIcon"), for: UIControlState.normal)
     }
     
-    func setupDataSource() {
-        for i in 1...8 {
+    func setupBasicImageArray() {
+        for i in 1...4 {
             guard let image = UIImage(named: "\(i)") else { return }
             self.santasSelfies.append(image)
         } 
     }
+    
+//    func setupExtendedImageArray() {
+//      
+//        for i in 5...8 {
+//            guard let image = UIImage(named: "\(i)") else { return }
+//            self.santasSelfies.append(image)
+//        }
+//    }
+    
 
     func collectionViewSetup() {
         collectionView.backgroundColor = .clear
@@ -88,17 +109,6 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
         cell.santaImage = santasSelfies[indexPath.row]
         cell.layer.borderColor = UIColor.white.cgColor
         cell.layer.borderWidth = 2
-        
-        // Labels: 
-//        if indexPath.row == 0 {
-//            cell.santaCellLabels.text = "Portrait"
-//        } else if indexPath.row == 1 {
-//            cell.santaCellLabels.text = "Portrait"
-//        } else if indexPath.row == 2 {
-//            cell.santaCellLabels.text = "Portrait"
-//        } else {
-//            cell.santaCellLabels.text = "Landscape"
-//        }
 
         if indexPath.row == 3 {
             cell.santaCellLabels.text = "Landscape"
