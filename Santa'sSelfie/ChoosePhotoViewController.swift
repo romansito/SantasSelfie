@@ -16,10 +16,8 @@ struct GlobalVariable {
 class ChoosePhotoViewController: UIViewController {
     
     var photoVC = PhotoViewController()
-
     var menuTransitionManager = MenuTransitionManager()
 
-   
     @IBOutlet weak var collectionView: UICollectionView!
     var cell: SantaCollectionViewCell!
     
@@ -32,9 +30,6 @@ class ChoosePhotoViewController: UIViewController {
 
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var cellLabels: UILabel!
-    
-    
-    
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
         let sourceController = segue.source as! MenuTableViewController
 //        self.title = sourceController.currentItem
@@ -66,12 +61,10 @@ class ChoosePhotoViewController: UIViewController {
         
         let button = UIButton.init(type: .custom)
         button.setImage(UIImage.init(named: "menuIcon"), for: UIControlState.normal)
-        
     }
     
     func setupDataSource() {
-        
-        for i in 1...4 {
+        for i in 1...8 {
             guard let image = UIImage(named: "\(i)") else { return }
             self.santasSelfies.append(image)
         } 
@@ -83,7 +76,7 @@ class ChoosePhotoViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.collectionViewLayout = CustomCollectionViewFlowLayout()
     }
-    
+
 }
 
 
@@ -93,7 +86,6 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
         
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: SantaCollectionViewCell.identifier(), for: indexPath) as! SantaCollectionViewCell
         cell.santaImage = santasSelfies[indexPath.row]
-//        cell.backgroundColor = .white
         cell.layer.borderColor = UIColor.white.cgColor
         cell.layer.borderWidth = 2
         

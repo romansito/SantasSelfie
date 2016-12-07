@@ -29,6 +29,11 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
     var santasArray2 = [UIImage]()
     var santasArray3 = [UIImage]()
     
+    var santasArray4 = [UIImage]()
+    var santasArray5 = [UIImage]()
+    var santasArray6 = [UIImage]()
+    var santasArray7 = [UIImage]()
+    
     var interstitial: GADInterstitial!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +56,13 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
         santasArray1 = [#imageLiteral(resourceName: "2DD.png"), #imageLiteral(resourceName: "2D.png"), #imageLiteral(resourceName: "2.png"), #imageLiteral(resourceName: "2B.png"), #imageLiteral(resourceName: "2BB.png")]
         santasArray2 = [#imageLiteral(resourceName: "3DD"), #imageLiteral(resourceName: "3D"), #imageLiteral(resourceName: "3"), #imageLiteral(resourceName: "3B"), #imageLiteral(resourceName: "3BB")]
         santasArray3 = [#imageLiteral(resourceName: "4DD"), #imageLiteral(resourceName: "4D"), #imageLiteral(resourceName: "4"), #imageLiteral(resourceName: "4B"), #imageLiteral(resourceName: "4BB")]
+        
+        santasArray4 = [#imageLiteral(resourceName: "5DD"), #imageLiteral(resourceName: "5D"), #imageLiteral(resourceName: "5"), #imageLiteral(resourceName: "5B"), #imageLiteral(resourceName: "5BB")]
+        santasArray5 = [#imageLiteral(resourceName: "6DD"), #imageLiteral(resourceName: "6D"), #imageLiteral(resourceName: "6"), #imageLiteral(resourceName: "6B"), #imageLiteral(resourceName: "6BB")]
+        santasArray6 = [#imageLiteral(resourceName: "7DD"), #imageLiteral(resourceName: "7D"), #imageLiteral(resourceName: "7"), #imageLiteral(resourceName: "7B"), #imageLiteral(resourceName: "7BB")]
+        santasArray7 = [#imageLiteral(resourceName: "8DD"), #imageLiteral(resourceName: "8D"), #imageLiteral(resourceName: "8"), #imageLiteral(resourceName: "8B"), #imageLiteral(resourceName: "8BB")]
+        
+        
 
         switch GlobalVariable.selectedIndexPath {
         case 0:
@@ -61,6 +73,14 @@ class PhotoViewController: UIViewController, GADInterstitialDelegate  {
             mainSantasArrays = santasArray2
         case 3:
             mainSantasArrays = santasArray3
+        case 4:
+            mainSantasArrays = santasArray4
+        case 5:
+            mainSantasArrays = santasArray5
+        case 6:
+            mainSantasArrays = santasArray6
+        case 7:
+            mainSantasArrays = santasArray7
         default:
             break
         }
