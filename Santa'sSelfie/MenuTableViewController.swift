@@ -27,7 +27,7 @@ class MenuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 2 {
-            UIApplication.shared.openURL(NSURL(string : "itms-apps://itunes.apple.com/app/id959379869")! as URL)
+            UIApplication.shared.openURL(NSURL(string : "https://itunes.apple.com/us/app/santas-selfie/id1180781708?mt=8")! as URL)
         } else if indexPath.row == 1 {
             let email = "romansito18@gmail.com"
             let url = URL(string: "mailto:\(email)")
