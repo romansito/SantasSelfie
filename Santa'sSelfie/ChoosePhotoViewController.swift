@@ -90,14 +90,20 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
         cell.layer.borderWidth = 2
         
         // Labels: 
-        if indexPath.row == 0 {
-            cell.santaCellLabels.text = "Portrait"
-        } else if indexPath.row == 1 {
-            cell.santaCellLabels.text = "Portrait"
-        } else if indexPath.row == 2 {
-            cell.santaCellLabels.text = "Portrait"
-        } else {
+//        if indexPath.row == 0 {
+//            cell.santaCellLabels.text = "Portrait"
+//        } else if indexPath.row == 1 {
+//            cell.santaCellLabels.text = "Portrait"
+//        } else if indexPath.row == 2 {
+//            cell.santaCellLabels.text = "Portrait"
+//        } else {
+//            cell.santaCellLabels.text = "Landscape"
+//        }
+
+        if indexPath.row == 3 {
             cell.santaCellLabels.text = "Landscape"
+        } else {
+            cell.santaCellLabels.text = "Portrait"
         }
         
         return cell
