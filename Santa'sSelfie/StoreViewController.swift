@@ -38,26 +38,22 @@ class StoreViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
             if(productID == "01") {
                 myProduct = product
                 buyProduct()
-                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: notificationsConstantName), object: nil)
                 break;
             }
-//            self.dismiss(animated: true, completion: nil)
         }
     }
     
-    @IBAction func cancelButtonPressed(_ sender: Any) {
+    @IBAction func cancelFired(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+
     }
+
     // 3
     func buyProduct() {
         print("buy " + myProduct.productIdentifier)
         let pay = SKPayment(product: myProduct)
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().add(pay as SKPayment)
-    }
-
-    func addExtendSantaPackage() {
-        // let the choose view controller know that he needs to show 4 extra images.
     }
     
     // 6 Create a button action that will restore the purchases. 
@@ -94,8 +90,9 @@ class StoreViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
             
             switch productID {
             case "01":
-            // execute code here for what ever is going to happen.
-                print("do something to add 4 more images.")
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: notificationsConstantName), object: nil)
+                self.dismiss(animated: true, completion: nil)
+                print("restored purchased here!")
             default:
                 print("IAP not setup")
             }
@@ -117,17 +114,14 @@ class StoreViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
                 let prodID = myProduct.productIdentifier as String
                 switch prodID {
                 case "01":
-                    print("remove ads")
-//                    removeAds()
-                case "seemu.iap.addcoins":
-                    print("add coins to account")
-//                    addCoins()
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: notificationsConstantName), object: nil)
+                    self.dismiss(animated: true, completion: nil)
+                    print("is should have been purchased now")
                 default:
                     print("IAP not setup")
                 }
-                
                 queue.finishTransaction(trans)
-                break;
+//                break;
             case .failed:
                 print("buy error")
                 queue.finishTransaction(trans)

@@ -82,15 +82,6 @@ class ChoosePhotoViewController: UIViewController {
         } 
     }
     
-//    func setupExtendedImageArray() {
-//      
-//        for i in 5...8 {
-//            guard let image = UIImage(named: "\(i)") else { return }
-//            self.santasSelfies.append(image)
-//        }
-//    }
-    
-
     func collectionViewSetup() {
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
@@ -131,18 +122,19 @@ extension ChoosePhotoViewController: UICollectionViewDataSource, UICollectionVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-//        if segue.identifier == "segueToCameraVC" {
-//            let indexPaths = self.collectionView.indexPathsForSelectedItems!
-//            let indexPath = indexPaths[0] as NSIndexPath
-//            
-//            let nextVC = segue.destination as! CameraViewController
-//            nextVC.santaImage = self.santasSelfies[indexPath.row]
-//        } else {
-//            let menuTableViewController = segue.destination as! MenuTableViewController
-//            //        menuTableViewController.currentItem = self.title!
-//            menuTableViewController.transitioningDelegate = self.menuTransitionManager
-//            self.menuTransitionManager.delegate = self
-//        }
+        if segue.identifier == "segueToCameraVC" {
+            let indexPaths = self.collectionView.indexPathsForSelectedItems!
+            let indexPath = indexPaths[0] as NSIndexPath
+            
+            let nextVC = segue.destination as! CameraViewController
+            nextVC.santaImage = self.santasSelfies[indexPath.row]
+        } else if segue.identifier == "segueToStoreViewController" {
+        } else {
+            let menuTableViewController = segue.destination as! MenuTableViewController
+            //        menuTableViewController.currentItem = self.title!
+            menuTableViewController.transitioningDelegate = self.menuTransitionManager
+            self.menuTransitionManager.delegate = self
+        }
     }
     
 }
