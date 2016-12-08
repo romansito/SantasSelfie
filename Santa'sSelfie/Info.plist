@@ -23,9 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Santa's Selfie will like to access your camera.</string>
+	<string>Santa&apos;s Selfie will like to access your camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>"lets save it for now!"</string>
+	<string>We will like to save Santa&apos;s Selfie to your library.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
