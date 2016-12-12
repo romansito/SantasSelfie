@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="52"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jpi-Mv-knc" id="gIm-B5-h73">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53c-oY-mrb">
@@ -67,8 +67,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ExtendedPackImage" translatesAutoresizingMaskIntoConstraints="NO" id="idO-Qn-fKD">
+                                <rect key="frame" x="0.0" y="0.0" width="377" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eB1-jG-cb2">
-                                <rect key="frame" x="28" y="342" width="323" height="64"/>
+                                <rect key="frame" x="28" y="324" width="323" height="139"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,9 +80,6 @@
                                     <action selector="buyButtonPressed:" destination="rfu-DT-TsU" eventType="touchUpInside" id="b3R-bv-kFM"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ExtendedPackImage" translatesAutoresizingMaskIntoConstraints="NO" id="idO-Qn-fKD">
-                                <rect key="frame" x="0.0" y="0.0" width="377" height="667"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIq-uN-rUa">
                                 <rect key="frame" x="16" y="20" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -98,10 +98,10 @@
                             <constraint firstItem="eB1-jG-cb2" firstAttribute="leading" secondItem="VaK-jj-aEb" secondAttribute="leadingMargin" constant="12" id="B6c-yz-mLc"/>
                             <constraint firstItem="idO-Qn-fKD" firstAttribute="leading" secondItem="VaK-jj-aEb" secondAttribute="leading" id="Niz-OA-esC"/>
                             <constraint firstItem="idO-Qn-fKD" firstAttribute="top" secondItem="VaK-jj-aEb" secondAttribute="top" id="PmC-kZ-lpG"/>
-                            <constraint firstItem="eB1-jG-cb2" firstAttribute="top" secondItem="5Zr-5C-MSv" secondAttribute="bottom" constant="322" id="dwZ-be-TXp"/>
+                            <constraint firstItem="eB1-jG-cb2" firstAttribute="top" secondItem="5Zr-5C-MSv" secondAttribute="bottom" constant="304" id="dwZ-be-TXp"/>
                             <constraint firstItem="Y2K-nu-sxJ" firstAttribute="top" secondItem="idO-Qn-fKD" secondAttribute="bottom" constant="-44" id="oj6-wF-aqi"/>
                             <constraint firstAttribute="trailing" secondItem="idO-Qn-fKD" secondAttribute="trailing" constant="-2" id="qGX-BQ-sWi"/>
-                            <constraint firstItem="Y2K-nu-sxJ" firstAttribute="top" secondItem="eB1-jG-cb2" secondAttribute="bottom" constant="217" id="xQe-pn-mUo"/>
+                            <constraint firstItem="Y2K-nu-sxJ" firstAttribute="top" secondItem="eB1-jG-cb2" secondAttribute="bottom" constant="160" id="xQe-pn-mUo"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -281,7 +281,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aum-An-mDB" id="a6T-kT-emc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
