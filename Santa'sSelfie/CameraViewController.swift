@@ -20,6 +20,7 @@ class CameraViewController: UIViewController {
     var imageOverlay = UIImageView()
     var santaImage = UIImage()
     var backButton = UIButton()
+    var rotateCameraButton = UIButton()
     
     var santasSelfie = UIImage()
 
@@ -75,12 +76,18 @@ class CameraViewController: UIViewController {
         shutterButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
         shutterButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
         
+        rotateCameraButton = UIButton(frame: CGRect(x: self.view.frame.width - 74, y: 36, width: 40, height: 30))
+        rotateCameraButton.setBackgroundImage(UIImage.init(named: "Camera_Icon"), for: .normal)
+        rotateCameraButton.contentMode = .scaleAspectFit
+        rotateCameraButton.addTarget(self, action: #selector(CameraViewController.rotateCameraPressed(_:)), for: .touchUpInside)
+        
         backButton = UIButton(frame: CGRect(x: 24, y: 36, width: 30, height: 30))
         backButton.setBackgroundImage(UIImage.init(named: "backButton"), for: .normal)
         backButton.contentMode = UIViewContentMode.scaleAspectFit
         backButton.addTarget(self, action: #selector(CameraViewController.backButtonPressed), for: .touchUpInside)
         
         view.addSubview(cameraPreview)
+        view.addSubview(rotateCameraButton)
         view.addSubview(backButton)
         view.addSubview(imageOverlay)
         view.addSubview(shutterButton)
@@ -90,6 +97,43 @@ class CameraViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func rotateCameraPressed(_ sender: AnyObject) {
+        // Make sure the device has more than 1 camera.
+        if AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo).count > 1{
+            //check what position the active camera is.
+            var newPosition : AVCaptureDevicePosition!
+            if activeInput.device.position == AVCaptureDevicePosition.back {
+                newPosition = AVCaptureDevicePosition.front
+            } else {
+                newPosition = AVCaptureDevicePosition.back
+            }
+            // get camera at new position
+            var newCamera : AVCaptureDevice!
+            let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
+            for device in devices! {
+                if (device as AnyObject).position == newPosition {
+                    newCamera = device as! AVCaptureDevice
+                }
+            }
+            
+            do {
+                let input = try AVCaptureDeviceInput(device: newCamera)
+                captureSession.beginConfiguration()
+                // remove input for active camera.
+                captureSession.removeInput(activeInput)
+                // add input to new camera
+                if captureSession.canAddInput(input) {
+                    captureSession.addInput(input)
+                    activeInput = input
+                } else {
+                    captureSession.addInput(activeInput)
+                }
+                captureSession.commitConfiguration()
+            } catch {
+                print("Error switching cameras: \(error)")
+            }
+        }
+    }
     
     func setupSession() {
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
