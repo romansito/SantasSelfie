@@ -200,6 +200,9 @@ class CameraViewController: UIViewController {
     }
     
     // MARK : Take photo
+    
+    var flippedImage: UIImage = UIImage() // Create a flipped image
+
     func takePhoto() {
         let connection = imageOutput.connection(withMediaType: AVMediaTypeVideo)
         if (connection?.isVideoOrientationSupported)! {
@@ -208,10 +211,17 @@ class CameraViewController: UIViewController {
             imageOutput.captureStillImageAsynchronously(from: connection, completionHandler: { (sampleBuffer, error) in
                 if sampleBuffer != nil {
                     let imageData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer!, previewPhotoSampleBuffer: nil)
-                    let santaImage = UIImage(data: imageData!)
-                    print("\(imageData)")
-                    self.santasSelfie = santaImage!
-            
+
+                    var santaImage = UIImage(data: imageData!)
+                    // flips the camera only when the orientation is set to front camera.
+                    if self.activeInput.device.position == AVCaptureDevicePosition.front {
+                        self.flippedImage = UIImage(cgImage: (santaImage?.cgImage!)!, scale: (santaImage?.scale)!, orientation: UIImageOrientation.leftMirrored) //flip orientation
+                        santaImage = self.flippedImage
+                        self.santasSelfie = self.flippedImage
+                    } else {
+                        print("\(imageData)")
+                        self.santasSelfie = santaImage!
+                    }
                     self.performSegue(withIdentifier: "toPhotoDetailSegue", sender: nil)
                 } else {
                     print("ERROR capturing photo: \(error?.localizedDescription)")
@@ -219,25 +229,7 @@ class CameraViewController: UIViewController {
             })
         }
     }
-    
-    
-//     MARK : Image overlay function
-//    func santaScreenShot(image: UIImage) -> UIImage {
-//        UIGraphicsBeginImageContextWithOptions(image.size, true, 0.0)
-//        UIGraphicsBeginImageContext(image.size)
-//        image.draw(at: CGPoint(x: 0.0, y: 0.0))
-//
-//        // Composite Santas Selfie
-//        let santaSelfie = santaImage
-//        let origin = CGPoint(x: 0.0, y: self.view.frame.size.height)
-//        santaSelfie.draw(at: origin)
-//        
-//        let finalImage = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        return finalImage!
-//    }
-//    
-//
+
     // MARK : Focus Methods
     func tapToFocus(recognizer: UITapGestureRecognizer) {
         if activeInput.device.isFocusPointOfInterestSupported {
