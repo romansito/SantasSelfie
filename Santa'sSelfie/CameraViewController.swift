@@ -76,12 +76,12 @@ class CameraViewController: UIViewController {
         shutterButton.setBackgroundImage(UIImage.init(named: "Capture_Butt"), for: .normal)
         shutterButton.addTarget(self, action: #selector(CameraViewController.shutterButtonPressed), for: .touchUpInside)
         
-        rotateCameraButton = UIButton(frame: CGRect(x: self.view.frame.width - 74, y: 36, width: 40, height: 30))
+        rotateCameraButton = UIButton(frame: CGRect(x: self.view.frame.width - self.view.frame.width * 0.14, y: 36, width: self.view.frame.width * 0.09, height: self.view.frame.width * 0.075))
         rotateCameraButton.setBackgroundImage(UIImage.init(named: "Camera_Icon"), for: .normal)
         rotateCameraButton.contentMode = .scaleAspectFit
         rotateCameraButton.addTarget(self, action: #selector(CameraViewController.rotateCameraPressed(_:)), for: .touchUpInside)
         
-        backButton = UIButton(frame: CGRect(x: 24, y: 36, width: 30, height: 30))
+        backButton = UIButton(frame: CGRect(x: 18, y: 36, width: self.view.frame.width * 0.075, height: self.view.frame.width * 0.075))
         backButton.setBackgroundImage(UIImage.init(named: "backButton"), for: .normal)
         backButton.contentMode = UIViewContentMode.scaleAspectFit
         backButton.addTarget(self, action: #selector(CameraViewController.backButtonPressed), for: .touchUpInside)
