@@ -18,7 +18,7 @@ func currentVideoOrientation() -> AVCaptureVideoOrientation {
     case .portrait:
         orientation = AVCaptureVideoOrientation.portrait
     case .landscapeRight:
-        orientation = AVCaptureVideoOrientation.landscapeLeft
+        orientation = AVCaptureVideoOrientation.portrait
     case .portraitUpsideDown:
         orientation = AVCaptureVideoOrientation.portraitUpsideDown
     default:
@@ -26,6 +26,17 @@ func currentVideoOrientation() -> AVCaptureVideoOrientation {
     }
     return orientation
 }
+
+//switch UIDevice.current.orientation {
+//case .portrait:
+//    orientation = AVCaptureVideoOrientation.portrait
+//case .landscapeRight:
+//    orientation = AVCaptureVideoOrientation.landscapeLeft
+//case .portraitUpsideDown:
+//    orientation = AVCaptureVideoOrientation.portraitUpsideDown
+//default:
+//    orientation = AVCaptureVideoOrientation.landscapeRight
+//}
 
 func showMarkerAtPoint(point: CGPoint, marker: UIImageView) {
     marker.center = point
