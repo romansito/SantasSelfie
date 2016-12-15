@@ -20,6 +20,7 @@
 		303CD6F71DF751FF009D5555 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303CD6F61DF751FF009D5555 /* IAPHelper.swift */; };
 		3045A0C61DF29E7200450D71 /* menuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3045A0C51DF29E7200450D71 /* menuIcon.png */; };
 		306394301DE93832004F9EF3 /* ImageArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3063942F1DE93832004F9EF3 /* ImageArrays.swift */; };
+		308866CF1E033EE0004AB6EA /* ButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308866CE1E033EE0004AB6EA /* ButtonUI.swift */; };
 		309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */; };
 		309B3D531DCD414400C1FF24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 309B3D511DCD414400C1FF24 /* Main.storyboard */; };
 		309B3D551DCD414400C1FF24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309B3D541DCD414400C1FF24 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		303CD6F61DF751FF009D5555 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		3045A0C51DF29E7200450D71 /* menuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuIcon.png; sourceTree = "<group>"; };
 		3063942F1DE93832004F9EF3 /* ImageArrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageArrays.swift; sourceTree = "<group>"; };
+		308866CE1E033EE0004AB6EA /* ButtonUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonUI.swift; sourceTree = "<group>"; };
 		309B3D4A1DCD414400C1FF24 /* Santa'sSelfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santa'sSelfie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		309B3D4D1DCD414400C1FF24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		309B3D521DCD414400C1FF24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				30BEF35D1DF2341B0000F841 /* MenuTableViewCell.swift */,
 				303CD6F41DF74FF8009D5555 /* SantaProducts.swift */,
 				303CD6F61DF751FF009D5555 /* IAPHelper.swift */,
+				308866CE1E033EE0004AB6EA /* ButtonUI.swift */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				309B3D661DCD4D6900C1FF24 /* SantaCollectionViewCell.swift in Sources */,
 				306394301DE93832004F9EF3 /* ImageArrays.swift in Sources */,
 				3021A4BC1DD1250F003E035D /* PhotoViewController.swift in Sources */,
+				308866CF1E033EE0004AB6EA /* ButtonUI.swift in Sources */,
 				30BEF3601DF238BD0000F841 /* MenuTransitionManager.swift in Sources */,
 				309B3D4E1DCD414400C1FF24 /* AppDelegate.swift in Sources */,
 				309B3D6A1DCEB86200C1FF24 /* CameraViewController.swift in Sources */,

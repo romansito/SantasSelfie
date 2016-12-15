@@ -24,8 +24,7 @@ class StoreViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
         super.viewDidLoad()
         
         navigationBar.barTintColor = .white
-        restoreButton.tintColor = .green
-        cancelButton.tintColor = .red
+ 
         
         // Set IAPS (1)
         if(SKPaymentQueue.canMakePayments()) {
