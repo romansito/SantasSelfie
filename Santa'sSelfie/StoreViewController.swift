@@ -13,11 +13,19 @@ let notificationsConstantName = "NotificationName"
 
 class StoreViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var restoreButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
     var list = [SKProduct]()
     var myProduct = SKProduct()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationBar.barTintColor = .white
+        restoreButton.tintColor = .green
+        cancelButton.tintColor = .red
         
         // Set IAPS (1)
         if(SKPaymentQueue.canMakePayments()) {
@@ -32,7 +40,7 @@ class StoreViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
         }
     }
     // 2
-    @IBAction func buyButtonPressed(_ sender: Any) {
+    @IBAction func buyButtonFired(_ sender: Any) {
         for product in list {
             let productID = product.productIdentifier
             if(productID == "01") {
@@ -41,9 +49,11 @@ class StoreViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
                 break;
             }
         }
+
     }
+
     
-    @IBAction func cancelFired(_ sender: Any) {
+    @IBAction func cancelButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
 
     }
@@ -57,12 +67,14 @@ class StoreViewController: UIViewController, SKProductsRequestDelegate, SKPaymen
     }
     
     // 6 Create a button action that will restore the purchases. 
-    
-    func restorePurchase(sender: UIButton) {
+    @IBAction func restoredButtonPressed(_ sender: Any) {
+        print("if fired... please print this message.")
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().restoreCompletedTransactions()
+
     }
-    
+
+ 
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         print("product request")
         let requestedProduct = response.products
